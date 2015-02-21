@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+    </content>
+    <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" exported="" name="jenkov-butterfly-persistence-5.2.0" level="project" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$APPLICATION_HOME_DIR$/lib/mysql-connector-java-5.1.31-bin.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" exported="" name="junit-4.11" level="project" />
+    <orderEntry type="library" exported="" name="Unnamed" level="project" />
+    <orderEntry type="library" exported="" name="commons-beanutils-1.9.0" level="project" />
+    <orderEntry type="library" exported="" name="commons-collections-3.2.1" level="project" />
+    <orderEntry type="library" exported="" name="commons-digester-2.1" level="project" />
+    <orderEntry type="library" exported="" name="commons-logging-1.1.1" level="project" />
+    <orderEntry type="library" exported="" name="jasperreports-6.0.0" level="project" />
+    <orderEntry type="library" exported="" name="commons-javaflow-20060411" level="project" />
+    <orderEntry type="module-library" exported="">
+      <library name="reports">
+        <CLASSES />
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/reports" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="JGoodies Forms">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/jgoodies-forms.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/jgoodies-common.jar!/" />
+        </CLASSES>
+        <JAVADOC>
+          <root url="jar://$MODULE_DIR$/lib/jgoodies-forms-javadoc.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/jgoodies-common-javadoc.jar!/" />
+        </JAVADOC>
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/lib/jgoodies-forms-sources.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/jgoodies-common-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="library" exported="" name="jdatepicker-1.3.4" level="project" />
+    <orderEntry type="library" exported="" name="jgoodies-common-1.8.1" level="project" />
+    <orderEntry type="library" exported="" name="jgoodies-looks-2.7.0" level="project" />
+    <orderEntry type="library" exported="" name="jgoodies-binding-2.12.0" level="project" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://F:/My box tools/Java/libraries/hamcrest-all-1.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+  </component>
+</module>

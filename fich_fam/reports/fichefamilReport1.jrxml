@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="fichefamilReport1" pageWidth="396" pageHeight="566" columnWidth="356" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8750bbf1-4055-477a-aad7-ef9bb625739b">
+	<property name="ireport.zoom" value="1.4641000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="369"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="annee_actnaiss" class="java.lang.Integer">
+		<fieldDescription><![CDATA[annee_actnaiss]]></fieldDescription>
+	</field>
+	<field name="code_lieunaiss" class="java.lang.Integer">
+		<fieldDescription><![CDATA[code_lieunaiss]]></fieldDescription>
+	</field>
+	<field name="date_naiss" class="java.sql.Date">
+		<fieldDescription><![CDATA[date_naiss]]></fieldDescription>
+	</field>
+	<field name="est_masculin" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[est_masculin]]></fieldDescription>
+	</field>
+	<field name="id_cit" class="java.lang.Integer">
+		<fieldDescription><![CDATA[id_cit]]></fieldDescription>
+	</field>
+	<field name="nom_ar" class="java.lang.String">
+		<fieldDescription><![CDATA[nom_ar]]></fieldDescription>
+	</field>
+	<field name="nom_fr" class="java.lang.String">
+		<fieldDescription><![CDATA[nom_fr]]></fieldDescription>
+	</field>
+	<field name="np_mere" class="java.lang.String">
+		<fieldDescription><![CDATA[np_mere]]></fieldDescription>
+	</field>
+	<field name="num_actnaiss" class="java.lang.Integer">
+		<fieldDescription><![CDATA[num_actnaiss]]></fieldDescription>
+	</field>
+	<field name="p_pere" class="java.lang.String">
+		<fieldDescription><![CDATA[p_pere]]></fieldDescription>
+	</field>
+	<field name="prenom_ar" class="java.lang.String">
+		<fieldDescription><![CDATA[prenom_ar]]></fieldDescription>
+	</field>
+	<field name="prenom_fr" class="java.lang.String">
+		<fieldDescription><![CDATA[prenom_fr]]></fieldDescription>
+	</field>
+	<field name="sit_famil" class="java.lang.String">
+		<fieldDescription><![CDATA[sit_famil]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<textField>
+				<reportElement x="110" y="0" width="100" height="20" uuid="4bcd9f65-f2df-4211-98c1-f0d852504aa3"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nom_ar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="30" width="100" height="20" uuid="29a4c1b2-b4ea-47bc-a159-e872eecd9ca4"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prenom_ar}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="110" y="10" width="100" height="20" uuid="a1e81e6e-b94e-4c63-8735-70ff09bba44d"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{date_naiss}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="45" width="100" height="20" uuid="1ed996ac-94fb-4dde-bbe3-1c32caf2ea17"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{code_lieunaiss}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="78" width="100" height="20" uuid="de676190-8aa7-4a18-b58b-223cb515b683"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{p_pere}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="101" width="100" height="20" uuid="1fce1acb-43bc-4985-8119-583702c6efd0"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{np_mere}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField isBlankWhenNull="false">
+				<reportElement x="188" y="11" width="176" height="20" uuid="4c9561f3-9e05-4c06-8624-a60e3844d2f8"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nom_fr}+ "  " + $F{prenom_fr}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

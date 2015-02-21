@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="fich_fam:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/fich_fam_jar</output-path>
+    <root id="archive" name="fich_fam.jar">
+      <element id="module-output" name="fich_fam" />
+      <element id="extracted-dir" path="$APPLICATION_HOME_DIR$/lib/mysql-connector-java-5.1.31-bin.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="F:/My box tools/Java/Butterfly Persistence/jenkov-butterfly-persistence-5.2.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../hamcrest-all-1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$APPLICATION_HOME_DIR$/lib/junit-4.11.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

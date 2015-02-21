@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="tryNestedReport2" columnDirection="RTL" pageWidth="421" pageHeight="595" columnWidth="381" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isFloatColumnFooter="true" isIgnorePagination="true" uuid="90067f0a-9d2e-49dd-85bd-02260c8cd279">
+	<property name="ireport.zoom" value="1.610510000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="110"/>
+	<parameter name="COUNT_ROWS" class="java.lang.Integer"/>
+	<parameter name="myText" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="date_est_presume" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[date_est_presume]]></fieldDescription>
+	</field>
+	<field name="date_naiss" class="java.sql.Date">
+		<fieldDescription><![CDATA[date_naiss]]></fieldDescription>
+	</field>
+	<field name="est_masculin" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[est_masculin]]></fieldDescription>
+	</field>
+	<field name="id_deces" class="java.lang.Integer">
+		<fieldDescription><![CDATA[id_deces]]></fieldDescription>
+	</field>
+	<field name="id_enf" class="java.lang.Integer">
+		<fieldDescription><![CDATA[id_enf]]></fieldDescription>
+	</field>
+	<field name="id_mar" class="java.lang.Integer">
+		<fieldDescription><![CDATA[id_mar]]></fieldDescription>
+	</field>
+	<field name="lieu_naiss" class="java.lang.Integer">
+		<fieldDescription><![CDATA[lieu_naiss]]></fieldDescription>
+	</field>
+	<field name="prenom_enf" class="java.lang.String">
+		<fieldDescription><![CDATA[prenom_enf]]></fieldDescription>
+	</field>
+	<field name="sex" class="java.lang.String">
+		<fieldDescription><![CDATA[sex]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="112" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Immediate">
+			<textField>
+				<reportElement x="204" y="1" width="65" height="17" uuid="6241c098-7cbc-481d-b75f-8a8d281c7a89"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prenom_enf}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="119" y="1" width="65" height="17" uuid="e7db1d73-0017-4f79-abb4-edb4992faff5"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{date_est_presume} ?  new SimpleDateFormat($P{myText} + "yyyy" ).format($F{date_naiss})
+: new SimpleDateFormat("yyyy-MM-dd").format($F{date_naiss})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="41" y="1" width="80" height="17" uuid="d811a2ef-ab54-4ed1-b8e0-69ea392c22ee"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lieu_naiss}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="192" y="1" width="10" height="17" uuid="249ddd67-2a6d-4982-b0f0-6d467d38a351"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sex}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement isPrintRepeatedValues="false" x="25" y="17" width="267" height="1" uuid="82ac8276-827c-4396-bbc0-c643d9ee2ecf">
+					<printWhenExpression><![CDATA[$V{REPORT_COUNT} == $P{COUNT_ROWS}]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineStyle="Double"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="2" splitType="Prevent"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="50" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
