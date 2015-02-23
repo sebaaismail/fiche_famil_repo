@@ -166,9 +166,10 @@ public class JGoodiesFrameTest extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            synchronized (validationResultModel) {
+            //to reinitialiser validationResultModel
+            //todo when do that ? maybe if components has been edited
+            validationResultModel.setResult(ValidationResult.EMPTY);
 
-            }
             java.util.Date selectedDate = (java.util.Date) datePicker.getModel().getValue();
             Date dateMar = new Date(selectedDate.getTime());
             int lieu = (Integer) pan.getId_c_Model().getValue();
@@ -185,8 +186,11 @@ public class JGoodiesFrameTest extends JFrame {
             if (!result.hasErrors()) {
 
                 FicheFam ficheFam = new FicheFam(adapter.getBean().getNumact_mar(),dateMar ,lieu);
-                ReportFichFam.reportFicheFam(ficheFam);
-
+                if (ficheFam.getSelectedFamily() != null) {
+                    ReportFichFam.reportFicheFam(ficheFam);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Mariage introuvable !");
+                }
             }
 
 
