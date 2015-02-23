@@ -140,7 +140,6 @@ public class FicheFam {
                 Citoyen cit = mar.getEpoux();
 
                 String sitfamil = cit.getSit_famil();
-                System.out.println(sitfamil);
                 if (cit.getSit_famil().equals("m")) {
 
                     this.setCitoyen(cit);

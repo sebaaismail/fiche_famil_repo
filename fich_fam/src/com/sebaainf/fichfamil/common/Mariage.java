@@ -1,6 +1,7 @@
 package com.sebaainf.fichfamil.common;
 
 import com.jenkov.db.itf.mapping.AGetterMapping;
+import com.jgoodies.binding.beans.Model;
 import com.sebaainf.fichfamil.citoyen.Citoyen;
 
 import java.util.Date;
@@ -8,7 +9,7 @@ import java.util.Date;
 /**
  * Created by admin on 10/01/2015.
  */
-public class Mariage implements Comparable<Mariage> {
+public class Mariage extends Model implements Comparable<Mariage> {
 
     Citoyen epoux;
     Citoyen epouse;
@@ -88,7 +89,9 @@ public class Mariage implements Comparable<Mariage> {
 
     public void setNumact_mar(int numact_mar) {
 
+        int oldValue = this.numact_mar;
         this.numact_mar = numact_mar;
+        firePropertyChange("numact_mar", oldValue, this.numact_mar);
     }
 
     @AGetterMapping(databaseGenerated = true)
@@ -120,7 +123,9 @@ public class Mariage implements Comparable<Mariage> {
 
     public void setDate_mar(Date date_mar) {
 
+        Date oldValue = this.date_mar;
         this.date_mar = date_mar;
+        firePropertyChange("date_mar", oldValue, this.date_mar);
     }
 
 

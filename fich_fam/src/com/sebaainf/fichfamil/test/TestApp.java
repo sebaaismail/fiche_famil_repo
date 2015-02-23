@@ -49,7 +49,7 @@ public class TestApp {
         Scanner sc = new Scanner(System.in);
         num_actmar = sc.nextInt();
 
-        System.out.println("enter the date of mariage ... 10/03/2010 for exple :)");
+        System.out.println("enter the date of mariage ... 10/02/2000 for exple :)");
         String stringDate;
         sc = new Scanner(System.in);
 
@@ -62,7 +62,7 @@ public class TestApp {
 
         Fiche maFiche = new Fiche(num_actmar, stringDate, lieu_mar);
         //2/*/
-        //FicheFam maFiche = new FicheFam(22, "10/03/2010", 31001);
+        //FicheFam maFiche = new FicheFam(22, "10/02/2000", 31001);
 
         System.out.println("le citoyen " + maFiche.getCitoyen().getNom_fr() + " " + maFiche.getCitoyen().getPrenom_fr());
         System.out.println("fils de " + maFiche.getCitoyen().getP_pere() + " et " + maFiche.getCitoyen().getNp_mere());

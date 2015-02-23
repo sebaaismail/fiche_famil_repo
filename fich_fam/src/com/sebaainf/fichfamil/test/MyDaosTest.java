@@ -27,7 +27,7 @@ public class MyDaosTest {
 
         MyDaos daos = new MyDaos();
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        java.sql.Date date = new Date(dateFormat.parse("10/03/2010").getTime());
+        java.sql.Date date = new Date(dateFormat.parse("10/02/2000").getTime());
         Mariage mar = MyDaos.getMariage(22, date, 31001);
         int i = mar.getId_epouse();
         assertThat(i, equalTo(14));
@@ -54,7 +54,7 @@ public class MyDaosTest {
     public void getMariage_shouldReturnFamilyThatMatchTheParameters() throws Exception {
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        Date date_mar = new Date(dateFormat.parse("10/03/2010").getTime());
+        Date date_mar = new Date(dateFormat.parse("10/02/2000").getTime());
 
         Mariage mar = MyDaos.getMariage(22, date_mar, 31001);
         assertThat(mar.getEpouse().getPrenom_ar(), equalTo("أسماء"));
