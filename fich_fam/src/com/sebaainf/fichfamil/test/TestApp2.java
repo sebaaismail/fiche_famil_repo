@@ -6,7 +6,7 @@ import com.sebaainf.fichfamil.common.Enfant;
 import com.sebaainf.fichfamil.common.FicheFam;
 import com.sebaainf.fichfamil.common.Mariage;
 import com.sebaainf.fichfamil.persistance.MyDaosCitoyen;
-import com.sebaainf.fichfamil.view.JFrameSearchCitoyen;
+import com.sebaainf.fichfamil.view.SearchJFrame;
 
 import javax.swing.*;
 import java.awt.*;
@@ -103,20 +103,9 @@ public class TestApp2 {
         }
         System.out.println("*******************************");
 
-        JFrame frame = new JGoodiesFrameTest();
+        JFrame frame = new SearchJFrame();
         //JFrame frame = new JFrameSearchCitoyen();
 
-        /*
-        JFrame frame = new JFrame();
-
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        //frame.add(new JFormSearchCitoyen());
-
-        frame.add(MyGui.createApanel());
-        frame.pack();
-        frame.setLocationRelativeTo(null); //to center the frame in the middle of screen
-        */
         frame.setVisible(true);
 
 

@@ -7,8 +7,10 @@ import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
-import javax.swing.*;
-import java.util.*;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Vector;
 
 /**
  * Created by admin on 07/02/2015.
@@ -16,7 +18,6 @@ import java.util.*;
 public class ReportFichFam {
 
     public static void reportFicheFam(FicheFam ficheFam) {
-
 
 
         System.out.println("Welcome to Fiche familiale app... testing nested beans jasper report");
@@ -69,8 +70,7 @@ public class ReportFichFam {
             JasperViewer.viewReport(jasperPrint1);
             int x = JasperViewer.getFrames()[1].getLocation().x;
             int y = JasperViewer.getFrames()[1].getLocation().y;
-            JasperViewer.getFrames()[1].setLocation(x+100, y+100);
-
+            JasperViewer.getFrames()[1].setLocation(x + 100, y + 100);
 
 
         } catch (JRException e) {

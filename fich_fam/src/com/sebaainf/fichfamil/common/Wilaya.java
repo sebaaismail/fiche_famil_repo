@@ -2,7 +2,6 @@ package com.sebaainf.fichfamil.common;
 
 import com.jgoodies.binding.beans.Model;
 
-import java.util.HashMap;
 import java.util.TreeSet;
 
 /**
@@ -93,7 +92,6 @@ public class Wilaya extends Model implements Comparable<Wilaya> {
         return new Integer(this.getId_w()).compareTo(new Integer(w.getId_w()));
         //return new Integer(new Integer(w.getId_w())).compareTo(this.getId_w());
     }
-
 
 
     public int getId_w() {

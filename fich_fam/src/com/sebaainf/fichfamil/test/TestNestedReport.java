@@ -22,14 +22,13 @@ import java.util.Vector;
 public class TestNestedReport {
 
 
-
     public static void main(String[] args) {
 
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Dimension screenSize = toolkit.getScreenSize();
 
-        int width = (int)screenSize.getWidth();
-        int height = (int)screenSize.getHeight();
+        int width = (int) screenSize.getWidth();
+        int height = (int) screenSize.getHeight();
 
 
         System.out.println("Welcome to Fiche familiale app... testing nested beans jasper report");
@@ -76,7 +75,7 @@ public class TestNestedReport {
             JasperViewer.viewReport(jasperPrint2);
             JasperViewer.viewReport(jasperPrint1);
 
-            int x = JasperViewer.getFrames()[0].getX() ;
+            int x = JasperViewer.getFrames()[0].getX();
             int y = JasperViewer.getFrames()[0].getY();
             JasperViewer.getFrames()[0].setLocation(x + 100, y + 100);
 

@@ -6,7 +6,7 @@ import com.sebaainf.fichfamil.common.Enfant;
 import com.sebaainf.fichfamil.common.FicheFam;
 import com.sebaainf.fichfamil.common.Mariage;
 import com.sebaainf.fichfamil.persistance.MyDaosCitoyen;
-import com.sebaainf.fichfamil.view.JFrameSearchCitoyen;
+import com.sebaainf.fichfamil.view.SearchJFrame;
 
 import javax.swing.*;
 import java.awt.*;
@@ -103,7 +103,7 @@ public class TestJGoodies2 {
         }
         System.out.println("*******************************");
 
-        JFrame frame = new JGoodiesFrameTest();
+        JFrame frame = new SearchJFrame();
 
         /*
         JFrame frame = new JFrame();

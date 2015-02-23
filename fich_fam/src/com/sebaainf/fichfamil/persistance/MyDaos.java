@@ -126,6 +126,7 @@ public class MyDaos {
 
     /**
      * method get a collection of commune for wilaya id_wil
+     *
      * @param id_wil
      * @return communes
      * @ should return collection of communes for id_w
@@ -142,7 +143,7 @@ public class MyDaos {
 
             communes = new TreeSet<Commune>(listCommunes);
 
-        } catch (PersistenceException e){
+        } catch (PersistenceException e) {
             e.printStackTrace();
         }
 

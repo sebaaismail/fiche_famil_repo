@@ -1,7 +1,6 @@
 package com.sebaainf.fichfamil.persistance;
 
 import com.sebaainf.fichfamil.citoyen.Citoyen;
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.sql.Date;

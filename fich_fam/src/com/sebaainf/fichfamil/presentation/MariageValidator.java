@@ -1,11 +1,8 @@
 package com.sebaainf.fichfamil.presentation;
 
 import com.jgoodies.binding.PresentationModel;
-import com.jgoodies.binding.value.ValueModel;
-import com.jgoodies.common.base.Strings;
 import com.jgoodies.validation.ValidationResult;
 import com.jgoodies.validation.Validator;
-import com.jgoodies.validation.util.ValidationUtils;
 import com.sebaainf.fichfamil.common.Mariage;
 
 /**

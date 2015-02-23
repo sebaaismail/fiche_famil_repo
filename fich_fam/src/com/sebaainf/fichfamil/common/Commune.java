@@ -14,6 +14,10 @@ public class Commune extends Model implements Comparable<Commune> {
     private String com_fr;
     private String com_ar;
 
+    public static TreeSet<Commune> getCollectionCommunes(int id_wil) {
+
+        return MyDaos.getCollectionCommunes(id_wil);
+    }
 
     @Override
     public int compareTo(Commune commune) {
@@ -54,9 +58,5 @@ public class Commune extends Model implements Comparable<Commune> {
     public void setCom_ar(String com_ar) {
 
         this.com_ar = com_ar;
-    }
-
-    public static TreeSet<Commune> getCollectionCommunes(int id_wil) {
-        return MyDaos.getCollectionCommunes(id_wil);
     }
 }

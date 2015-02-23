@@ -7,7 +7,6 @@ import com.sebaainf.fichfamil.persistance.MyDaosCitoyen;
 
 import java.sql.Date;
 import java.text.DateFormatSymbols;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 import java.util.TreeSet;
@@ -31,6 +30,7 @@ public class FicheFam {
     //private Citoyen selectedConjoint;
     private TreeSet<Enfant> enfants = new TreeSet<Enfant>(); // enfants de selectedFamily
     private TreeSet<Mariage> families = new TreeSet<Mariage>();
+
     /**
      * Constructeur
      *
@@ -107,12 +107,12 @@ public class FicheFam {
                     if (conjoint.getSit_famil().equals("m")) {
 
                         /*//************************************
-                        this.setSelectedConjoint(conjoint);
+     this.setSelectedConjoint(conjoint);
 
-                    } else {
-                        //erreur conjoint nest pas marquée comme mariée ???
-                    }
-*//*
+     } else {
+     //erreur conjoint nest pas marquée comme mariée ???
+     }
+     *//*
                 } else {
                     //erreur citoyen nest pas marqué comme marié ???
                 }
@@ -125,6 +125,7 @@ public class FicheFam {
 
     /**
      * Constructeur
+     *
      * @param numact_mar
      * @param date_mar
      * @param lieu_mar
@@ -133,30 +134,29 @@ public class FicheFam {
     public FicheFam(int numact_mar, Date date_mar, int lieu_mar) {
 
 
+        Mariage mar = MyDaos.getMariage(numact_mar, date_mar, lieu_mar);
 
-            Mariage mar = MyDaos.getMariage(numact_mar, date_mar, lieu_mar);
+        if (mar != null) {
+            Citoyen cit = mar.getEpoux();
 
-            if (mar != null) {
-                Citoyen cit = mar.getEpoux();
+            String sitfamil = cit.getSit_famil();
+            if (cit.getSit_famil().equals("m")) {
 
-                String sitfamil = cit.getSit_famil();
-                if (cit.getSit_famil().equals("m")) {
+                this.setCitoyen(cit);
 
-                    this.setCitoyen(cit);
+                TreeSet<Mariage> mariages = MyDaos.getFamilies(this.citoyen);
 
-                    TreeSet<Mariage> mariages = MyDaos.getFamilies(this.citoyen);
+                for (Mariage mariage : mariages) {
+                    mariage.setEpoux(this.getCitoyen());
+                }
+                this.setFamilies(mariages);
 
-                    for (Mariage mariage : mariages) {
-                        mariage.setEpoux(this.getCitoyen());
-                    }
-                    this.setFamilies(mariages);
+                this.setSelectedFamily(mar);
 
-                    this.setSelectedFamily(mar);
+                TreeSet<Enfant> enfants = MyDaos.getEnfants(this.getSelectedFamily().getId_mar());
+                this.setEnfants(enfants);
 
-                    TreeSet<Enfant> enfants = MyDaos.getEnfants(this.getSelectedFamily().getId_mar());
-                    this.setEnfants(enfants);
-
-                    this.prepareTexts();
+                this.prepareTexts();
 /*
                     if (conjoint.getSit_famil().equals("m")) {
 
@@ -167,10 +167,10 @@ public class FicheFam {
                         //erreur conjoint nest pas marquée comme mariée ???
                     }
 */
-                } else {
-                    //erreur citoyen nest pas marqué comme marié ???
-                }
+            } else {
+                //erreur citoyen nest pas marqué comme marié ???
             }
+        }
 
     }
 

@@ -2,14 +2,13 @@ package com.sebaainf.fichfamil.citoyen;
 
 import com.jenkov.db.itf.mapping.AGetterMapping;
 import com.jgoodies.binding.beans.Model;
-import com.jgoodies.common.bean.Bean;
 
 import java.sql.Date;
 
 /**
  * Created by admin on 10/01/2015.
  */
-public class Citoyen  extends Model{
+public class Citoyen extends Model {
 
 
     private String sit_famil = "c";

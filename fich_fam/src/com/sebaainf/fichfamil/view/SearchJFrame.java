@@ -1,0 +1,233 @@
+/*
+ * Created by JFormDesigner on Wed Feb 04 16:06:42 CET 2015
+ */
+
+package com.sebaainf.fichfamil.view;
+
+import com.jgoodies.binding.PresentationModel;
+import com.jgoodies.binding.adapter.BasicComponentFactory;
+import com.jgoodies.forms.builder.DefaultFormBuilder;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.validation.ValidationResult;
+import com.jgoodies.validation.ValidationResultModel;
+import com.jgoodies.validation.util.DefaultValidationResultModel;
+import com.jgoodies.validation.view.ValidationResultViewFactory;
+import com.sebaainf.fichfamil.common.FicheFam;
+import com.sebaainf.fichfamil.common.Mariage;
+import com.sebaainf.fichfamil.presentation.MariageValidator;
+import org.jdatepicker.impl.JDatePanelImpl;
+import org.jdatepicker.impl.JDatePickerImpl;
+import org.jdatepicker.impl.UtilDateModel;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.sql.Date;
+import java.util.Properties;
+
+/**
+ * @author sebaa ismail
+ */
+public class SearchJFrame extends JFrame {
+
+
+    private ValidationResultModel validationResultModel = new DefaultValidationResultModel();
+    private PresentationModel<Mariage> adapter = new PresentationModel<Mariage>(new Mariage());
+    private JLabel messageLabel = ValidationResultViewFactory.createReportIconAndTextLabel(validationResultModel);
+
+    private JDatePickerImpl datePicker;
+    private JPanelLieu pan = new JPanelLieu(3101);
+
+    public SearchJFrame() {
+
+        //this.setLayout(new FlowLayout());
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.add(this.createPanel());
+        this.pack();
+        this.setLocationRelativeTo(null); //to center the frame in the middle of screen
+        this.setSize(500, 500);
+
+    }
+
+    public JComponent createPanel() {
+
+        JComponent tabbedPanel = new JTabbedPane();
+
+        tabbedPanel.add(buildChercherMariagePanel(), "Par Mariage");
+        tabbedPanel.add(buildChercherCitoyenPanel(), "Par Citoyen");
+
+        return tabbedPanel;
+    }
+
+    private JComponent buildChercherCitoyenPanel() {
+
+
+        /**
+         * preparing the panelBuilder
+         */
+        FormLayout layout = new FormLayout("right:pref, $lcgap, left:pref", "");
+
+        DefaultFormBuilder builder = new DefaultFormBuilder(layout);
+
+        return builder.getPanel();
+
+    }
+
+    private JComponent buildChercherMariagePanel() {
+
+
+        /**
+         * preparing the panelBuilder
+         */
+        FormLayout layout = new FormLayout("right:pref, $lcgap, left:pref");
+
+        DefaultFormBuilder builder = new DefaultFormBuilder(layout);
+
+        final JTextField numActMarField = BasicComponentFactory.createIntegerField(adapter.getModel("numact_mar"), 0);
+
+        numActMarField.setPreferredSize(new Dimension(140, 20));
+        /**
+         * preparing the datePicker
+         */
+
+        JFormattedTextField textField = BasicComponentFactory.createDateField(adapter.getModel("date_mar"));
+
+        final UtilDateModel dateModel = new UtilDateModel();
+        dateModel.setDate(2000, 01, 01);
+        JDatePanelImpl datePanel = new JDatePanelImpl(dateModel, new Properties());
+        //JDatePanelImpl datePanel = new JDatePanelImpl(adapter.getModel("date_mar"), new Properties());
+        //JDateComponentFactory fact = new JDateComponentFactory();
+        //datePicker = new JDatePickerImpl(datePanel, new DateLabelFormatter());
+        datePicker = new JDatePickerImpl(datePanel, new DateLabelFormatter());
+
+        org.jdatepicker.impl.UtilDateModel dateModel1 = new UtilDateModel();
+
+        //datePicker = BasicComponentFactory.createDateField(new JDatePickerImpl(datePanel, new DateLabelFormatter()));
+
+
+        datePicker.getJFormattedTextField().setPreferredSize(new Dimension(numActMarField.getPreferredSize().width, datePicker.getPreferredSize().height));
+        datePicker.setPreferredSize(datePicker.getJFormattedTextField().getPreferredSize());
+
+
+        JButton buttonChercher = new JButton(new ValidationAction());
+
+        final JComboBox myCommunesComboBox = pan.getComboBoxCommunes();
+        /*
+        JLabel label = BasicComponentFactory.createLabel(new ValueHolder());
+        label.setText(" ");
+        builder.append("", label);
+        //*/
+        builder.append("N° act mariage : ", numActMarField);
+        //append("N° act mariage : ",new JTextField());
+        builder.append("Date : ", datePicker);
+
+        //builder.appendSeparator("Lieu : ");
+
+
+        builder.append("Wilaya : ", pan.getComboBoxWilayas());
+        builder.append("Commune : ", myCommunesComboBox);
+        /* todo delete this
+        builder.append(pan.ismTextField, buttonChercher);
+        builder.append(pan.ismTextField2);
+        builder.append(pan.labelCommune1, pan.labelCommune2);
+        //*/
+
+        builder.append("", buttonChercher);
+        builder.append("", messageLabel);
+
+
+        return builder.getPanel();
+
+    }
+
+
+    private void initComponents() {
+
+
+    }
+
+    private class HandlerClass implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+        }
+    }
+
+
+    private class ValidationAction extends AbstractAction {
+
+        public ValidationAction() {
+
+            super("chercher");
+        }
+
+        /**
+         * Invoked when an action occurs.
+         *
+         * @param e
+         */
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            //to reinitialiser validationResultModel
+            //todo when do that ? maybe if components has been edited
+            validationResultModel.setResult(ValidationResult.EMPTY);
+
+            java.util.Date selectedDate = (java.util.Date) datePicker.getModel().getValue();
+            Date dateMar = new Date(selectedDate.getTime());
+            int lieu = (Integer) pan.getId_c_Model().getValue();
+
+            //preModel.getBean().setDate_mar(dateMar);
+            //preModel.getBean().setLieu_mar(lieu);
+
+            //preModel.triggerCommit();
+
+            MariageValidator validator = new MariageValidator(adapter);
+
+            ValidationResult result = validator.validate(adapter.getBean());
+            validationResultModel.setResult(result);
+            if (!result.hasErrors()) {
+
+                FicheFam ficheFam = new FicheFam(adapter.getBean().getNumact_mar(), dateMar, lieu);
+                if (ficheFam.getSelectedFamily() != null) {
+
+                    JFrame ficheFrame = new FicheFamJFrame(ficheFam);
+                    ficheFrame.setVisible(true);
+
+
+                    // todo this line is good when reporting
+                    //ReportFichFam.reportFicheFam(ficheFam);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Mariage introuvable !");
+                }
+            }
+
+
+        }
+    }
+
+    private class ValidationListener implements PropertyChangeListener {
+
+        /**
+         * This method gets called when a bound property is changed.
+         *
+         * @param evt A PropertyChangeEvent object describing the event source
+         *            and the property that has changed.
+         */
+        @Override
+        public void propertyChange(PropertyChangeEvent evt) {
+
+
+            if (evt.getPropertyName() == ValidationResultModel.PROPERTY_RESULT) {
+                JOptionPane.showMessageDialog(null, "Validation has been performed");
+            } else if (evt.getPropertyName() == ValidationResultModel.PROPERTY_MESSAGES) {
+
+            }
+
+        }
+    }
+}

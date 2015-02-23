@@ -13,17 +13,22 @@ public class MarriedCit extends Citoyen implements IMarried {
     private TreeSet<Mariage> families = new TreeSet<Mariage>();
 
 
-    @Override
-    public void setFamilies(TreeSet<Mariage> families) {
+    public MarriedCit() {
 
-        this.families = families;
-
+        this.setSit_famil("m");
     }
 
     @Override
     public TreeSet<Mariage> getFamilies() {
 
         return this.families;
+    }
+
+    @Override
+    public void setFamilies(TreeSet<Mariage> families) {
+
+        this.families = families;
+
     }
 
     @Override
@@ -41,9 +46,5 @@ public class MarriedCit extends Citoyen implements IMarried {
 
         //Family fm = fms.iterator().i;
 
-    }
-
-    public MarriedCit (){
-        this.setSit_famil("m");
     }
 }

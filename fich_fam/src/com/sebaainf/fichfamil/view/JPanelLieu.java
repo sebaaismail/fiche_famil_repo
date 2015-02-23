@@ -20,20 +20,19 @@ import java.awt.event.ActionListener;
  * Created by admin on 06/02/2015.
  * JPanel encapsulate two JCombobox Wilaya and commune and the default commune
  */
-public class JPanelLieu extends JPanel {
-
-    private int default_id_c; //get from general variable or file config
-    private JComboBox comboBoxWilayas;
-    private JComboBox comboBoxCommunes;
-
-    private ValueModel id_c_Model;
+public class JPanelLieu extends JComponent {
 
     //for test TODO delete this in production
-
+   /*
     public JTextField ismTextField;
     public JTextField ismTextField2;
     public JTextField labelCommune1;
+  //*/
     public JLabel labelCommune2;
+    private int default_id_c; //get from general variable or file config
+    private JComboBox comboBoxWilayas;
+    private JComboBox comboBoxCommunes;
+    private ValueModel id_c_Model;
 
 
     public JPanelLieu(int default_id_c) {
@@ -47,7 +46,7 @@ public class JPanelLieu extends JPanel {
 
         ListModel wilayas = new ArrayListModel(Wilaya.getWilayas());
 
-        final int numW = default_id_c/100; //TODO clear this and implement default commune
+        final int numW = default_id_c / 100; //TODO clear this and implement default commune
         Wilaya defaultwilaya = null;
 
 //*
@@ -66,18 +65,15 @@ public class JPanelLieu extends JPanel {
         final ValueModel id_w_Model = beanAdapter.getValueModel("id_w");
         ValueModel wil_fr_Model = beanAdapter.getValueModel("wil_fr");
 
+        /* todo
         ismTextField = BasicComponentFactory.createTextField(wil_fr_Model);
         ismTextField2 = BasicComponentFactory.createIntegerField(id_w_Model);
 
-
-        //ValueHolder idd_elected_wil =
-
         ismTextField.setPreferredSize(new Dimension(140, 20));
         ismTextField2.setPreferredSize(new Dimension(140, 20));
-
+        //*/
 
         ComboBoxAdapter comboBoxAdapter = new ComboBoxAdapter(selectionInList);
-
 
 
         this.setComboBoxWilayas(new JComboBox(comboBoxAdapter));
@@ -104,10 +100,14 @@ public class JPanelLieu extends JPanel {
         setId_c_Model(beanAdapter2.getValueModel("id_c"));
         ValueModel com_fr_Model = beanAdapter2.getValueModel("com_fr");
 
+        /* todo
         labelCommune1 = BasicComponentFactory.createIntegerField(getId_c_Model());
+        labelCommune1.setPreferredSize(new Dimension(140, 20));
+        //*/
+
         labelCommune2 = BasicComponentFactory.createLabel(com_fr_Model);
 
-        labelCommune1.setPreferredSize(new Dimension(140, 20));
+
         labelCommune2.setPreferredSize(new Dimension(140, 20));
 
         final ComboBoxAdapter comboBoxAdapter2 = new ComboBoxAdapter(selectionInList2);
@@ -145,7 +145,10 @@ public class JPanelLieu extends JPanel {
         builder.appendSeparator("Lieu : ");
         builder.append("Wilaya : ", this.getComboBoxWilayas());
         builder.append("Commune : ", this.getComboBoxCommunes());
-        builder.append(ismTextField, ismTextField2);
+
+        //todo delete that line
+        //builder.append(ismTextField, ismTextField2);
+
         builder.append(labelCommune2, labelCommune2);
 
     }

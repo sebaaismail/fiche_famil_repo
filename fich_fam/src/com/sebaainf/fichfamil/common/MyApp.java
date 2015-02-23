@@ -1,0 +1,45 @@
+package com.sebaainf.fichfamil.common;
+
+import com.jgoodies.looks.plastic.Plastic3DLookAndFeel;
+import com.sebaainf.fichfamil.view.SearchJFrame;
+
+import javax.swing.*;
+import java.awt.*;
+
+/**
+ * Created by admin on 24/01/2015.
+ */
+public class MyApp {
+
+
+    public static void main(String[] args) {
+
+        /**
+         * set jgoodies Look And Feel
+         */
+
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+
+                try {
+                    UIManager.setLookAndFeel(new Plastic3DLookAndFeel());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        //*****************************************************
+
+        System.out.println("Welcome to Fiche familiale app");
+
+        JFrame frame = new SearchJFrame();
+
+        frame.setVisible(true);
+
+
+        System.out.println("end app");
+
+
+    }
+
+}

@@ -203,25 +203,25 @@ public class MyDaosCitoyen {
 
         boolean flag = false;
 
-            try {
-                if (isInDBCitoyen(cit)) {
+        try {
+            if (isInDBCitoyen(cit)) {
                 IDaos daos = MyDaos.persistenceManager.createDaos();
                 daos.getObjectDao().delete(cit);
                 flag = true;
-                    System.out.println("citoyen deleted");
-                } else {
-                    System.out.println("citoyen not found in data base !!");
-                    //todo  ?
-                }
-            } catch (PersistenceException e) {
-                e.printStackTrace();
-            } finally {
-                System.out.println("flag :" + flag);
-                return flag;
+                System.out.println("citoyen deleted");
+            } else {
+                System.out.println("citoyen not found in data base !!");
+                //todo  ?
             }
+        } catch (PersistenceException e) {
+            e.printStackTrace();
+        } finally {
+            System.out.println("flag :" + flag);
+            return flag;
+        }
 
 
-}
+    }
 
     /**
      * method to delete citoyen cit
@@ -256,6 +256,7 @@ public class MyDaosCitoyen {
 
     /**
      * method to test connection with irreport
+     *
      * @return
      * @throws PersistenceException
      */
