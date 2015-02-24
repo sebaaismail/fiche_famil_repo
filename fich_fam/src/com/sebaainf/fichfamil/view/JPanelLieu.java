@@ -9,6 +9,7 @@ import com.jgoodies.common.collect.ArrayListModel;
 import com.jgoodies.forms.builder.DefaultFormBuilder;
 import com.jgoodies.forms.layout.FormLayout;
 import com.sebaainf.fichfamil.common.Commune;
+import com.sebaainf.fichfamil.common.MyApp;
 import com.sebaainf.fichfamil.common.Wilaya;
 
 import javax.swing.*;
@@ -29,15 +30,15 @@ public class JPanelLieu extends JComponent {
     public JTextField labelCommune1;
   //*/
     public JLabel labelCommune2;
-    private int default_id_c; //get from general variable or file config
+
     private JComboBox comboBoxWilayas;
     private JComboBox comboBoxCommunes;
     private ValueModel id_c_Model;
 
 
-    public JPanelLieu(int default_id_c) {
+    public JPanelLieu() {
 
-        this.default_id_c = default_id_c;
+        //this.default_id_c = default_id_c;
 
         /**
          * preparing combobox Wilayas
@@ -46,7 +47,7 @@ public class JPanelLieu extends JComponent {
 
         ListModel wilayas = new ArrayListModel(Wilaya.getWilayas());
 
-        final int numW = default_id_c / 100; //TODO clear this and implement default commune
+        final int numW = MyApp.default_id_c / 100;
         Wilaya defaultwilaya = null;
 
 //*
@@ -87,7 +88,7 @@ public class JPanelLieu extends JComponent {
         Commune defaultCommune = null;
 
         for (int i = 0; i < communes.getSize(); i++) {
-            if (((Commune) communes.getElementAt(i)).getId_c() == default_id_c) {
+            if (((Commune) communes.getElementAt(i)).getId_c() == MyApp.default_id_c) {
                 defaultCommune = (Commune) communes.getElementAt(i);
                 break;
             }
@@ -153,15 +154,6 @@ public class JPanelLieu extends JComponent {
 
     }
 
-    public int getDefault_id_c() {
-
-        return default_id_c;
-    }
-
-    public void setDefault_id_c(int default_id_c) {
-
-        this.default_id_c = default_id_c;
-    }
 
     public JComboBox getComboBoxWilayas() {
 

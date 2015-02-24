@@ -1,4 +1,4 @@
-package com.sebaainf.fichfamil.view;/*
+package com.sebaainf.fichfamil.test;/*
  * Copyright (c) 2002-2006 JGoodies Karsten Lentzsch. All Rights Reserved.
  *
  * Redistribution and use in source and binary forms, with or without

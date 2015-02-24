@@ -69,7 +69,7 @@ public class JGoodiesFrameTest extends JFrame {
         //FormLayout layout = new FormLayout("right:pref, $lcgap, left:max(pref;80dlu)");
         //CellConstraints cc = new CellConstraints();
 
-        JPanelLieu pan = new JPanelLieu(3114);
+        JPanelLieu pan = new JPanelLieu();
 
         DefaultFormBuilder builder = new DefaultFormBuilder(layout);
 

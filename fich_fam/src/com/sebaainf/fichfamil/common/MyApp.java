@@ -11,6 +11,7 @@ import java.awt.*;
  */
 public class MyApp {
 
+    public static int default_id_c = 3101; //todo get from general variable or file config
 
     public static void main(String[] args) {
 

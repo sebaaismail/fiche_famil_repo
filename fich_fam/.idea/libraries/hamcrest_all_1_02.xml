@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="hamcrest-all-1.0">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../hamcrest-all-1.0.jar!/" />
+      <root url="jar://F:/My box tools/Java/libraries/hamcrest-all-1.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

@@ -36,14 +36,15 @@ public class SearchJFrame extends JFrame {
 
     private ValidationResultModel validationResultModel = new DefaultValidationResultModel();
     private PresentationModel<Mariage> adapter = new PresentationModel<Mariage>(new Mariage());
-    private JLabel messageLabel = ValidationResultViewFactory.createReportIconAndTextLabel(validationResultModel);
+    //private JLabel messageLabel = ValidationResultViewFactory.createReportIconAndTextLabel(validationResultModel);
+    private JComponent messageLabel = ValidationResultViewFactory.createReportList(validationResultModel, Color.decode("#E2F5A9"));
 
     private JDatePickerImpl datePicker;
-    private JPanelLieu pan = new JPanelLieu(3101);
+    private JPanelLieu pan = new JPanelLieu();
 
     public SearchJFrame() {
 
-        //this.setLayout(new FlowLayout());
+        this.setTitle("Recherche");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.add(this.createPanel());
         this.pack();
