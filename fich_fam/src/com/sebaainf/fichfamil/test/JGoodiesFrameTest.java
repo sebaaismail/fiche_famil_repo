@@ -6,8 +6,8 @@ package com.sebaainf.fichfamil.test;
 
 import com.jgoodies.forms.builder.DefaultFormBuilder;
 import com.jgoodies.forms.layout.FormLayout;
-import com.sebaainf.fichfamil.view.DateLabelFormatter;
 import com.sebaainf.fichfamil.view.JPanelLieu;
+import com.sebaainf.fichfamil.view.MyDateFormatter;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
@@ -52,7 +52,7 @@ public class JGoodiesFrameTest extends JFrame {
         dateModel.setDate(2000, 01, 01);
         JDatePanelImpl datePanel = new JDatePanelImpl(dateModel, new Properties());
 
-        datePicker = new JDatePickerImpl(datePanel, new DateLabelFormatter());
+        datePicker = new JDatePickerImpl(datePanel, new MyDateFormatter());
 
         datePicker.getJFormattedTextField().setPreferredSize(new Dimension(numActMarField.getPreferredSize().width, datePicker.getPreferredSize().height));
         datePicker.setPreferredSize(datePicker.getJFormattedTextField().getPreferredSize());

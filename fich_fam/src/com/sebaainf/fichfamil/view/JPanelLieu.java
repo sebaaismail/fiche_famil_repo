@@ -139,7 +139,7 @@ public class JPanelLieu extends JComponent {
             }
         });
         //*/
-        FormLayout layout = new FormLayout("right:pref, $lcgap, left:pref");
+        FormLayout layout = new FormLayout("right:pref, $lcgap, max(50dlu;pref)");
         this.setLayout(layout);
         DefaultFormBuilder builder = new DefaultFormBuilder(layout);
 

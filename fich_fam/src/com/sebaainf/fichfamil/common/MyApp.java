@@ -2,6 +2,8 @@ package com.sebaainf.fichfamil.common;
 
 import com.jgoodies.looks.plastic.Plastic3DLookAndFeel;
 import com.sebaainf.fichfamil.view.SearchJFrame;
+import com.sebaainf.fichfamil.view.themes.DefaultTheme;
+import com.sebaainf.fichfamil.view.themes.MyTheme;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,7 +14,9 @@ import java.awt.*;
 public class MyApp {
 
     public static int default_id_c = 3101; //todo get from general variable or file config
+    public static MyTheme theme = new DefaultTheme(); //todo put in config
 
+    //public static MyTheme theme = new GreyTheme(); //todo put in config
     public static void main(String[] args) {
 
         /**

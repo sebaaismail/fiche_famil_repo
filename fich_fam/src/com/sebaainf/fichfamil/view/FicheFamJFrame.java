@@ -1,11 +1,8 @@
 package com.sebaainf.fichfamil.view;
 
-import com.jgoodies.forms.builder.ButtonStackBuilder;
-import com.jgoodies.forms.debug.FormDebugPanel;
-import com.jgoodies.forms.factories.DefaultComponentFactory;
-import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
 import com.sebaainf.fichfamil.common.FicheFam;
+import com.sebaainf.fichfamil.common.MyApp;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,7 +22,7 @@ public class FicheFamJFrame extends JFrame {
         this.add(this.createPanel());
 
         this.pack();
-        this.setSize(new Dimension(8*(int) screenSize.getWidth()/10 , 9*(int)screenSize.getHeight()/10));
+        this.setSize(new Dimension(8 * (int) screenSize.getWidth() / 10, 9 * (int) screenSize.getHeight() / 10));
 
         this.setLocationRelativeTo(null); //to center the frame in the middle of screen
     }
@@ -34,7 +31,6 @@ public class FicheFamJFrame extends JFrame {
 
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         screenSize = toolkit.getScreenSize();
-
 
 
         LayoutManager layout = new BorderLayout();
@@ -69,10 +65,8 @@ public class FicheFamJFrame extends JFrame {
 
     private JComponent buildButtonBarPanel() {
 
-        LayoutManager layout = new FormLayout("center:pref","center:pref");
+        LayoutManager layout = new FormLayout("center:pref", "center:pref");
         JComponent panel = new JPanel(layout);
-
-
 
 
         JButton buttonApercu = new JButton("Aperçu");
@@ -83,7 +77,7 @@ public class FicheFamJFrame extends JFrame {
 
         MyButtonStackBuilder builder = new MyButtonStackBuilder((JPanel) panel, screenSize);
 
-        builder.setBackground(Color.decode("#138507")); //todo color
+        builder.setBackground(MyApp.theme.buttonBarColor); //todo color
 
 
         //builder.getPanel().setLayout(layout);

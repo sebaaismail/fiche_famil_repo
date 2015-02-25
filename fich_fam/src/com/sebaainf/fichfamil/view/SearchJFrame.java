@@ -8,6 +8,7 @@ import com.jgoodies.binding.PresentationModel;
 import com.jgoodies.binding.adapter.BasicComponentFactory;
 import com.jgoodies.forms.builder.DefaultFormBuilder;
 import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.RowSpec;
 import com.jgoodies.validation.ValidationResult;
 import com.jgoodies.validation.ValidationResultModel;
 import com.jgoodies.validation.util.DefaultValidationResultModel;
@@ -37,7 +38,7 @@ public class SearchJFrame extends JFrame {
     private ValidationResultModel validationResultModel = new DefaultValidationResultModel();
     private PresentationModel<Mariage> adapter = new PresentationModel<Mariage>(new Mariage());
     //private JLabel messageLabel = ValidationResultViewFactory.createReportIconAndTextLabel(validationResultModel);
-    private JComponent messageLabel = ValidationResultViewFactory.createReportList(validationResultModel, Color.decode("#E2F5A9"));
+    private JComponent messageLabel = ValidationResultViewFactory.createReportList(validationResultModel);
 
     private JDatePickerImpl datePicker;
     private JPanelLieu pan = new JPanelLieu();
@@ -49,16 +50,17 @@ public class SearchJFrame extends JFrame {
         this.add(this.createPanel());
         this.pack();
         this.setLocationRelativeTo(null); //to center the frame in the middle of screen
-        this.setSize(500, 500);
+        //this.setSize(500, 500);
 
     }
 
     public JComponent createPanel() {
 
-        JComponent tabbedPanel = new JTabbedPane();
 
+        JComponent tabbedPanel = new JTabbedPane();
         tabbedPanel.add(buildChercherMariagePanel(), "Par Mariage");
         tabbedPanel.add(buildChercherCitoyenPanel(), "Par Citoyen");
+
 
         return tabbedPanel;
     }
@@ -83,13 +85,13 @@ public class SearchJFrame extends JFrame {
         /**
          * preparing the panelBuilder
          */
+
         FormLayout layout = new FormLayout("right:pref, $lcgap, left:pref");
 
-        DefaultFormBuilder builder = new DefaultFormBuilder(layout);
+        MyFormBuilder builder = new MyFormBuilder(layout);
 
         final JTextField numActMarField = BasicComponentFactory.createIntegerField(adapter.getModel("numact_mar"), 0);
 
-        numActMarField.setPreferredSize(new Dimension(140, 20));
         /**
          * preparing the datePicker
          */
@@ -101,26 +103,34 @@ public class SearchJFrame extends JFrame {
         JDatePanelImpl datePanel = new JDatePanelImpl(dateModel, new Properties());
         //JDatePanelImpl datePanel = new JDatePanelImpl(adapter.getModel("date_mar"), new Properties());
         //JDateComponentFactory fact = new JDateComponentFactory();
-        //datePicker = new JDatePickerImpl(datePanel, new DateLabelFormatter());
-        datePicker = new JDatePickerImpl(datePanel, new DateLabelFormatter());
+
+        datePicker = new JDatePickerImpl(datePanel, new MyDateFormatter());
+        //datePicker = new JDatePickerImpl(datePanel, new MyDateFormatter());
+        datePicker.setShowYearButtons(true);
+        datePicker.setButtonFocusable(true);
+        datePicker.setTextEditable(true);
+        //datePicker.getJFormattedTextField().setFocusLostBehavior(JFormattedTextField.COMMIT_OR_REVERT);
+
 
         org.jdatepicker.impl.UtilDateModel dateModel1 = new UtilDateModel();
 
         //datePicker = BasicComponentFactory.createDateField(new JDatePickerImpl(datePanel, new DateLabelFormatter()));
 
 
-        datePicker.getJFormattedTextField().setPreferredSize(new Dimension(numActMarField.getPreferredSize().width, datePicker.getPreferredSize().height));
-        datePicker.setPreferredSize(datePicker.getJFormattedTextField().getPreferredSize());
-
-
         JButton buttonChercher = new JButton(new ValidationAction());
 
+
         final JComboBox myCommunesComboBox = pan.getComboBoxCommunes();
+
         /*
         JLabel label = BasicComponentFactory.createLabel(new ValueHolder());
         label.setText(" ");
         builder.append("", label);
         //*/
+        //builder.rowGroupingEnabled(true);
+        builder.appendGlueRow();
+        builder.appendRow(RowSpec.decode("top:31dlu")); // Assumes line is 14, gap is 3
+        builder.nextLine(2);
         builder.append("N° act mariage : ", numActMarField);
         //append("N° act mariage : ",new JTextField());
         builder.append("Date : ", datePicker);
@@ -137,8 +147,43 @@ public class SearchJFrame extends JFrame {
         //*/
 
         builder.append("", buttonChercher);
+        builder.appendRow(RowSpec.decode("fill:31dlu")); // Assumes line is 14, gap is 3
         builder.append("", messageLabel);
 
+        builder.rowGroupingEnabled(false);
+        builder.appendGlueRow();
+        builder.appendRow(RowSpec.decode("top:31dlu")); // Assumes line is 14, gap is 3
+        builder.nextLine(2);
+
+        int bestWidth = pan.getComboBoxWilayas().getPreferredSize().width;
+        int bestHeight = numActMarField.getPreferredSize().height;
+
+        if (bestHeight < pan.getComboBoxCommunes().getPreferredSize().height) {
+            bestHeight = pan.getComboBoxCommunes().getPreferredSize().height;
+        }
+
+
+        //********** setting the width size
+        pan.getComboBoxCommunes().setPreferredSize(new Dimension(bestWidth, bestHeight));
+        pan.getComboBoxWilayas().setPreferredSize(new Dimension(bestWidth, bestHeight));
+
+        numActMarField.setPreferredSize(new Dimension(bestWidth, bestHeight));
+        //datePicker.getJFormattedTextField().setPreferredSize(new Dimension(bestWidth, bestHeight));
+        //datePicker.getJDateInstantPanel().ge
+
+        datePicker.getJFormattedTextField().setFont(numActMarField.getFont());
+        datePicker.setPreferredSize(datePicker.getJFormattedTextField().getPreferredSize());
+
+        // to add some space to width of panel for the validation message
+        int ww = builder.getPanel().getPreferredSize().width;
+        int hh = builder.getPanel().getPreferredSize().height;
+
+
+        //int widthMessVal = messageLabel.getPreferredSize().width;
+        //JFormattedTextField forrr = new JFormattedTextField();
+
+
+        builder.getPanel().setPreferredSize(new Dimension(ww + ww / 2, hh));
 
         return builder.getPanel();
 
@@ -179,6 +224,7 @@ public class SearchJFrame extends JFrame {
             validationResultModel.setResult(ValidationResult.EMPTY);
 
             java.util.Date selectedDate = (java.util.Date) datePicker.getModel().getValue();
+
             Date dateMar = new Date(selectedDate.getTime());
             int lieu = (Integer) pan.getId_c_Model().getValue();
 
