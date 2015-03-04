@@ -13,7 +13,7 @@ public class DefaultTheme extends MyTheme {
 
         this.buttonBarColor = Color.decode("#138507");
         this.buttonsBackgroundColor = Color.decode("#EAF5D7");
-        this.font = Fonts.WINDOWS_VISTA_96DPI_LARGE;
+        this.font = Fonts.WINDOWS_VISTA_96DPI_LARGE.deriveFont(16f);
 
     }
 

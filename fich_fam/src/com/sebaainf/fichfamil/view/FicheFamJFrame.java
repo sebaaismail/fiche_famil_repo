@@ -3,6 +3,7 @@ package com.sebaainf.fichfamil.view;
 import com.jgoodies.forms.layout.FormLayout;
 import com.sebaainf.fichfamil.common.FicheFam;
 import com.sebaainf.fichfamil.common.MyApp;
+import com.sebaainf.fichfamil.presentation.CitoyenPresentation;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,10 +14,12 @@ import java.awt.*;
 public class FicheFamJFrame extends JFrame {
 
     private static Dimension screenSize;
+    private final FicheFam ficheFam;
 
 
     public FicheFamJFrame(FicheFam ficheFam) {
         // TODO
+        this.ficheFam = ficheFam;
         this.setTitle("Fiche Familiale");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.add(this.createPanel());
@@ -60,7 +63,10 @@ public class FicheFamJFrame extends JFrame {
     private JComponent buildEpouxInfoPanel() {
 
         //todo
-        return new JPanel();
+        CitoyenPresentation presenter = new CitoyenPresentation(ficheFam.getCitoyen());
+        CitoyenManagerUI app = new CitoyenManagerUI(presenter);
+
+        return app.getPanel();
     }
 
     private JComponent buildButtonBarPanel() {
@@ -97,6 +103,8 @@ public class FicheFamJFrame extends JFrame {
         builder.addUnrelatedGap();
 
         builder.addButton(buttonModifierMariage);
+        builder.addUnrelatedGap();
+        builder.addUnrelatedGap();
 
         // setting sizes of buttons
 

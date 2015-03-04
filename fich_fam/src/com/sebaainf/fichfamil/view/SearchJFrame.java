@@ -7,6 +7,7 @@ package com.sebaainf.fichfamil.view;
 import com.jgoodies.binding.PresentationModel;
 import com.jgoodies.binding.adapter.BasicComponentFactory;
 import com.jgoodies.forms.builder.DefaultFormBuilder;
+import com.jgoodies.forms.builder.PanelBuilder;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 import com.jgoodies.validation.ValidationResult;
@@ -15,10 +16,12 @@ import com.jgoodies.validation.util.DefaultValidationResultModel;
 import com.jgoodies.validation.view.ValidationResultViewFactory;
 import com.sebaainf.fichfamil.common.FicheFam;
 import com.sebaainf.fichfamil.common.Mariage;
+import com.sebaainf.fichfamil.common.MyApp;
 import com.sebaainf.fichfamil.presentation.MariageValidator;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
+import sun.awt.ComponentFactory;
 
 import javax.swing.*;
 import java.awt.*;
@@ -57,12 +60,21 @@ public class SearchJFrame extends JFrame {
     public JComponent createPanel() {
 
 
+        // i create tabbedPanel with MyFormBuilder
+        // to centralize attributes like font size etc ...
         JComponent tabbedPanel = new JTabbedPane();
+        FormLayout layoutPanel = new FormLayout("right:pref");
+
+        MyFormBuilder fb = new MyFormBuilder(layoutPanel);
+
+        fb.append(tabbedPanel);
+
         tabbedPanel.add(buildChercherMariagePanel(), "Par Mariage");
         tabbedPanel.add(buildChercherCitoyenPanel(), "Par Citoyen");
 
 
-        return tabbedPanel;
+        //return tabbedPanel;
+        return fb.getPanel();
     }
 
     private JComponent buildChercherCitoyenPanel() {
@@ -73,7 +85,7 @@ public class SearchJFrame extends JFrame {
          */
         FormLayout layout = new FormLayout("right:pref, $lcgap, left:pref", "");
 
-        DefaultFormBuilder builder = new DefaultFormBuilder(layout);
+        MyFormBuilder  builder = new MyFormBuilder(layout);
 
         return builder.getPanel();
 
@@ -171,7 +183,7 @@ public class SearchJFrame extends JFrame {
         //datePicker.getJFormattedTextField().setPreferredSize(new Dimension(bestWidth, bestHeight));
         //datePicker.getJDateInstantPanel().ge
 
-        datePicker.getJFormattedTextField().setFont(numActMarField.getFont());
+        datePicker.getJFormattedTextField().setFont(MyApp.theme.font);
         datePicker.setPreferredSize(datePicker.getJFormattedTextField().getPreferredSize());
 
         // to add some space to width of panel for the validation message
@@ -208,7 +220,7 @@ public class SearchJFrame extends JFrame {
 
         public ValidationAction() {
 
-            super("chercher");
+            super("Chercher");
         }
 
         /**

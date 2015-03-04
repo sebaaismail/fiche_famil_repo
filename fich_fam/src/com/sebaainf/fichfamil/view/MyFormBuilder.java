@@ -18,7 +18,7 @@ import java.util.ResourceBundle;
  */
 public class MyFormBuilder extends I15dPanelBuilder {
 
-    Font font = MyApp.theme.font.deriveFont(16f);
+    Font font = MyApp.theme.font;
 
     /**
      * Holds the row specification that is reused to describe rows
@@ -430,6 +430,9 @@ public class MyFormBuilder extends I15dPanelBuilder {
      */
     public void append(Component component) {
 
+        if (component.getClass() == JTabbedPane.class) {
+            component.setFont(font.deriveFont(Font.ITALIC, font.getSize()+1f));
+        }
         append(component, 1);
     }
 
@@ -513,7 +516,11 @@ public class MyFormBuilder extends I15dPanelBuilder {
      */
     public JLabel append(String textWithMnemonic, Component component) {
 
-        component.setFont(font.deriveFont(14f));
+        if (component.getClass() == JButton.class) {
+            component.setFont(font.deriveFont(font.getSize()+1f));
+        } else {
+            component.setFont(font);
+        }
         return append(textWithMnemonic, component, 1);
     }
 
