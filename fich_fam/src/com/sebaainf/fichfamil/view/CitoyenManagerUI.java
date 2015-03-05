@@ -1,17 +1,22 @@
 package com.sebaainf.fichfamil.view;
 
+import com.jgoodies.binding.PresentationModel;
 import com.jgoodies.binding.adapter.BasicComponentFactory;
 import com.jgoodies.binding.adapter.Bindings;
 import com.jgoodies.binding.adapter.ComboBoxAdapter;
 import com.jgoodies.binding.beans.BeanAdapter;
+import com.jgoodies.binding.beans.Model;
 import com.jgoodies.binding.list.SelectionInList;
 import com.jgoodies.binding.value.ComponentValueModel;
 import com.jgoodies.binding.value.ConverterFactory;
+import com.jgoodies.binding.value.ValueHolder;
 import com.jgoodies.binding.value.ValueModel;
+import com.jgoodies.common.collect.ArrayListModel;
 import com.jgoodies.forms.layout.FormLayout;
 import com.sebaainf.fichfamil.presentation.CitoyenPresentation;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 
 /**
@@ -37,6 +42,7 @@ public class CitoyenManagerUI {
     private JPanel panel;
 
 
+
     public CitoyenManagerUI(CitoyenPresentation presenter) {
 
         nom_fr = BasicComponentFactory.createTextField(presenter.getNom_fr(), false);
@@ -51,18 +57,30 @@ public class CitoyenManagerUI {
                 ,false,"feminin");
 
         //************************************************
-        ArrayList<SituationFam> situations_fam = new ArrayList();
-        situations_fam.add(new SituationFam("c", "Celibataire"));
-        situations_fam.add(new SituationFam("m", "Marié"));
-        situations_fam.add(new SituationFam("d", "Divorcé"));
-        situations_fam.add(new SituationFam("v", "Veuf"));
+        ListModel<SituationFam> situations_fam = new ArrayListModel<SituationFam>();
+        ((ArrayListModel)situations_fam).add(new SituationFam("c", "Celibataire"));
+        ((ArrayListModel)situations_fam).add(new SituationFam("m", "Marié"));
+        ((ArrayListModel)situations_fam).add(new SituationFam("d", "Divorcé"));
+        ((ArrayListModel)situations_fam).add(new SituationFam("v", "Veuf"));
 
         SelectionInList selection = new SelectionInList(situations_fam);
-        //selection.setSelectionHolder((new BeanAdapter(selection)).getValueModel("sitFam"));
 
-        ComboBoxAdapter comboboxAdapter = new ComboBoxAdapter(selection,presenter.getSit_famil());
+
+        //String str = valueModel.getValue().toString();
+
+        //selection.setSelectionHolder((new PresentationModel(sitFamChannel)).getModel("sitFam")); //todo todo
+
+        ComboBoxAdapter comboBoxAdapter = new ComboBoxAdapter(selection, presenter.getSit_famil());
+
+
+
+
+
 
         sit_famil = BasicComponentFactory.createComboBox(selection);
+        sit_famil.setModel(comboBoxAdapter);
+
+
         //************************************************
 
         p_pere = BasicComponentFactory.createTextField(presenter.getP_pere(), false);
@@ -106,9 +124,9 @@ public class CitoyenManagerUI {
         return panel;
     }
 
-    private class SituationFam {
-        private String sitFam;
-        private String text;
+    class SituationFam extends Model {
+        private String sitFam = "";
+        private String text = "";
 
         SituationFam(String sitFam, String text) {
             this.sitFam = sitFam;
@@ -117,7 +135,7 @@ public class CitoyenManagerUI {
 
         public String toString() {
 
-            return this.text;
+            return this.sitFam;
         }
 
     }

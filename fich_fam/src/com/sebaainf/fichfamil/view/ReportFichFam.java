@@ -17,7 +17,7 @@ import java.util.Vector;
  */
 public class ReportFichFam {
 
-    public static void reportFicheFam(FicheFam ficheFam) {
+    public static void report(FicheFam ficheFam) {
 
 
         System.out.println("Welcome to Fiche familiale app... testing nested beans jasper report");

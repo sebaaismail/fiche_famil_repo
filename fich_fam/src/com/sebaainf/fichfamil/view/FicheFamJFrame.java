@@ -63,6 +63,7 @@ public class FicheFamJFrame extends JFrame {
     private JComponent buildEpouxInfoPanel() {
 
         //todo
+        ficheFam.getCitoyen().setSit_famil("v");
         CitoyenPresentation presenter = new CitoyenPresentation(ficheFam.getCitoyen());
         CitoyenManagerUI app = new CitoyenManagerUI(presenter);
 

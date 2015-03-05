@@ -2,6 +2,7 @@ package com.sebaainf.fichfamil.presentation;
 
 import com.jgoodies.binding.PresentationModel;
 import com.jgoodies.binding.value.ComponentValueModel;
+import com.jgoodies.binding.value.ValueModel;
 import com.sebaainf.fichfamil.citoyen.Citoyen;
 
 /**
@@ -90,6 +91,7 @@ public class CitoyenPresentation {
 
         return sit_famil;
     }
+
 
     public ComponentValueModel getP_pere() {
 

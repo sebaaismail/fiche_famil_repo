@@ -2,7 +2,8 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="tryNestedReport1" columnDirection="RTL" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ef6dcc71-ae96-40cb-9615-160a518fee7f">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="190"/>
+	<property name="ireport.background.image.properties" value="true,true,0.25,21,1,0,-17,586,847"/>
 	<subDataset name="dataset1" uuid="e4f64b48-2190-4db1-ad94-eb3caf424efc"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["C:\\Users\\admin\\IdeaProjects\\fich_fam\\reports\\"]]></defaultValueExpression>
@@ -35,102 +36,103 @@
 		<fieldDescription><![CDATA[simpleDateFormat]]></fieldDescription>
 	</field>
 	<background>
-		<band splitType="Stretch"/>
-	</background>
-	<title>
-		<band height="13" splitType="Stretch"/>
-	</title>
-	<pageHeader>
-		<band height="6" splitType="Stretch"/>
-	</pageHeader>
-	<columnHeader>
-		<band splitType="Stretch"/>
-	</columnHeader>
-	<detail>
-		<band height="564" splitType="Stretch">
+		<band height="752" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="572" height="752" uuid="4dbd4de1-82f1-4421-8926-54f3971851b2"/>
+				<imageExpression><![CDATA["C:\\projects\\git_repos\\fiche_famil_repo\\fich_fam\\reports\\FicheFam1.jpg"]]></imageExpression>
+			</image>
 			<textField pattern="dd MMMMM yyyy">
-				<reportElement x="206" y="67" width="115" height="20" uuid="20b7b97d-d078-4c97-9145-674c196b2c1b"/>
-				<textElement>
-					<font size="14" isBold="true"/>
+				<reportElement x="105" y="286" width="115" height="33" uuid="20b7b97d-d078-4c97-9145-674c196b2c1b"/>
+				<textElement textAlignment="Right">
+					<font fontName="Traditional Arabic" size="19" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{simpleDateFormat}.format($F{citoyen}.getDate_naiss())]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="206" y="87" width="100" height="20" uuid="e83d88e3-aa2e-43a8-83dd-5d41a5436c84"/>
-				<textElement>
-					<font size="14" isBold="true"/>
+				<reportElement x="74" y="320" width="147" height="32" uuid="e83d88e3-aa2e-43a8-83dd-5d41a5436c84"/>
+				<textElement textAlignment="Right">
+					<font fontName="Traditional Arabic" size="19" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{citoyen}.getCode_lieunaiss()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="182" y="47" width="100" height="20" uuid="134f0b51-faae-4c10-9e7f-ccc195c933c6"/>
-				<textElement>
-					<font size="14" isBold="true"/>
+				<reportElement x="59" y="247" width="166" height="32" uuid="134f0b51-faae-4c10-9e7f-ccc195c933c6"/>
+				<textElement textAlignment="Right">
+					<font fontName="Traditional Arabic" size="20" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[!($F{citoyen}.getSit_famil().equals("v")) ? "//" : "..."]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="182" y="27" width="139" height="20" uuid="3b84f0f0-e82b-498a-876e-e7933a09c906"/>
-				<textElement>
-					<font size="14" isBold="true"/>
+				<reportElement x="67" y="214" width="139" height="42" uuid="3b84f0f0-e82b-498a-876e-e7933a09c906"/>
+				<textElement textAlignment="Right">
+					<font fontName="Traditional Arabic" size="22" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{citoyen}.getPrenom_ar()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="182" y="0" width="139" height="20" uuid="a62a6ab1-dd99-4357-92db-b34733b263e9"/>
-				<textElement>
-					<font size="14" isBold="true"/>
+				<reportElement x="49" y="179" width="157" height="46" uuid="a62a6ab1-dd99-4357-92db-b34733b263e9"/>
+				<textElement textAlignment="Right">
+					<font fontName="Traditional Arabic" size="22" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{citoyen}.getNom_ar()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{citoyen}.getNom_ar()+" "]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="206" y="107" width="100" height="20" uuid="75088c31-4dba-412b-9584-7b9b1920b8de"/>
+				<reportElement x="100" y="354" width="116" height="35" uuid="75088c31-4dba-412b-9584-7b9b1920b8de"/>
+				<textElement textAlignment="Right">
+					<font fontName="Traditional Arabic" size="20" isBold="true"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{citoyen}.getP_pere()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="206" y="127" width="100" height="20" uuid="ab0dba23-3b84-4668-ac78-632eb4994933"/>
+				<reportElement x="100" y="387" width="116" height="32" uuid="ab0dba23-3b84-4668-ac78-632eb4994933"/>
+				<textElement textAlignment="Right">
+					<font fontName="Traditional Arabic" size="20" isBold="true"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{citoyen}.getNp_mere()]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd MMMMM yyyy">
-				<reportElement x="206" y="147" width="100" height="20" uuid="fd09ea2c-17c9-4d9c-a0cb-09081ada012d"/>
+				<reportElement x="90" y="482" width="116" height="36" uuid="fd09ea2c-17c9-4d9c-a0cb-09081ada012d"/>
+				<textElement textAlignment="Right">
+					<font fontName="Traditional Arabic" size="19" isBold="true"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{simpleDateFormat}.format($F{selectedFamily}.getDate_mar())]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="206" y="167" width="100" height="20" uuid="031db3b2-2765-4b4d-b779-8412f3d21113"/>
+				<reportElement x="90" y="507" width="116" height="36" uuid="031db3b2-2765-4b4d-b779-8412f3d21113"/>
+				<textElement textAlignment="Right">
+					<font fontName="Traditional Arabic" size="19" isBold="true"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{selectedFamily}.getLieu_mar()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="195" y="180" width="100" height="20" uuid="9b56389f-a3cd-4180-a55a-6d666fcf82f5"/>
+				<reportElement x="61" y="541" width="147" height="36" uuid="9b56389f-a3cd-4180-a55a-6d666fcf82f5"/>
+				<textElement textAlignment="Right">
+					<font fontName="Traditional Arabic" size="22" isBold="true"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{selectedFamily}.getEpouse().getNom_ar() +"  "+
 $F{selectedFamily}.getEpouse().getPrenom_ar()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="440" y="180" width="132" height="20" uuid="516fca28-f5f2-42b5-8d1b-b9916a63f987"/>
+				<reportElement x="333" y="637" width="138" height="26" uuid="516fca28-f5f2-42b5-8d1b-b9916a63f987"/>
+				<textElement>
+					<font fontName="Serif" size="20" isBold="true"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{citoyen}.getNom_fr() +"  "+ $F{citoyen}.getPrenom_fr()]]></textFieldExpression>
 			</textField>
 			<textField pattern="">
-				<reportElement x="406" y="37" width="140" height="30" uuid="9e9c52b9-6c43-4da2-ad69-7b8bbf1dc854"/>
+				<reportElement x="339" y="245" width="140" height="49" uuid="9e9c52b9-6c43-4da2-ad69-7b8bbf1dc854"/>
 				<textElement>
-					<font fontName="Simplified Arabic" size="16" isBold="true" pdfFontName="Times-Bold" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					<font fontName="Traditional Arabic" size="24" isBold="true" pdfFontName="Times-Bold" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{marge1}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="406" y="132" width="140" height="35" uuid="ed0cec4a-3615-43b1-a091-15b62d34d44a"/>
+				<reportElement x="339" y="498" width="140" height="45" uuid="ed0cec4a-3615-43b1-a091-15b62d34d44a"/>
 				<textElement>
-					<font fontName="Simplified Arabic" size="16" isBold="true"/>
+					<font fontName="Traditional Arabic" size="24" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{marge2}]]></textFieldExpression>
 			</textField>
 		</band>
-	</detail>
-	<columnFooter>
-		<band height="8" splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band height="11" splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band height="13" splitType="Stretch"/>
-	</summary>
+	</background>
 </jasperReport>

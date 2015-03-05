@@ -254,12 +254,12 @@ public class SearchJFrame extends JFrame {
                 FicheFam ficheFam = new FicheFam(adapter.getBean().getNumact_mar(), dateMar, lieu);
                 if (ficheFam.getSelectedFamily() != null) {
 
-                    JFrame ficheFrame = new FicheFamJFrame(ficheFam);
-                    ficheFrame.setVisible(true);
+                    //JFrame ficheFrame = new FicheFamJFrame(ficheFam);
+                    //ficheFrame.setVisible(true);
 
 
                     // todo this line is good when reporting
-                    //ReportFichFam.reportFicheFam(ficheFam);
+                    ReportFichFam.report(ficheFam);
                 } else {
                     JOptionPane.showMessageDialog(null, "Mariage introuvable !");
                 }
