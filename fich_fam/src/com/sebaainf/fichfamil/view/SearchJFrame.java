@@ -18,6 +18,7 @@ import com.sebaainf.fichfamil.common.FicheFam;
 import com.sebaainf.fichfamil.common.Mariage;
 import com.sebaainf.fichfamil.common.MyApp;
 import com.sebaainf.fichfamil.presentation.MariageValidator;
+import com.sebaainf.fichfamil.test.FicheFamTest;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
@@ -251,7 +252,8 @@ public class SearchJFrame extends JFrame {
             validationResultModel.setResult(result);
             if (!result.hasErrors()) {
 
-                FicheFam ficheFam = new FicheFam(adapter.getBean().getNumact_mar(), dateMar, lieu);
+                //FicheFam ficheFam = new FicheFam(adapter.getBean().getNumact_mar(), dateMar, lieu);
+                FicheFam ficheFam = FicheFamTest.getTestingFiche();
                 if (ficheFam.getSelectedFamily() != null) {
 
                     //JFrame ficheFrame = new FicheFamJFrame(ficheFam);

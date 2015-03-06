@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="tryNestedReport2" columnDirection="RTL" pageWidth="421" pageHeight="595" columnWidth="381" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isFloatColumnFooter="true" isIgnorePagination="true" uuid="90067f0a-9d2e-49dd-85bd-02260c8cd279">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="tryNestedReport2" columnDirection="RTL" pageWidth="394" pageHeight="581" columnWidth="394" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isFloatColumnFooter="true" isIgnorePagination="true" uuid="90067f0a-9d2e-49dd-85bd-02260c8cd279">
 	<property name="ireport.zoom" value="1.610510000000001"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="110"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="COUNT_ROWS" class="java.lang.Integer"/>
 	<parameter name="myText" class="java.lang.String"/>
 	<queryString>
@@ -36,65 +36,52 @@
 		<fieldDescription><![CDATA[sex]]></fieldDescription>
 	</field>
 	<background>
-		<band splitType="Stretch"/>
+		<band height="581" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="394" height="581" uuid="fa5b734d-77d0-4586-803e-83885afe811a"/>
+				<imageExpression><![CDATA["C:\\projects\\git_repos\\fiche_famil_repo\\fich_fam\\reports\\FicheFam2.jpg"]]></imageExpression>
+			</image>
+		</band>
 	</background>
-	<title>
-		<band splitType="Stretch"/>
-	</title>
-	<pageHeader>
-		<band height="112" splitType="Stretch"/>
-	</pageHeader>
 	<columnHeader>
-		<band splitType="Stretch"/>
+		<band height="104" splitType="Immediate"/>
 	</columnHeader>
 	<detail>
-		<band height="18" splitType="Immediate">
+		<band height="15" splitType="Immediate">
 			<textField>
-				<reportElement x="204" y="1" width="65" height="17" uuid="6241c098-7cbc-481d-b75f-8a8d281c7a89"/>
+				<reportElement x="180" y="0" width="80" height="15" uuid="6241c098-7cbc-481d-b75f-8a8d281c7a89"/>
 				<textElement textAlignment="Right">
-					<font fontName="Times New Roman" size="13" isBold="true"/>
+					<font fontName="Times New Roman" size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{prenom_enf}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="119" y="1" width="65" height="17" uuid="e7db1d73-0017-4f79-abb4-edb4992faff5"/>
-				<textElement textAlignment="Right">
-					<font fontName="Times New Roman" size="12" isBold="true"/>
+				<reportElement x="98" y="0" width="65" height="15" uuid="e7db1d73-0017-4f79-abb4-edb4992faff5"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="10" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{date_est_presume} ?  new SimpleDateFormat($P{myText} + "yyyy" ).format($F{date_naiss})
-: new SimpleDateFormat("yyyy-MM-dd").format($F{date_naiss})]]></textFieldExpression>
+: new SimpleDateFormat("yyyy/MM/dd").format($F{date_naiss})]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="41" y="1" width="80" height="17" uuid="d811a2ef-ab54-4ed1-b8e0-69ea392c22ee"/>
+				<reportElement x="19" y="0" width="96" height="15" uuid="d811a2ef-ab54-4ed1-b8e0-69ea392c22ee"/>
 				<textElement textAlignment="Right">
-					<font fontName="Times New Roman" size="13" isBold="true"/>
+					<font fontName="Times New Roman" size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{lieu_naiss}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="192" y="1" width="10" height="17" uuid="249ddd67-2a6d-4982-b0f0-6d467d38a351"/>
+				<reportElement x="158" y="0" width="18" height="15" uuid="249ddd67-2a6d-4982-b0f0-6d467d38a351"/>
 				<textElement textAlignment="Right">
-					<font fontName="Times New Roman" size="13" isBold="true"/>
+					<font fontName="Times New Roman" size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{sex}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement isPrintRepeatedValues="false" x="25" y="17" width="267" height="1" uuid="82ac8276-827c-4396-bbc0-c643d9ee2ecf">
+				<reportElement isPrintRepeatedValues="false" x="27" y="14" width="240" height="1" uuid="96ce246b-d7a3-447d-b6e4-2d8c4aef8a2d">
 					<printWhenExpression><![CDATA[$V{REPORT_COUNT} == $P{COUNT_ROWS}]]></printWhenExpression>
 				</reportElement>
-				<graphicElement>
-					<pen lineStyle="Double"/>
-				</graphicElement>
 			</line>
 		</band>
 	</detail>
-	<columnFooter>
-		<band height="2" splitType="Prevent"/>
-	</columnFooter>
-	<pageFooter>
-		<band height="50" splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band height="42" splitType="Stretch"/>
-	</summary>
 </jasperReport>

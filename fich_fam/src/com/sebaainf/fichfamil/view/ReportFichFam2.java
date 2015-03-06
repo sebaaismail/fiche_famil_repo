@@ -9,13 +9,12 @@ import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 /**
  * Created by admin on 07/02/2015.
  */
-public class ReportFichFam {
+public class ReportFichFam2 {
 
     public static void report(FicheFam ficheFam) {
 
@@ -48,13 +47,23 @@ public class ReportFichFam {
             beanDs2 = new JRBeanCollectionDataSource(data.iterator().next().getEnfants());
 
             parameters.put("COUNT_ROWS", beanDs2.getData().size());
-            parameters.put("myText", " سنـة ");
+            parameters.put("myText", "سنـة ");
 
             jasperDesign1 = JRXmlLoader.load("reports/tryNestedReport1.jrxml");
             jasperDesign2 = JRXmlLoader.load("reports/tryNestedReport2.jrxml");
 
+            Collection<Enfant> infos = (Collection<Enfant>) beanDs2.getData();
+            TreeSet<JRDesignVariable> prenomTreeSet = new TreeSet<JRDesignVariable>();
+
+            JRDesignVariable prenomVar;
 
 
+            for(Enfant enfant : infos) {
+                //todo
+                prenomVar = new JRDesignVariable();
+
+                jasperDesign2.addVariable(new JRDesignVariable());
+            }
 
 
             jasperReport1 = JasperCompileManager.compileReport(jasperDesign1);

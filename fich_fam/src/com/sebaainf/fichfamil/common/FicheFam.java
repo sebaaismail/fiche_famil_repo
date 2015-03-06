@@ -7,6 +7,7 @@ import com.sebaainf.fichfamil.persistance.MyDaosCitoyen;
 
 import java.sql.Date;
 import java.text.DateFormatSymbols;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 import java.util.TreeSet;
@@ -156,7 +157,7 @@ public class FicheFam {
                 TreeSet<Enfant> enfants = MyDaos.getEnfants(this.getSelectedFamily().getId_mar());
                 this.setEnfants(enfants);
 
-                this.prepareTexts();
+                //this.prepareTexts();
 /*
                     if (conjoint.getSit_famil().equals("m")) {
 
@@ -244,7 +245,7 @@ public class FicheFam {
         this.families = families;
     }
 
-    private void prepareTexts() {
+    public void prepareTexts() {
 
         if (this.getCitoyen().getId_deces() == 0) {
             if (!this.getCitoyen().getEst_masculin()) {
@@ -285,5 +286,7 @@ public class FicheFam {
         }
 
     }
+
+
 
 }
