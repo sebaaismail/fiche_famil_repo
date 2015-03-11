@@ -6,6 +6,7 @@ package com.sebaainf.fichfamil.test;
 
 import com.jgoodies.forms.builder.DefaultFormBuilder;
 import com.jgoodies.forms.layout.FormLayout;
+import com.sebaainf.fichfamil.common.MyApp;
 import com.sebaainf.fichfamil.view.JPanelLieu;
 import com.sebaainf.fichfamil.view.MyDateFormatter;
 import org.jdatepicker.impl.JDatePanelImpl;
@@ -69,7 +70,7 @@ public class JGoodiesFrameTest extends JFrame {
         //FormLayout layout = new FormLayout("right:pref, $lcgap, left:max(pref;80dlu)");
         //CellConstraints cc = new CellConstraints();
 
-        JPanelLieu pan = new JPanelLieu();
+        JPanelLieu pan = new JPanelLieu(MyApp.default_id_c);
 
         DefaultFormBuilder builder = new DefaultFormBuilder(layout);
 

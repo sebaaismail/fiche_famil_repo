@@ -45,7 +45,7 @@ public class SearchJFrame extends JFrame {
     private JComponent messageLabel = ValidationResultViewFactory.createReportList(validationResultModel);
 
     private JDatePickerImpl datePicker;
-    private JPanelLieu pan = new JPanelLieu();
+    private JPanelLieu pan = new JPanelLieu(MyApp.default_id_c);
 
     public SearchJFrame() {
 
@@ -256,12 +256,12 @@ public class SearchJFrame extends JFrame {
                 FicheFam ficheFam = FicheFamTest.getTestingFiche();
                 if (ficheFam.getSelectedFamily() != null) {
 
-                    //JFrame ficheFrame = new FicheFamJFrame(ficheFam);
-                    //ficheFrame.setVisible(true);
+                    JFrame ficheFrame = new FicheFamJFrame(ficheFam);
+                    ficheFrame.setVisible(true);
 
 
                     // todo this line is good when reporting
-                    ReportFichFam.report(ficheFam);
+                    //ReportFichFam.report(ficheFam);
                 } else {
                     JOptionPane.showMessageDialog(null, "Mariage introuvable !");
                 }

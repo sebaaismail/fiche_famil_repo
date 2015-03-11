@@ -31,7 +31,7 @@ public class Citoyen extends Model {
     public static final String PROPERTY_ID_CIT = "id_cit";
     public static final String PROPERTY_NUM_ACTNAISS = "num_actnaiss";
     public static final String PROPERTY_ANNEE_ACTNAISS = "annee_actnaiss";
-    public static final String PROPERTY_CODE_LIEUNAISS = "annee_actnaiss";
+    public static final String PROPERTY_CODE_LIEUNAISS = "code_lieunaiss";
     public static final String PROPERTY_NOM_FR = "nom_fr";
     public static final String PROPERTY_PRENOM_FR = "prenom_fr";
     public static final String PROPERTY_NOM_AR = "nom_ar";

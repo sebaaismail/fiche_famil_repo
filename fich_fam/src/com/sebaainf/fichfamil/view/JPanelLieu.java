@@ -36,7 +36,8 @@ public class JPanelLieu extends JComponent {
     private ValueModel id_c_Model;
 
 
-    public JPanelLieu() {
+    public JPanelLieu(int selectedCommune) {
+        // par defaut set MyApp.default_id_c in place of selectedCommune
 
         //this.default_id_c = default_id_c;
 
@@ -47,7 +48,8 @@ public class JPanelLieu extends JComponent {
 
         ListModel wilayas = new ArrayListModel(Wilaya.getWilayas());
 
-        final int numW = MyApp.default_id_c / 100;
+
+        final int numW = selectedCommune/ 100;
         Wilaya defaultwilaya = null;
 
 //*
@@ -88,7 +90,7 @@ public class JPanelLieu extends JComponent {
         Commune defaultCommune = null;
 
         for (int i = 0; i < communes.getSize(); i++) {
-            if (((Commune) communes.getElementAt(i)).getId_c() == MyApp.default_id_c) {
+            if (((Commune) communes.getElementAt(i)).getId_c() == selectedCommune) {
                 defaultCommune = (Commune) communes.getElementAt(i);
                 break;
             }

@@ -7,6 +7,8 @@ import com.sebaainf.fichfamil.presentation.CitoyenPresentation;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Created by ${sebaainf.com} on 23/02/2015.
@@ -62,10 +64,11 @@ public class FicheFamJFrame extends JFrame {
 
     private JComponent buildEpouxInfoPanel() {
 
-        //todo
+        //todo Testing JComboBox binding
         ficheFam.getCitoyen().setSit_famil("v");
         CitoyenPresentation presenter = new CitoyenPresentation(ficheFam.getCitoyen());
-        CitoyenManagerUI app = new CitoyenManagerUI(presenter);
+        // TODO set CitoyenManagerUI in place CitoyenManagerUI_Test
+        CitoyenManagerUI_Test app = new CitoyenManagerUI_Test(presenter);
 
         return app.getPanel();
     }
@@ -88,6 +91,15 @@ public class FicheFamJFrame extends JFrame {
 
 
         //builder.getPanel().setLayout(layout);
+        //todo for testing
+        buttonApercu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                 JOptionPane.showMessageDialog(null, "citoyen "+ ficheFam.getCitoyen().getNom_fr()
+                 + " " + ficheFam.getCitoyen().getPrenom_fr()+ " est comme situation familiale : " +
+                 ficheFam.getCitoyen().getSit_famil());
+            }
+        });
 
         builder.addGlue();
         builder.addButton(buttonApercu);

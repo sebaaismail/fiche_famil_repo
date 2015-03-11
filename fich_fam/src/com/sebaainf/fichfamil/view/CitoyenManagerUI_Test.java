@@ -2,29 +2,25 @@ package com.sebaainf.fichfamil.view;
 
 import com.jgoodies.binding.PresentationModel;
 import com.jgoodies.binding.adapter.BasicComponentFactory;
-import com.jgoodies.binding.adapter.Bindings;
 import com.jgoodies.binding.adapter.ComboBoxAdapter;
-import com.jgoodies.binding.beans.BeanAdapter;
 import com.jgoodies.binding.beans.Model;
 import com.jgoodies.binding.beans.PropertyAdapter;
 import com.jgoodies.binding.list.SelectionInList;
-import com.jgoodies.binding.value.ComponentValueModel;
-import com.jgoodies.binding.value.ConverterFactory;
 import com.jgoodies.binding.value.ValueHolder;
 import com.jgoodies.binding.value.ValueModel;
 import com.jgoodies.common.collect.ArrayListModel;
 import com.jgoodies.forms.layout.FormLayout;
-import com.sebaainf.fichfamil.common.MyApp;
 import com.sebaainf.fichfamil.presentation.CitoyenPresentation;
 
 import javax.swing.*;
-import java.awt.*;
+import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by ${sebaainf.com} on 03/03/2015.
  */
-public class CitoyenManagerUI {
+public class CitoyenManagerUI_Test {
 
     private final JTextField nom_fr ;
     private final JTextField prenom_fr;
@@ -46,7 +42,7 @@ public class CitoyenManagerUI {
 
 
 
-    public CitoyenManagerUI(CitoyenPresentation presenter) {
+    public CitoyenManagerUI_Test(CitoyenPresentation presenter) {
 
         nom_fr = BasicComponentFactory.createTextField(presenter.getNom_fr(), false);
         prenom_fr = BasicComponentFactory.createTextField(presenter.getPrenom_fr(), false);
@@ -82,7 +78,7 @@ public class CitoyenManagerUI {
         //*/
 
         //*********************** /best
-        //*
+        /*
         ArrayList selection = new ArrayList();
         selection.add("c");
         selection.add("m");
@@ -97,15 +93,21 @@ public class CitoyenManagerUI {
         // * *********************** /best
         //*/
 
-        /*
+        //*
         SelectionInList selectionInList = new SelectionInList((ListModel) situations_fam);
-        ValueModel selectionHolder = new ValueHolder();
-        BeanAdapter adapter = new BeanAdapter(selectionHolder, true);
-        adapter.setValue("sitFam", presenter.getSit_famil().getValue());
+        // set the presentation model up to the first bean.
+        PresentationModel beanPresentationModel = new PresentationModel(
+                situations_fam.get(0));
 
-        ComboBoxAdapter comboBoxAdapter = new ComboBoxAdapter(selectionInList, selectionHolder);
-        sit_famil = new JComboBox();
-        sit_famil.setModel(comboBoxAdapter);
+        // create a property adapter for the presentation model 'bean' property.
+        ValueModel beanProperty = new PropertyAdapter(beanPresentationModel, "bean");
+        // wire our new combobox up to that property adapter.
+        sit_famil = new JComboBox(new ComboBoxAdapter((List) situations_fam,beanProperty));
+        //ValueModel selectionHolderSitFam = presenter.getSit_famil();
+
+        //*ComboBoxAdapter comboBoxAdapter = new ComboBoxAdapter(selectionInList, selectionHolderSitFam);
+        //*sit_famil = new JComboBox();
+        //*sit_famil.setModel(comboBoxAdapter);
         //*/
         // Lieu de naissance
         ValueModel selectionHolderLieuNaiss = presenter.getCode_lieunaiss();
@@ -162,7 +164,8 @@ public class CitoyenManagerUI {
         return panel;
     }
 
-    public class SituationFam {
+    public class SituationFam extends Model{
+
 
         public String getSitFam() {
 
@@ -170,8 +173,9 @@ public class CitoyenManagerUI {
         }
 
         public void setSitFam(String sitFam) {
-
+            String oldValue = sitFam;
             this.sitFam = sitFam;
+            this.firePropertyChange("sitFam", oldValue, sitFam);
         }
 
         public String getText() {
@@ -180,8 +184,9 @@ public class CitoyenManagerUI {
         }
 
         public void setText(String text) {
-
+            String oldValue = sitFam;
             this.text = text;
+            this.firePropertyChange("text", oldValue, sitFam);
         }
 
         private String sitFam = "";
@@ -195,7 +200,7 @@ public class CitoyenManagerUI {
 
         public String toString() {
 
-            return this.text;
+            return this.sitFam;
         }
 
     }
