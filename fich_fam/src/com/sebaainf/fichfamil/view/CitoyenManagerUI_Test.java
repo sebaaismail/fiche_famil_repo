@@ -3,8 +3,10 @@ package com.sebaainf.fichfamil.view;
 import com.jgoodies.binding.PresentationModel;
 import com.jgoodies.binding.adapter.BasicComponentFactory;
 import com.jgoodies.binding.adapter.ComboBoxAdapter;
+import com.jgoodies.binding.beans.BeanAdapter;
 import com.jgoodies.binding.beans.Model;
 import com.jgoodies.binding.beans.PropertyAdapter;
+import com.jgoodies.binding.beans.PropertyConnector;
 import com.jgoodies.binding.list.SelectionInList;
 import com.jgoodies.binding.value.ValueHolder;
 import com.jgoodies.binding.value.ValueModel;
@@ -13,6 +15,8 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.sebaainf.fichfamil.presentation.CitoyenPresentation;
 
 import javax.swing.*;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +46,7 @@ public class CitoyenManagerUI_Test {
 
 
 
-    public CitoyenManagerUI_Test(CitoyenPresentation presenter) {
+    public CitoyenManagerUI_Test(final CitoyenPresentation presenter) {
 
         nom_fr = BasicComponentFactory.createTextField(presenter.getNom_fr(), false);
         prenom_fr = BasicComponentFactory.createTextField(presenter.getPrenom_fr(), false);
@@ -58,7 +62,7 @@ public class CitoyenManagerUI_Test {
 
         //************************************************
         // 2 look page 255 selectionInList as bean channel
-        ArrayListModel situations_fam = new ArrayListModel();
+        ArrayListModel<SituationFam> situations_fam = new ArrayListModel();
         situations_fam.add(new SituationFam("c", "Celibataire"));
         situations_fam.add(new SituationFam("m", "Marié"));
         situations_fam.add(new SituationFam("d", "Divorcé"));
@@ -96,11 +100,27 @@ public class CitoyenManagerUI_Test {
         //*
         SelectionInList selectionInList = new SelectionInList((ListModel) situations_fam);
         // set the presentation model up to the first bean.
-        PresentationModel beanPresentationModel = new PresentationModel(
-                situations_fam.get(0));
+        SituationFam theSitFam = null;
+        for (SituationFam obj : situations_fam) {
+            if (obj.sitFam.equals(presenter.getSit_famil().getValue())) {
+                theSitFam = obj;
+                break;
+            }
+        }
+        final PresentationModel beanPresentationModel = new PresentationModel(theSitFam);
 
         // create a property adapter for the presentation model 'bean' property.
         ValueModel beanProperty = new PropertyAdapter(beanPresentationModel, "bean");
+/*        beanPresentationModel.getModel("sitFam").addPropertyChangeListener(new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+                presenter.getSit_famil().setValue(beanPresentationModel.getValue("sitFam"));
+            }
+        });*/
+        PropertyConnector.connectAndUpdate(beanPresentationModel.getModel("sitFam"),
+                presenter.citoyen, "sit_famil");
+//        PropertyConnector.connect(beanPresentationModel.getBeanChannel().getValue(), "sitFam",
+//               presenter.citoyen, "sit_famil");
         // wire our new combobox up to that property adapter.
         sit_famil = new JComboBox(new ComboBoxAdapter((List) situations_fam,beanProperty));
         //ValueModel selectionHolderSitFam = presenter.getSit_famil();
@@ -200,7 +220,7 @@ public class CitoyenManagerUI_Test {
 
         public String toString() {
 
-            return this.sitFam;
+            return this.text;
         }
 
     }

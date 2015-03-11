@@ -65,7 +65,7 @@ public class FicheFamJFrame extends JFrame {
     private JComponent buildEpouxInfoPanel() {
 
         //todo Testing JComboBox binding
-        ficheFam.getCitoyen().setSit_famil("v");
+        //ficheFam.getCitoyen().setSit_famil("d");
         CitoyenPresentation presenter = new CitoyenPresentation(ficheFam.getCitoyen());
         // TODO set CitoyenManagerUI in place CitoyenManagerUI_Test
         CitoyenManagerUI_Test app = new CitoyenManagerUI_Test(presenter);

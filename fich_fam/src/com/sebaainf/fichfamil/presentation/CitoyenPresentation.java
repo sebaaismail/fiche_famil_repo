@@ -12,7 +12,7 @@ import com.sebaainf.fichfamil.citoyen.Citoyen;
  */
 public class CitoyenPresentation {
 
-    final private Citoyen citoyen;
+    final public Citoyen citoyen;
 
 
     private ComponentValueModel id_cit;
