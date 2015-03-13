@@ -36,6 +36,7 @@ public class CitoyenPresentation {
         this.citoyen = citoyen;
         PresentationModel citoyenAdapter= new PresentationModel(citoyen);
 
+
         nom_fr = citoyenAdapter.getComponentModel(Citoyen.PROPERTY_NOM_FR);
         prenom_fr = citoyenAdapter.getComponentModel(Citoyen.PROPERTY_PRENOM_FR);
         nom_ar = citoyenAdapter.getComponentModel(Citoyen.PROPERTY_NOM_AR);

@@ -100,6 +100,12 @@ public class FicheFamJFrame extends JFrame {
                  ficheFam.getCitoyen().getSit_famil());
             }
         });
+        buttonModifier.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ficheFam.getCitoyen().setSit_famil("c");
+            }
+        });
 
         builder.addGlue();
         builder.addButton(buttonApercu);

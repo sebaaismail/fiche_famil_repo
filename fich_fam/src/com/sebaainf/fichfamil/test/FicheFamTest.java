@@ -53,7 +53,7 @@ public class FicheFamTest {
         epoux.setNom_fr("SAAD");
         epoux.setPrenom_fr("ali");
         epoux.setDate_naiss(date_naiss1);
-        epoux.setSit_famil("m");
+        epoux.setSit_famil("v");
         epoux.setId_cit(111);
         epoux.setId_deces(0);
         epoux.setCode_lieunaiss(3114);

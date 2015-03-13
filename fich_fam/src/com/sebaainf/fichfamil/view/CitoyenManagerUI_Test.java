@@ -2,6 +2,7 @@ package com.sebaainf.fichfamil.view;
 
 import com.jgoodies.binding.PresentationModel;
 import com.jgoodies.binding.adapter.BasicComponentFactory;
+import com.jgoodies.binding.adapter.Bindings;
 import com.jgoodies.binding.adapter.ComboBoxAdapter;
 import com.jgoodies.binding.beans.BeanAdapter;
 import com.jgoodies.binding.beans.Model;
@@ -12,6 +13,7 @@ import com.jgoodies.binding.value.ValueHolder;
 import com.jgoodies.binding.value.ValueModel;
 import com.jgoodies.common.collect.ArrayListModel;
 import com.jgoodies.forms.layout.FormLayout;
+import com.sebaainf.fichfamil.citoyen.Citoyen;
 import com.sebaainf.fichfamil.presentation.CitoyenPresentation;
 
 import javax.swing.*;
@@ -62,7 +64,7 @@ public class CitoyenManagerUI_Test {
 
         //************************************************
         // 2 look page 255 selectionInList as bean channel
-        ArrayListModel<SituationFam> situations_fam = new ArrayListModel();
+        final ArrayListModel<SituationFam> situations_fam = new ArrayListModel();
         situations_fam.add(new SituationFam("c", "Celibataire"));
         situations_fam.add(new SituationFam("m", "Marié"));
         situations_fam.add(new SituationFam("d", "Divorcé"));
@@ -98,7 +100,7 @@ public class CitoyenManagerUI_Test {
         //*/
 
         //*
-        SelectionInList selectionInList = new SelectionInList((ListModel) situations_fam);
+
         // set the presentation model up to the first bean.
         SituationFam theSitFam = null;
         for (SituationFam obj : situations_fam) {
@@ -111,18 +113,68 @@ public class CitoyenManagerUI_Test {
 
         // create a property adapter for the presentation model 'bean' property.
         ValueModel beanProperty = new PropertyAdapter(beanPresentationModel, "bean");
+        SelectionInList selectionInList
+                = new SelectionInList((ListModel) situations_fam, beanProperty);
+
 /*        beanPresentationModel.getModel("sitFam").addPropertyChangeListener(new PropertyChangeListener() {
             @Override
             public void propertyChange(PropertyChangeEvent evt) {
                 presenter.getSit_famil().setValue(beanPresentationModel.getValue("sitFam"));
             }
         });*/
+        //*
+        // TODO when set mairié after changing selected comboBox client dont update ???
+        //* good
         PropertyConnector.connectAndUpdate(beanPresentationModel.getModel("sitFam"),
-                presenter.citoyen, "sit_famil");
-//        PropertyConnector.connect(beanPresentationModel.getBeanChannel().getValue(), "sitFam",
-//               presenter.citoyen, "sit_famil");
+                presenter.citoyen, Citoyen.PROPERTY_SIT_FAMIL);
+        // TODO but button modifier citoyen causes problem ???
+        //must delete this because it commit a bug in firing change events
+        //PropertyConnector.connectAndUpdate(presenter.getSit_famil(),
+          //    beanPresentationModel.getBean(), "sitFam");
+        //*/
+
         // wire our new combobox up to that property adapter.
-        sit_famil = new JComboBox(new ComboBoxAdapter((List) situations_fam,beanProperty));
+        //sit_famil = new JComboBox(new ComboBoxAdapter((List) situations_fam,beanProperty));
+        //ComboBoxAdapter adapter = new ComboBoxAdapter(selectionInList);
+        sit_famil = new JComboBox();
+        Bindings.bind(sit_famil, selectionInList);
+
+
+
+        // testing
+        PropertyChangeListener propChangelistner =  new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+
+                JOptionPane.showMessageDialog(null,
+                        "<html> property <b>" + evt.getPropertyName()
+                                + "</b> changed old Value = " + evt.getOldValue()
+                                + " new Value = " + evt.getNewValue() + "</html>");
+            }
+        };
+
+        //selectionInList.addPropertyChangeListener(propChangelistner);
+        //presenter.getSit_famil().addValueChangeListener(propChangelistner);
+        //selectionInList.addPropertyChangeListener("selection", propChangelistner);
+
+/*        presenter.getSit_famil().addValueChangeListener(new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+                sit_famil.update(sit_famil.getGraphics());
+               sit_famil.updateUI();
+
+            }
+        });*/
+
+                //*/
+       /*
+        ComboBoxAdapter adapter = new ComboBoxAdapter((List) situations_fam,beanProperty);
+        sit_famil = new JComboBox(adapter);
+        PropertyConnector connector = PropertyConnector.connect(beanPresentationModel.getValue("bean"), "sitFam",
+                presenter.citoyen, "sit_famil");
+        connector.updateProperty1();
+        connector.updateProperty2();
+        //*/
         //ValueModel selectionHolderSitFam = presenter.getSit_famil();
 
         //*ComboBoxAdapter comboBoxAdapter = new ComboBoxAdapter(selectionInList, selectionHolderSitFam);
@@ -193,9 +245,12 @@ public class CitoyenManagerUI_Test {
         }
 
         public void setSitFam(String sitFam) {
-            String oldValue = sitFam;
+            String oldValue = this.sitFam;
             this.sitFam = sitFam;
-            this.firePropertyChange("sitFam", oldValue, sitFam);
+            //if (oldValue != sitFam) {
+                this.firePropertyChange("sitFam", oldValue, sitFam);
+                System.out.println("oldValue = " + oldValue + " new = " + sitFam);
+            //}
         }
 
         public String getText() {
@@ -204,9 +259,12 @@ public class CitoyenManagerUI_Test {
         }
 
         public void setText(String text) {
-            String oldValue = sitFam;
+            String oldValue = this.text;
             this.text = text;
-            this.firePropertyChange("text", oldValue, sitFam);
+            //if (oldValue != text) {
+                this.firePropertyChange("text", oldValue, text);
+            //}
+
         }
 
         private String sitFam = "";
