@@ -1,6 +1,7 @@
 package com.sebaainf.fichfamil.common;
 
 import com.jgoodies.binding.beans.Model;
+import com.jgoodies.common.bean.Bean;
 import com.sebaainf.fichfamil.persistance.MyDaos;
 
 import java.util.TreeSet;
@@ -8,7 +9,7 @@ import java.util.TreeSet;
 /**
  * Created by admin on 06/02/2015.
  */
-public class Commune extends Model implements Comparable<Commune> {
+public class Commune extends Bean implements Comparable<Commune> {
 
     private int id_c;
     private String com_fr;

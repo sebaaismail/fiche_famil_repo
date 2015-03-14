@@ -3,12 +3,14 @@ package com.sebaainf.fichfamil.view;
 import com.jgoodies.forms.layout.FormLayout;
 import com.sebaainf.fichfamil.common.FicheFam;
 import com.sebaainf.fichfamil.common.MyApp;
+import com.sebaainf.fichfamil.presentation.CitoyenEditorModel;
 import com.sebaainf.fichfamil.presentation.CitoyenPresentation;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.EventObject;
 
 /**
  * Created by ${sebaainf.com} on 23/02/2015.
@@ -68,9 +70,13 @@ public class FicheFamJFrame extends JFrame {
         //ficheFam.getCitoyen().setSit_famil("d");
         CitoyenPresentation presenter = new CitoyenPresentation(ficheFam.getCitoyen());
         // TODO set CitoyenManagerUI in place CitoyenManagerUI_Test
-        CitoyenManagerUI_Test app = new CitoyenManagerUI_Test(presenter);
+        //CitoyenManagerUI_Test app = new CitoyenManagerUI_Test(presenter);
 
-        return app.getPanel();
+        //return app.getPanel();
+        CitoyenEditorModel model = new CitoyenEditorModel(ficheFam.getCitoyen());
+        CitoyenEditorView view = new CitoyenEditorView(model);
+
+        return view.showDialog(new EventObject(""));
     }
 
     private JComponent buildButtonBarPanel() {
@@ -104,6 +110,9 @@ public class FicheFamJFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ficheFam.getCitoyen().setSit_famil("c");
+                JOptionPane.showMessageDialog(null, "citoyen : "
+                        + ficheFam.getCitoyen().getNom_fr()
+                + " ne le : " + ficheFam.getCitoyen().getDate_naiss());
             }
         });
 

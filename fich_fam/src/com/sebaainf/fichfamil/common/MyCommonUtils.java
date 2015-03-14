@@ -5,6 +5,7 @@ import com.jgoodies.binding.value.ValueModel;
 import org.apache.commons.beanutils.converters.AbstractConverter;
 
 import java.beans.PropertyChangeListener;
+import java.sql.Date;
 
 /**
  * Class contain common functions
@@ -15,3 +16,4 @@ public class MyCommonUtils {
 
 
 }
+

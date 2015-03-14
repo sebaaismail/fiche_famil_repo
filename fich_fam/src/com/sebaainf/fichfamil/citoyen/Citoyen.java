@@ -2,13 +2,14 @@ package com.sebaainf.fichfamil.citoyen;
 
 import com.jenkov.db.itf.mapping.AGetterMapping;
 import com.jgoodies.binding.beans.Model;
+import com.jgoodies.common.bean.Bean;
 
 import java.sql.Date;
 
 /**
  * Created by admin on 10/01/2015.
  */
-public class Citoyen extends Model {
+public class Citoyen extends Bean {
 
 
     private String sit_famil = "c";
@@ -52,12 +53,12 @@ public class Citoyen extends Model {
         return id_cit;
     }
 
-    public void setId_cit(int id_cit) {
+    public void setId_cit(int newId_cit) {
 
-        int oldValue = this.id_cit;
-        this.id_cit = id_cit;
-        if (oldValue != id_cit) {
-            firePropertyChange("id_cit", oldValue, id_cit);
+        int oldId_cit = this.id_cit;
+        this.id_cit = newId_cit;
+        if (oldId_cit != newId_cit) {
+            firePropertyChange(Citoyen.PROPERTY_ID_CIT, oldId_cit, newId_cit);
         }
 
     }
@@ -67,12 +68,12 @@ public class Citoyen extends Model {
         return num_actnaiss;
     }
 
-    public void setNum_actnaiss(int num_actnaiss) {
+    public void setNum_actnaiss(int newNum_actnaiss) {
 
-        int oldValue = this.num_actnaiss;
-        this.num_actnaiss = num_actnaiss;
-        if (oldValue != num_actnaiss) {
-            firePropertyChange("num_actnaiss", oldValue, num_actnaiss);
+        int oldNum_actnaiss = this.num_actnaiss;
+        this.num_actnaiss = newNum_actnaiss;
+        if (oldNum_actnaiss != newNum_actnaiss) {
+            firePropertyChange(Citoyen.PROPERTY_NUM_ACTNAISS, oldNum_actnaiss, newNum_actnaiss);
 
         }
     }
@@ -82,12 +83,12 @@ public class Citoyen extends Model {
         return annee_actnaiss;
     }
 
-    public void setAnnee_actnaiss(int annee_actnaiss) {
+    public void setAnnee_actnaiss(int newAnnee_actnaiss) {
 
-        int oldValue = this.annee_actnaiss;
-        this.annee_actnaiss = annee_actnaiss;
-        if (oldValue != annee_actnaiss) {
-            firePropertyChange("annee_actnaiss", oldValue, annee_actnaiss);
+        int oldAnnee_actnaiss = this.annee_actnaiss;
+        this.annee_actnaiss = newAnnee_actnaiss;
+        if (oldAnnee_actnaiss != newAnnee_actnaiss) {
+            firePropertyChange(Citoyen.PROPERTY_ANNEE_ACTNAISS, oldAnnee_actnaiss, newAnnee_actnaiss);
         }
 
     }
@@ -97,12 +98,12 @@ public class Citoyen extends Model {
         return code_lieunaiss;
     }
 
-    public void setCode_lieunaiss(int code_lieunaiss) {
+    public void setCode_lieunaiss(int newCode_lieunaiss) {
 
-        int oldValue = this.code_lieunaiss;
-        this.code_lieunaiss = code_lieunaiss;
-        if (oldValue != code_lieunaiss) {
-            firePropertyChange("code_lieunaiss", oldValue, code_lieunaiss);
+        int oldCode_lieunaiss = this.code_lieunaiss;
+        this.code_lieunaiss = newCode_lieunaiss;
+        if (oldCode_lieunaiss != newCode_lieunaiss) {
+            firePropertyChange(Citoyen.PROPERTY_CODE_LIEUNAISS, oldCode_lieunaiss, newCode_lieunaiss);
         }
 
     }
@@ -112,12 +113,12 @@ public class Citoyen extends Model {
         return nom_fr;
     }
 
-    public void setNom_fr(String nom_fr) {
+    public void setNom_fr(String newNom_fr) {
 
-        String oldValue = this.nom_fr;
-        this.nom_fr = nom_fr;
-        if (oldValue != nom_fr) {
-            firePropertyChange("nom_fr", oldValue, nom_fr);
+        String oldNom_fr = this.nom_fr;
+        this.nom_fr = newNom_fr;
+        if (oldNom_fr != newNom_fr) {
+            firePropertyChange(Citoyen.PROPERTY_NOM_FR, oldNom_fr, newNom_fr);
         }
 
     }
@@ -127,12 +128,12 @@ public class Citoyen extends Model {
         return prenom_fr;
     }
 
-    public void setPrenom_fr(String prenom_fr) {
+    public void setPrenom_fr(String newPrenom_fr) {
 
-        String oldValue = this.prenom_fr;
-        this.prenom_fr = prenom_fr;
-        if (oldValue != prenom_fr) {
-            firePropertyChange("prenom_fr", oldValue, prenom_fr);
+        String oldPrenom_fr = this.prenom_fr;
+        this.prenom_fr = newPrenom_fr;
+        if (oldPrenom_fr != newPrenom_fr) {
+            firePropertyChange(Citoyen.PROPERTY_PRENOM_FR, oldPrenom_fr, newPrenom_fr);
         }
 
     }
@@ -142,12 +143,12 @@ public class Citoyen extends Model {
         return nom_ar;
     }
 
-    public void setNom_ar(String nom_ar) {
+    public void setNom_ar(String newNom_ar) {
 
-        String oldValue = this.nom_ar;
-        this.nom_ar = nom_ar;
-        if (oldValue != nom_ar) {
-            firePropertyChange("nom_ar", oldValue, nom_ar);
+        String oldNom_ar = this.nom_ar;
+        this.nom_ar = newNom_ar;
+        if (oldNom_ar != newNom_ar) {
+            firePropertyChange(Citoyen.PROPERTY_NOM_AR, oldNom_ar, newNom_ar);
         }
 
     }
@@ -157,12 +158,12 @@ public class Citoyen extends Model {
         return prenom_ar;
     }
 
-    public void setPrenom_ar(String prenom_ar) {
+    public void setPrenom_ar(String newPrenom_ar) {
 
-        String oldValue = this.prenom_ar;
-        this.prenom_ar = prenom_ar;
-        if (oldValue != prenom_ar) {
-            firePropertyChange("prenom_ar", oldValue, prenom_ar);
+        String oldPrenom_ar = this.prenom_ar;
+        this.prenom_ar = newPrenom_ar;
+        if (oldPrenom_ar != newPrenom_ar) {
+            firePropertyChange(Citoyen.PROPERTY_PRENOM_AR, oldPrenom_ar, newPrenom_ar);
         }
 
     }
@@ -172,12 +173,12 @@ public class Citoyen extends Model {
         return date_naiss;
     }
 
-    public void setDate_naiss(Date date_naiss) {
+    public void setDate_naiss(Date newDate_naiss) {
 
-        Date oldValue = this.date_naiss;
-        this.date_naiss = date_naiss;
-        if (oldValue != date_naiss) {
-            firePropertyChange("date_naiss", oldValue, date_naiss);
+        Date oldDate_naiss = this.date_naiss;
+        this.date_naiss = newDate_naiss;
+        if (oldDate_naiss != newDate_naiss) {
+            firePropertyChange(Citoyen.PROPERTY_DATE_NAISS, oldDate_naiss, newDate_naiss);
         }
 
     }
@@ -187,12 +188,12 @@ public class Citoyen extends Model {
         return p_pere;
     }
 
-    public void setP_pere(String p_pere) {
+    public void setP_pere(String newP_pere) {
 
-        String oldValue = this.p_pere;
-        this.p_pere = p_pere;
-        if (oldValue != p_pere) {
-            firePropertyChange("p_pere", oldValue, p_pere);
+        String oldP_pere = this.p_pere;
+        this.p_pere = newP_pere;
+        if (oldP_pere != newP_pere) {
+            firePropertyChange(Citoyen.PROPERTY_P_PERE, oldP_pere, newP_pere);
         }
 
     }
@@ -202,12 +203,12 @@ public class Citoyen extends Model {
         return np_mere;
     }
 
-    public void setNp_mere(String np_mere) {
+    public void setNp_mere(String newNp_mere) {
 
-        String oldValue = this.np_mere;
-        this.np_mere = np_mere;
-        if (oldValue != np_mere) {
-            firePropertyChange("np_mere", oldValue, np_mere);
+        String oldNp_mere = this.np_mere;
+        this.np_mere = newNp_mere;
+        if (oldNp_mere != newNp_mere) {
+            firePropertyChange(Citoyen.PROPERTY_NP_MERE, oldNp_mere, newNp_mere);
         }
 
     }
@@ -217,12 +218,12 @@ public class Citoyen extends Model {
         return est_masculin;
     }
 
-    public void setEst_masculin(Boolean est_masculin) {
+    public void setEst_masculin(Boolean newEst_masculin) {
 
-        Boolean oldValue = this.est_masculin;
-        this.est_masculin = est_masculin;
-        if (oldValue != est_masculin) {
-            firePropertyChange("est_masculin", oldValue, est_masculin);
+        Boolean oldEst_masculin = this.est_masculin;
+        this.est_masculin = newEst_masculin;
+        if (oldEst_masculin != newEst_masculin) {
+            firePropertyChange(Citoyen.PROPERTY_EST_MASCULIN, oldEst_masculin, newEst_masculin);
         }
 
     }
@@ -232,12 +233,12 @@ public class Citoyen extends Model {
         return id_deces;
     }
 
-    public void setId_deces(int id_deces) {
+    public void setId_deces(int newId_deces) {
 
-        int oldValue = this.id_deces;
-        this.id_deces = id_deces;
-        if (oldValue != id_deces) {
-            firePropertyChange("id_deces", oldValue, id_deces);
+        int oldId_deces = this.id_deces;
+        this.id_deces = newId_deces;
+        if (oldId_deces != newId_deces) {
+            firePropertyChange(Citoyen.PROPERTY_ID_DECES, oldId_deces, newId_deces);
         }
 
     }
@@ -247,12 +248,12 @@ public class Citoyen extends Model {
         return date_est_presume;
     }
 
-    public void setDate_est_presume(Boolean date_est_presume) {
+    public void setDate_est_presume(Boolean newDate_est_presume) {
 
-        Boolean oldValue = this.date_est_presume;
-        this.date_est_presume = date_est_presume;
-        if (oldValue != date_est_presume) {
-            firePropertyChange("date_est_presume", oldValue, date_est_presume);
+        Boolean oldDate_est_presume = this.date_est_presume;
+        this.date_est_presume = newDate_est_presume;
+        if (oldDate_est_presume != newDate_est_presume) {
+            firePropertyChange(Citoyen.PROPERTY_DATE_EST_PRESUME, oldDate_est_presume, newDate_est_presume);
         }
     }
 
@@ -261,12 +262,12 @@ public class Citoyen extends Model {
         return sit_famil;
     }
 
-    public void setSit_famil(String sit_famil) {
+    public void setSit_famil(String newSit_famil) {
 
-        String oldValue = this.sit_famil;
-        this.sit_famil = sit_famil;
-        if (oldValue != sit_famil) {
-            firePropertyChange("sit_famil", oldValue, sit_famil);
+        String oldSit_famil = this.sit_famil;
+        this.sit_famil = newSit_famil;
+        if (oldSit_famil != newSit_famil) {
+            firePropertyChange(Citoyen.PROPERTY_SIT_FAMIL, oldSit_famil, newSit_famil);
         }
     }
 

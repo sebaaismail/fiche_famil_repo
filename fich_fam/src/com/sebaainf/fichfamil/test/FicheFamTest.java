@@ -36,7 +36,7 @@ public class FicheFamTest {
 
         TreeSet<Mariage> families = null;
         try {
-            date_naiss1 = new Date(dateFormat.parse("21/08/1981").getTime());
+            date_naiss1 = new Date(dateFormat.parse("20/08/1985").getTime());
             date_naiss2 = new Date(dateFormat.parse("11/03/1986").getTime());
             date_mar1 = new Date(dateFormat.parse("10/03/2010").getTime());
             date_mar2 = new Date(dateFormat.parse("14/07/2014").getTime());
@@ -50,10 +50,10 @@ public class FicheFamTest {
         Citoyen epoux = new Citoyen();
         epoux.setNom_ar("حمراني");
         epoux.setPrenom_ar("أحمد");
-        epoux.setNom_fr("SAAD");
-        epoux.setPrenom_fr("ali");
+        epoux.setNom_fr("HAMRANI");
+        epoux.setPrenom_fr("Ahmed");
         epoux.setDate_naiss(date_naiss1);
-        epoux.setSit_famil("v");
+        epoux.setSit_famil("m");
         epoux.setId_cit(111);
         epoux.setId_deces(0);
         epoux.setCode_lieunaiss(3114);
@@ -78,6 +78,7 @@ public class FicheFamTest {
         epouse2.setNom_ar("عدادي");
         epouse2.setNom_ar("فاطمة الزهراء");
         epouse2.setId_cit(113);
+
 
 
 

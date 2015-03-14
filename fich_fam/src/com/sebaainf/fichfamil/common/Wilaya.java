@@ -1,13 +1,14 @@
 package com.sebaainf.fichfamil.common;
 
 import com.jgoodies.binding.beans.Model;
+import com.jgoodies.common.bean.Bean;
 
 import java.util.TreeSet;
 
 /**
  * Created by admin on 04/02/2015.
  */
-public class Wilaya extends Model implements Comparable<Wilaya> {
+public class Wilaya extends Bean implements Comparable<Wilaya> {
 
     private int id_w;
     private String wil_fr;

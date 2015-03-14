@@ -2,6 +2,7 @@ package com.sebaainf.fichfamil.common;
 
 import com.jenkov.db.itf.mapping.AGetterMapping;
 import com.jgoodies.binding.beans.Model;
+import com.jgoodies.common.bean.Bean;
 import com.sebaainf.fichfamil.citoyen.Citoyen;
 
 import java.util.Date;
@@ -9,7 +10,7 @@ import java.util.Date;
 /**
  * Created by admin on 10/01/2015.
  */
-public class Mariage extends Model implements Comparable<Mariage> {
+public class Mariage extends Bean implements Comparable<Mariage> {
 
     Citoyen epoux;
     Citoyen epouse;
