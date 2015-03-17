@@ -4,6 +4,8 @@ import java.sql.Date;
 
 public class MyDate extends Date {
 
+    private Date value;
+
     /**
      * Constructs a <code>Date</code> object using the given milliseconds
      * time value.  If the given milliseconds value contains time
@@ -21,7 +23,9 @@ public class MyDate extends Date {
         super(date);
         this.value = new Date(this.getTime());
     }
+
     public static MyDate create(Date date_naiss) {
+
         MyDate date = new MyDate(date_naiss.getTime());
         date.setValue(date_naiss);
         return date;
@@ -36,8 +40,6 @@ public class MyDate extends Date {
 
         this.value = value;
     }
-
-    private Date value;
 
 
 }

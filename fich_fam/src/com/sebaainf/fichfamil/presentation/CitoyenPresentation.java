@@ -1,9 +1,7 @@
 package com.sebaainf.fichfamil.presentation;
 
 import com.jgoodies.binding.PresentationModel;
-import com.jgoodies.binding.beans.PropertyAdapter;
 import com.jgoodies.binding.value.ComponentValueModel;
-import com.jgoodies.binding.value.ValueHolder;
 import com.jgoodies.binding.value.ValueModel;
 import com.sebaainf.fichfamil.citoyen.Citoyen;
 
@@ -34,7 +32,7 @@ public class CitoyenPresentation {
     public CitoyenPresentation(Citoyen citoyen) {
 
         this.citoyen = citoyen;
-        PresentationModel citoyenAdapter= new PresentationModel(citoyen);
+        PresentationModel citoyenAdapter = new PresentationModel(citoyen);
 
 
         nom_fr = citoyenAdapter.getComponentModel(Citoyen.PROPERTY_NOM_FR);
@@ -50,7 +48,6 @@ public class CitoyenPresentation {
         est_masculin = citoyenAdapter.getComponentModel(Citoyen.PROPERTY_EST_MASCULIN);
         id_deces = citoyenAdapter.getComponentModel(Citoyen.PROPERTY_ID_DECES);
         date_est_presume = citoyenAdapter.getComponentModel(Citoyen.PROPERTY_DATE_EST_PRESUME);
-
 
 
     }

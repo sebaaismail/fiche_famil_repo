@@ -5,7 +5,6 @@ import com.jgoodies.forms.layout.FormLayout;
 import javax.swing.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.sql.Date;
 
 /**
  * Created by ${sebaainf.com} on 28/02/2015.
@@ -36,11 +35,13 @@ public class CitoyenViewImpl implements CitoyenView {
 
 
     public CitoyenViewImpl() {
+
         initComponents();
         layoutPanel();
     }
 
     public JPanel getPanel() {
+
         return this.panel;
     }
 
@@ -75,7 +76,7 @@ public class CitoyenViewImpl implements CitoyenView {
     private void layoutPanel() {
 
         FormLayout layout = new FormLayout("r:p, p, l:p");
-        MyFormBuilder builder = new MyFormBuilder(layout);
+        IsmFormBuilder builder = new IsmFormBuilder(layout);
 
         builder.setDefaultDialogBorder();
         builder.append(":اللقب", nom_arField);
@@ -98,9 +99,7 @@ public class CitoyenViewImpl implements CitoyenView {
         builder.append("Deces :", decesOption);
 
 
-
     }
-
 
 
     @Override
@@ -111,6 +110,7 @@ public class CitoyenViewImpl implements CitoyenView {
 
     @Override
     public void setNom_ar(String nom_ar) {
+
         this.nom_arField.setText(nom_ar);
         this.nom_arField.setCaretPosition(0);//TODO  ??
 
@@ -124,6 +124,7 @@ public class CitoyenViewImpl implements CitoyenView {
 
     @Override
     public void setPrenom_ar(String prenom_ar) {
+
         this.prenom_arField.setText(prenom_ar);
         this.prenom_arField.setCaretPosition(0);
 
@@ -137,6 +138,7 @@ public class CitoyenViewImpl implements CitoyenView {
 
     @Override
     public void setNom_fr(String nom_fr) {
+
         this.nom_frField.setText(nom_fr);
         this.nom_frField.setCaretPosition(0);
 
@@ -150,6 +152,7 @@ public class CitoyenViewImpl implements CitoyenView {
 
     @Override
     public void setPrenom_fr(String prenom_fr) {
+
         this.prenom_frField.setText(prenom_fr);
         this.prenom_frField.setCaretPosition(0);
 
@@ -163,6 +166,7 @@ public class CitoyenViewImpl implements CitoyenView {
 
     @Override
     public void setDate_naiss(String date_naiss) {
+
         this.date_naissField.setText(date_naiss);
         this.date_naissField.setCaretPosition(0);
 
@@ -176,6 +180,7 @@ public class CitoyenViewImpl implements CitoyenView {
 
     @Override
     public void setCode_lieunaiss(Object code_lieunaiss) {
+
         this.code_lieunaissField.setSelectedItem(code_lieunaiss);
 
     }
@@ -188,6 +193,7 @@ public class CitoyenViewImpl implements CitoyenView {
 
     @Override
     public void setP_pere(String p_pere) {
+
         this.p_pereField.setText(p_pere);
         this.p_pereField.setCaretPosition(0);
 
@@ -201,6 +207,7 @@ public class CitoyenViewImpl implements CitoyenView {
 
     @Override
     public void setNp_mere(String np_mere) {
+
         this.np_mereField.setText(np_mere);
         this.np_mereField.setCaretPosition(0);
 
@@ -238,6 +245,7 @@ public class CitoyenViewImpl implements CitoyenView {
 
     @Override
     public void setDate_est_presume(Boolean date_est_presume) {
+
         this.date_est_presumeCheck.setSelected(date_est_presume);
 
     }
@@ -250,6 +258,7 @@ public class CitoyenViewImpl implements CitoyenView {
 
     @Override
     public void setSit_famil(String sit_famil) {
+
         this.sit_familField.setSelectedItem(sit_famil);
 
     }

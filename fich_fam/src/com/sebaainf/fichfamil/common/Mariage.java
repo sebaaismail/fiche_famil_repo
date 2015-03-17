@@ -1,7 +1,6 @@
 package com.sebaainf.fichfamil.common;
 
 import com.jenkov.db.itf.mapping.AGetterMapping;
-import com.jgoodies.binding.beans.Model;
 import com.jgoodies.common.bean.Bean;
 import com.sebaainf.fichfamil.citoyen.Citoyen;
 

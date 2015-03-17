@@ -2,7 +2,7 @@ package com.sebaainf.fichfamil.common;
 
 import com.jgoodies.looks.plastic.Plastic3DLookAndFeel;
 import com.sebaainf.fichfamil.view.SearchJFrame;
-import com.sebaainf.fichfamil.view.themes.*;
+import com.sebaainf.fichfamil.view.themes.BlackTheme;
 import com.sebaainf.fichfamil.view.themes.MyTheme;
 
 import javax.swing.*;

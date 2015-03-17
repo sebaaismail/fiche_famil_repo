@@ -7,8 +7,9 @@ package com.sebaainf.fichfamil.test;
 import com.jgoodies.forms.builder.DefaultFormBuilder;
 import com.jgoodies.forms.layout.FormLayout;
 import com.sebaainf.fichfamil.common.MyApp;
-import com.sebaainf.fichfamil.view.JPanelLieu;
-import com.sebaainf.fichfamil.view.MyDateFormatter;
+import com.sebaainf.fichfamil.view.IsmPanelLieu;
+import com.sebaainf.fichfamil.view.IsmDateFormatter;
+import com.sebaainf.fichfamil.view.IsmPanelLieuOriginal;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
@@ -53,7 +54,7 @@ public class JGoodiesFrameTest extends JFrame {
         dateModel.setDate(2000, 01, 01);
         JDatePanelImpl datePanel = new JDatePanelImpl(dateModel, new Properties());
 
-        datePicker = new JDatePickerImpl(datePanel, new MyDateFormatter());
+        datePicker = new JDatePickerImpl(datePanel, new IsmDateFormatter());
 
         datePicker.getJFormattedTextField().setPreferredSize(new Dimension(numActMarField.getPreferredSize().width, datePicker.getPreferredSize().height));
         datePicker.setPreferredSize(datePicker.getJFormattedTextField().getPreferredSize());
@@ -70,7 +71,7 @@ public class JGoodiesFrameTest extends JFrame {
         //FormLayout layout = new FormLayout("right:pref, $lcgap, left:max(pref;80dlu)");
         //CellConstraints cc = new CellConstraints();
 
-        JPanelLieu pan = new JPanelLieu(MyApp.default_id_c);
+        IsmPanelLieuOriginal pan = new IsmPanelLieuOriginal(MyApp.default_id_c);
 
         DefaultFormBuilder builder = new DefaultFormBuilder(layout);
 

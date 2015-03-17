@@ -1,7 +1,6 @@
 package com.sebaainf.fichfamil.citoyen;
 
 import com.jenkov.db.itf.mapping.AGetterMapping;
-import com.jgoodies.binding.beans.Model;
 import com.jgoodies.common.bean.Bean;
 
 import java.sql.Date;
@@ -9,24 +8,8 @@ import java.sql.Date;
 /**
  * Created by admin on 10/01/2015.
  */
-public class Citoyen extends Bean {
+public class Citoyen extends Bean implements IPerson {
 
-
-    private String sit_famil = "c";
-    private int id_cit;
-    private int num_actnaiss;
-    private int annee_actnaiss;
-    private int code_lieunaiss;
-    private String nom_fr = "";
-    private String prenom_fr = "";
-    private String nom_ar = "";
-    private String prenom_ar = "";
-    private Date date_naiss;
-    private String p_pere = "";
-    private String np_mere = "";
-    private Boolean est_masculin = true;
-    private int id_deces;
-    private Boolean date_est_presume = false;
 
     public static final String PROPERTY_SIT_FAMIL = "sit_famil";
     public static final String PROPERTY_ID_CIT = "id_cit";
@@ -43,8 +26,21 @@ public class Citoyen extends Bean {
     public static final String PROPERTY_EST_MASCULIN = "est_masculin";
     public static final String PROPERTY_ID_DECES = "id_deces";
     public static final String PROPERTY_DATE_EST_PRESUME = "date_est_presume";
-
-
+    private String sit_famil = "c";
+    private int id_cit;
+    private int num_actnaiss;
+    private int annee_actnaiss;
+    private int code_lieunaiss;
+    private String nom_fr = "";
+    private String prenom_fr = "";
+    private String nom_ar = "";
+    private String prenom_ar = "";
+    private Date date_naiss;
+    private String p_pere = "";
+    private String np_mere = "";
+    private Boolean est_masculin = true;
+    private int id_deces;
+    private Boolean date_est_presume = false;
 
     @AGetterMapping(databaseGenerated = true)
 
@@ -168,11 +164,14 @@ public class Citoyen extends Bean {
 
     }
 
+    @Override
     public Date getDate_naiss() {
 
         return date_naiss;
     }
 
+
+    @Override
     public void setDate_naiss(Date newDate_naiss) {
 
         Date oldDate_naiss = this.date_naiss;

@@ -72,43 +72,61 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CitoyenManagerUI_Test.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/CitoyenManagerUI_Test.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1819" max-vertical-offset="4556">
-              <caret line="128" column="63" selection-start-line="127" selection-start-column="7" selection-end-line="128" selection-end-column="63" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SearchJFrame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/SearchJFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3375" max-vertical-offset="4590">
-              <caret line="46" column="38" selection-start-line="46" selection-start-column="28" selection-end-line="46" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MyDateFormatter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/MyDateFormatter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="368" max-vertical-offset="765">
-              <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CitoyenEditorView.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CitoyenEditorView.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/CitoyenEditorView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1050" max-vertical-offset="2482">
-              <caret line="69" column="45" selection-start-line="69" selection-start-column="45" selection-end-line="69" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.45180723" vertical-offset="1499" max-vertical-offset="2431">
+              <caret line="97" column="94" selection-start-line="97" selection-start-column="94" selection-end-line="97" selection-end-column="94" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JRadioButton.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/MyPrograms/Java/jdk/src.zip!/javax/swing/JRadioButton.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.392858" vertical-offset="2593" max-vertical-offset="4862">
+              <caret line="180" column="34" selection-start-line="180" selection-start-column="34" selection-end-line="180" selection-end-column="34" />
+              <folding>
+                <element signature="e#0#9030#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SwingConstants.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/MyPrograms/Java/jdk/src.zip!/javax/swing/SwingConstants.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2057">
+              <caret line="34" column="31" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="31" />
+              <folding>
+                <element signature="e#0#3803#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BasicComponentFactory.class" pinned="false" current-in-tab="false">
+        <entry file="jar://F:/My box tools/Java/libraries/jgoodies/jgoodies-binding-2.12.0/jgoodies-binding-2.12.0.jar!/com/jgoodies/binding/adapter/BasicComponentFactory.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.12" vertical-offset="2669" max-vertical-offset="3400">
+              <caret line="201" column="19" selection-start-line="201" selection-start-column="8" selection-end-line="201" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FormBuilder.class" pinned="false" current-in-tab="false">
+        <entry file="jar://F:/My box tools/Java/libraries/jgoodies/jgoodies-forms-1.9.0/jgoodies-forms-1.9.0.jar!/com/jgoodies/forms/builder/FormBuilder.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.9245284" vertical-offset="4267" max-vertical-offset="10183">
+              <caret line="310" column="38" selection-start-line="310" selection-start-column="38" selection-end-line="310" selection-end-column="38" />
+              <folding>
+                <element signature="e#9013#9014#0" expanded="true" />
+                <element signature="e#9064#9065#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -117,43 +135,18 @@
       <file leaf-file-name="CitoyenEditorModel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/presentation/CitoyenEditorModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="175" max-vertical-offset="3995">
-              <caret line="18" column="63" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="63" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MyDate.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/common/MyDate.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="125" max-vertical-offset="833">
-              <caret line="26" column="19" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="966" max-vertical-offset="3944">
+              <caret line="82" column="77" selection-start-line="82" selection-start-column="77" selection-end-line="82" selection-end-column="77" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FicheFamJFrame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/FicheFamJFrame.java">
+      <file leaf-file-name="IsmComponentFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/IsmComponentFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1717" max-vertical-offset="2295">
-              <caret line="114" column="20" selection-start-line="114" selection-start-column="20" selection-end-line="114" selection-end-column="20" />
-              <folding>
-                <element signature="e#3627#4006#0" expanded="true" />
-                <element signature="e#4005#4006#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MyComonentFactory.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/MyComonentFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.3989501" vertical-offset="1111" max-vertical-offset="2227">
-              <caret line="34" column="85" selection-start-line="34" selection-start-column="85" selection-end-line="34" selection-end-column="85" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1443" max-vertical-offset="1802">
+              <caret line="95" column="31" selection-start-line="95" selection-start-column="31" selection-end-line="95" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -161,14 +154,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dbfichefamil.citoyen" pinned="false" current-in-tab="false">
-        <entry file="dbDummy://dbtable:/1e022a54/07f87db2-1524-4d87-b68e-da7179f1d577/dbfichefamil..citoyen">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state />
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+      <file leaf-file-name="FicheFamTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/test/FicheFamTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="537" max-vertical-offset="2924">
+              <caret line="60" column="30" selection-start-line="60" selection-start-column="30" selection-end-line="60" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -182,11 +172,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/test/TestApp.java" />
-        <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/presentation/MariageValidator.java" />
-        <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/TestJTabbed.java" />
-        <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/DefaultFormWithCustomAreasExample.java" />
-        <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/JFrameSearchCitoyen.java" />
         <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/test/TestApp2.java" />
         <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/test/SearchJFrame.java" />
         <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/JGoodiesFrameTest.java" />
@@ -199,7 +184,6 @@
         <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/themes/GreyTheme.java" />
         <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/MyButtonStackBuilder.java" />
         <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/DateLabelFormatter.java" />
-        <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/MyDateFormatter.java" />
         <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/themes/DefaultTheme.java" />
         <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/MyFormBuilder.java" />
         <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/themes/BlackTheme.java" />
@@ -212,27 +196,33 @@
         <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/ReportFichFam.java" />
         <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/common/MyApp.java" />
         <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/JPanelLieu.java" />
-        <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/test/JGoodiesFrameTest.java" />
         <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/CitoyenManagerUI2.java" />
-        <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/CitoyenManagerUI.java" />
         <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/presentation/CitoyenPresentation.java" />
-        <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/CitoyenManagerUI_Test.java" />
         <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/test/MyDaosCitoyenTest.java" />
-        <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/common/Commune.java" />
         <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/common/Mariage.java" />
         <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/common/Wilaya.java" />
-        <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/citoyen/Citoyen.java" />
         <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/common/CitoyenEditorModel.java" />
         <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/CitoyenEditorModel.java" />
-        <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/SearchJFrame.java" />
-        <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/test/FicheFamTest.java" />
         <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/common/MyCommonUtils.java" />
         <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/common/myDate.java" />
         <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/common/MyDate.java" />
-        <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/presentation/CitoyenEditorModel.java" />
-        <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/FicheFamJFrame.java" />
-        <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/CitoyenEditorView.java" />
+        <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/citoyen/IPerson.java" />
+        <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/citoyen/Citoyen.java" />
         <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/MyComonentFactory.java" />
+        <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/MyDateFormatter.java" />
+        <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/ismPanelLieu.java" />
+        <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/IsmPanelLieuOriginal.java" />
+        <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/CitoyenManagerUI_Test.java" />
+        <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/common/Commune.java" />
+        <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/CitoyenManagerUI.java" />
+        <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/SearchJFrame.java" />
+        <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/test/JGoodiesFrameTest.java" />
+        <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/FicheFamJFrame.java" />
+        <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/IsmPanelLieu.java" />
+        <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/IsmComponentFactory.java" />
+        <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/presentation/CitoyenEditorModel.java" />
+        <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/test/FicheFamTest.java" />
+        <option value="$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/CitoyenEditorView.java" />
       </list>
     </option>
   </component>
@@ -1248,11 +1238,16 @@
       <workItem from="1426184433955" duration="8514000" />
       <workItem from="1426327817111" duration="34080000" />
       <workItem from="1426417004203" duration="1179000" />
+      <workItem from="1426441291744" duration="7177000" />
+      <workItem from="1426523726413" duration="2263000" />
+      <workItem from="1426531192185" duration="7177000" />
+      <workItem from="1426589069848" duration="1620000" />
+      <workItem from="1426611388043" duration="8501000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="671943000" />
+    <option name="totallyTimeSpent" value="698681000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1276,41 +1271,41 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1376" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30819672" sideWeight="0.32205883" order="17" side_tool="true" content_ui="tabs" x="101" y="510" width="251" height="198" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32312927" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3147541" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2529412" sideWeight="0.4976526" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21102941" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.33934426" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21732523" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26143292" sideWeight="0.49633253" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24009146" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38265306" sideWeight="0.63981766" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3197279" sideWeight="0.42477202" order="17" side_tool="true" content_ui="tabs" x="101" y="510" width="251" height="198" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32312927" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3197279" sideWeight="0.575228" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3147541" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26139817" sideWeight="0.4976526" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.33934426" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18455882" sideWeight="0.5023474" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JFormDesigner Error Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39523" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2492378" sideWeight="0.49604222" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Dynamic Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38360655" sideWeight="0.6404412" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32459018" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39863715" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30819672" sideWeight="0.6779412" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17857143" sideWeight="0.5023148" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1391,7 +1386,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/CitoyenManagerUI_Test.java</url>
-          <line>205</line>
+          <line>198</line>
           <properties />
           <option name="timeStamp" value="335" />
         </line-breakpoint>
@@ -1399,7 +1394,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="341" />
+      <option name="time" value="343" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1408,84 +1403,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://F:/My box tools/Java/Butterfly Persistence/jenkov-butterfly-persistence-5.2.0.jar!/com/jenkov/db/impl/mapping/method/SetterMapping.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.24" vertical-offset="64" max-vertical-offset="765">
-          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://F:/My box tools/Java/Butterfly Persistence/jenkov-butterfly-persistence-5.2.0.jar!/com/jenkov/db/impl/ObjectReader.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.24" vertical-offset="1186" max-vertical-offset="8568">
-          <caret line="103" column="18" selection-start-line="103" selection-start-column="18" selection-end-line="103" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/mysql-connector-java-5.1.31-bin.jar!/com/mysql/jdbc/ResultSetImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.24" vertical-offset="25054" max-vertical-offset="74596">
-          <caret line="1540" column="29" selection-start-line="1540" selection-start-column="29" selection-end-line="1540" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/MyPrograms/Java/jdk/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35932204" vertical-offset="115" max-vertical-offset="544">
-          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/JPanelLieu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1771" max-vertical-offset="3009">
-          <caret line="145" column="46" selection-start-line="145" selection-start-column="41" selection-end-line="145" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/MyPrograms/Java/jdk/src.zip!/javax/swing/JComboBox.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3696" max-vertical-offset="38760">
-          <caret line="264" column="16" selection-start-line="264" selection-start-column="16" selection-end-line="264" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://F:/My box tools/Java/libraries/jgoodies/jgoodies-binding-2.12.0/jgoodies-binding-2.12.0.jar!/com/jgoodies/binding/list/SelectionInList.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35782748" vertical-offset="602" max-vertical-offset="5134">
-          <caret line="63" column="11" selection-start-line="63" selection-start-column="11" selection-end-line="63" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://F:/My box tools/Java/libraries/jgoodies/jgoodies-binding-2.12.0/jgoodies-binding-2.12.0.jar!/com/jgoodies/binding/PresentationModel.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.3370786" vertical-offset="117" max-vertical-offset="5593">
-          <caret line="114" column="23" selection-start-line="114" selection-start-column="19" selection-end-line="114" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/MyPrograms/Java/jdk/src.zip!/javax/swing/JOptionPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="4290" max-vertical-offset="42789">
-          <caret line="312" column="13" selection-start-line="312" selection-start-column="13" selection-end-line="312" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/jgoodies-common-sources.jar!/com/jgoodies/common/bean/Bean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3316583" vertical-offset="8130" max-vertical-offset="13056">
-          <caret line="520" column="25" selection-start-line="520" selection-start-column="25" selection-end-line="520" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/CitoyenManagerUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1605" max-vertical-offset="3604">
-          <caret line="115" column="33" selection-start-line="115" selection-start-column="33" selection-end-line="115" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/ReportFichFam2.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="815" max-vertical-offset="1615">
@@ -1511,13 +1428,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1139" max-vertical-offset="2873">
           <caret line="81" column="32" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/common/Commune.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1105">
-          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -1570,13 +1480,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/presentation/CitoyenPresentation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.66843504" vertical-offset="1748" max-vertical-offset="2125">
-          <caret line="93" column="21" selection-start-line="93" selection-start-column="11" selection-end-line="93" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/jgoodies-forms-sources.jar!/com/jgoodies/forms/layout/FormLayout.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3323782" vertical-offset="19893" max-vertical-offset="35632">
@@ -1599,20 +1502,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://F:/My box tools/Java/libraries/jdatepicker-1.3.4.jar!/org/jdatepicker/impl/JDatePanelImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3313253" vertical-offset="60" max-vertical-offset="9792">
-          <caret line="57" column="13" selection-start-line="57" selection-start-column="12" selection-end-line="57" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://F:/My box tools/Java/libraries/jgoodies/jgoodies-forms-1.9.0/jgoodies-forms-1.9.0.jar!/com/jgoodies/forms/builder/FormBuilder.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.87349397" vertical-offset="2498" max-vertical-offset="10761">
-          <caret line="171" column="37" selection-start-line="171" selection-start-column="37" selection-end-line="171" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/MyPrograms/Java/jdk/src.zip!/java/util/Date.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334" vertical-offset="10676" max-vertical-offset="22134">
@@ -1620,36 +1509,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/test/FicheFamTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1843" max-vertical-offset="2924">
-          <caret line="38" column="55" selection-start-line="38" selection-start-column="55" selection-end-line="38" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/MyPrograms/Java/jdk/src.zip!/javax/swing/JFormattedTextField.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33246753" vertical-offset="2371" max-vertical-offset="19125">
-          <caret line="179" column="13" selection-start-line="179" selection-start-column="13" selection-end-line="179" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://F:/My box tools/Java/libraries/jdatepicker-1.3.4.jar!/org/jdatepicker/impl/JDatePickerImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35555556" vertical-offset="943" max-vertical-offset="2601">
-          <caret line="103" column="20" selection-start-line="103" selection-start-column="20" selection-end-line="103" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/1e022a54/07f87db2-1524-4d87-b68e-da7179f1d577/dbfichefamil..citoyen">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state />
       </provider>
     </entry>
     <entry file="jar://F:/My box tools/Java/libraries/jgoodies/jgoodies-binding-2.12.0/jgoodies-binding-2.12.0.jar!/com/jgoodies/binding/beans/PropertyConnector.class">
@@ -1659,33 +1526,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://F:/My box tools/Java/libraries/jgoodies/jgoodies-binding-2.12.0/jgoodies-binding-2.12.0.jar!/com/jgoodies/binding/adapter/BasicComponentFactory.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45125347" vertical-offset="994" max-vertical-offset="3400">
-          <caret line="103" column="45" selection-start-line="103" selection-start-column="8" selection-end-line="103" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://F:/My box tools/Java/libraries/jgoodies/jgoodies-binding-2.12.0/jgoodies-binding-2.12.0.jar!/com/jgoodies/binding/adapter/Bindings.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.52089137" vertical-offset="2499" max-vertical-offset="8109">
           <caret line="206" column="31" selection-start-line="206" selection-start-column="31" selection-end-line="206" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/CitoyenManagerUI_Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1666" max-vertical-offset="4505">
-          <caret line="128" column="63" selection-start-line="127" selection-start-column="7" selection-end-line="128" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/MyDateFormatter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="261" max-vertical-offset="765">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1704,22 +1548,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/common/MyDate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="125" max-vertical-offset="833">
-          <caret line="26" column="19" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/SearchJFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3375" max-vertical-offset="4590">
-          <caret line="46" column="38" selection-start-line="46" selection-start-column="28" selection-end-line="46" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://F:/My box tools/Java/libraries/jdatepicker-1.3.4.jar!/org/jdatepicker/DateModel.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.4679666" vertical-offset="0" max-vertical-offset="833">
@@ -1734,27 +1562,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/FicheFamJFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1717" max-vertical-offset="2295">
-          <caret line="114" column="20" selection-start-line="114" selection-start-column="20" selection-end-line="114" selection-end-column="20" />
-          <folding>
-            <element signature="e#3627#4006#0" expanded="true" />
-            <element signature="e#4005#4006#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/presentation/CitoyenEditorModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="175" max-vertical-offset="3995">
-          <caret line="18" column="63" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="63" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/MyPrograms/Java/jdk/src.zip!/java/lang/reflect/Method.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334" vertical-offset="6843" max-vertical-offset="9792">
@@ -1762,30 +1569,238 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/citoyen/IPerson.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4314721" vertical-offset="0" max-vertical-offset="394">
+          <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/common/MyDate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35416666" vertical-offset="0" max-vertical-offset="867">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/MyPrograms/Java/jdk/src.zip!/javax/swing/JFormattedTextField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33147633" vertical-offset="14348" max-vertical-offset="19125">
+          <caret line="905" column="33" selection-start-line="905" selection-start-column="33" selection-end-line="905" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://F:/My box tools/Java/libraries/jdatepicker-1.3.4.jar!/org/jdatepicker/impl/JDatePanelImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="850" max-vertical-offset="9792">
+          <caret line="107" column="24" selection-start-line="107" selection-start-column="24" selection-end-line="107" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://F:/My box tools/Java/libraries/jdatepicker-1.3.4.jar!/org/jdatepicker/impl/JDatePickerImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16167665" vertical-offset="184" max-vertical-offset="2567">
+          <caret line="40" column="11" selection-start-line="40" selection-start-column="11" selection-end-line="40" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/IsmDateFormatter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.74462366" vertical-offset="29" max-vertical-offset="952">
+          <caret line="22" column="58" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/citoyen/Citoyen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7454068" vertical-offset="107" max-vertical-offset="4743">
-          <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.16991644" vertical-offset="313" max-vertical-offset="4675">
+          <caret line="25" column="52" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/common/Commune.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31989247" vertical-offset="119" max-vertical-offset="1156">
+          <caret line="17" column="58" selection-start-line="17" selection-start-column="58" selection-end-line="17" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/CitoyenManagerUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="260" max-vertical-offset="3638">
+          <caret line="42" column="49" selection-start-line="42" selection-start-column="49" selection-end-line="42" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/IsmPanelLieu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46223566" vertical-offset="459" max-vertical-offset="2822">
+          <caret line="58" column="20" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
+          <folding>
+            <element signature="e#4358#5227#0" expanded="false" />
+            <element signature="e#5226#5227#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/FicheFamJFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40668523" vertical-offset="381" max-vertical-offset="2295">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/presentation/CitoyenPresentation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31476322" vertical-offset="6" max-vertical-offset="2108">
+          <caret line="10" column="32" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/test/JGoodiesFrameTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33147633" vertical-offset="850" max-vertical-offset="3043">
+          <caret line="73" column="60" selection-start-line="73" selection-start-column="60" selection-end-line="73" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/IsmPanelLieuOriginal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.3844011" vertical-offset="1566" max-vertical-offset="3009">
+          <caret line="98" column="0" selection-start-line="98" selection-start-column="0" selection-end-line="102" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#4264#5095#0" expanded="false" />
+            <element signature="e#5094#5095#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/CitoyenManagerUI_Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2036" max-vertical-offset="4573">
+          <caret line="134" column="50" selection-start-line="130" selection-start-column="6" selection-end-line="134" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/SearchJFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33147633" vertical-offset="187" max-vertical-offset="4590">
+          <caret line="44" column="64" selection-start-line="44" selection-start-column="64" selection-end-line="44" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/IsmComponentFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1443" max-vertical-offset="1802">
+          <caret line="95" column="31" selection-start-line="95" selection-start-column="31" selection-end-line="95" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://F:/My box tools/Java/libraries/jgoodies/jgoodies-binding-2.12.0/jgoodies-binding-2.12.0.jar!/com/jgoodies/binding/PresentationModel.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35628742" vertical-offset="1428" max-vertical-offset="5593">
+          <caret line="134" column="37" selection-start-line="134" selection-start-column="37" selection-end-line="134" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/presentation/CitoyenEditorModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="966" max-vertical-offset="3944">
+          <caret line="82" column="77" selection-start-line="82" selection-start-column="77" selection-end-line="82" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/test/FicheFamTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="537" max-vertical-offset="2924">
+          <caret line="60" column="30" selection-start-line="60" selection-start-column="30" selection-end-line="60" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://F:/My box tools/Java/libraries/jgoodies/jgoodies-forms-1.9.0/jgoodies-forms-1.9.0.jar!/com/jgoodies/forms/builder/FormBuilder.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.9245284" vertical-offset="4267" max-vertical-offset="10183">
+          <caret line="310" column="38" selection-start-line="310" selection-start-column="38" selection-end-line="310" selection-end-column="38" />
+          <folding>
+            <element signature="e#9013#9014#0" expanded="true" />
+            <element signature="e#9064#9065#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/jgoodies-forms-sources.jar!/com/jgoodies/forms/layout/CellConstraints.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.051359516" vertical-offset="391" max-vertical-offset="22372">
+          <caret line="62" column="57" selection-start-line="62" selection-start-column="57" selection-end-line="62" selection-end-column="57" />
+          <folding>
+            <element signature="e#7020#7021#0" expanded="true" />
+            <element signature="e#7046#7047#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://F:/My box tools/Java/libraries/jgoodies/jgoodies-binding-2.12.0/jgoodies-binding-2.12.0.jar!/com/jgoodies/binding/adapter/BasicComponentFactory.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.12" vertical-offset="2669" max-vertical-offset="3400">
+          <caret line="201" column="19" selection-start-line="201" selection-start-column="8" selection-end-line="201" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/MyPrograms/Java/jdk/src.zip!/javax/swing/SwingConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2057">
+          <caret line="34" column="31" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#3803#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/MyPrograms/Java/jdk/src.zip!/javax/swing/JRadioButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.392858" vertical-offset="2593" max-vertical-offset="4862">
+          <caret line="180" column="34" selection-start-line="180" selection-start-column="34" selection-end-line="180" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#9030#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/MyPrograms/Java/jdk/src.zip!/javax/swing/JComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.04735376" vertical-offset="30447" max-vertical-offset="91749">
+          <caret line="1904" column="0" selection-start-line="1904" selection-start-column="0" selection-end-line="1904" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/MyPrograms/Java/jdk/src.zip!/javax/swing/AbstractButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.90529245" vertical-offset="14108" max-vertical-offset="50371">
+          <caret line="918" column="7" selection-start-line="918" selection-start-column="7" selection-end-line="918" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/CitoyenEditorView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1050" max-vertical-offset="2482">
-          <caret line="69" column="45" selection-start-line="69" selection-start-column="45" selection-end-line="69" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sebaainf/fichfamil/view/MyComonentFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3989501" vertical-offset="1111" max-vertical-offset="2278">
-          <caret line="34" column="85" selection-start-line="34" selection-start-column="85" selection-end-line="34" selection-end-column="85" />
+        <state vertical-scroll-proportion="0.45180723" vertical-offset="1499" max-vertical-offset="2431">
+          <caret line="97" column="94" selection-start-line="97" selection-start-column="94" selection-end-line="97" selection-end-column="94" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

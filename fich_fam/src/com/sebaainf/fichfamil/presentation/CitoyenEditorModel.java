@@ -1,6 +1,8 @@
 package com.sebaainf.fichfamil.presentation;
 
 import com.jgoodies.binding.PresentationModel;
+import com.jgoodies.binding.adapter.RadioButtonAdapter;
+import com.jgoodies.binding.adapter.ToggleButtonAdapter;
 import com.jgoodies.binding.beans.Model;
 import com.jgoodies.binding.beans.PropertyAdapter;
 import com.jgoodies.binding.beans.PropertyConnector;
@@ -9,6 +11,7 @@ import com.jgoodies.binding.value.ComponentValueModel;
 import com.jgoodies.binding.value.ValueModel;
 import com.jgoodies.common.collect.ArrayListModel;
 import com.sebaainf.fichfamil.citoyen.Citoyen;
+import com.sebaainf.fichfamil.citoyen.IPerson;
 import com.sebaainf.fichfamil.common.MyDate;
 
 import javax.swing.*;
@@ -16,7 +19,7 @@ import javax.swing.*;
 /**
  * Created by ${sebaainf.com} on 14/03/2015.
  */
-public final class CitoyenEditorModel extends PresentationModel<Citoyen>{
+public final class CitoyenEditorModel extends PresentationModel<IPerson> {
 
     private ComponentValueModel id_cit;
     private ComponentValueModel nom_fr;
@@ -27,38 +30,43 @@ public final class CitoyenEditorModel extends PresentationModel<Citoyen>{
     private ComponentValueModel code_lieunaiss;
     private ValueModel sit_famil;
 
-    public MyDate getDateNaissVar() {
-
-        return dateNaissVar;
-    }
-
-    private MyDate dateNaissVar;
     private SelectionInList selList_sit_famil;
-
     private ComponentValueModel p_pere;
     private ComponentValueModel np_mere;
-    private ComponentValueModel est_masculin;
+
+    //private RadioButtonAdapter masculinAdapter;
+
+    //private RadioButtonAdapter femininAdapter;
+
     private ComponentValueModel id_deces;
     private ComponentValueModel date_est_presume;
 
+    public ComponentValueModel getEst_masculin() {
+
+        return est_masculin;
+    }
+
+    private ComponentValueModel est_masculin;
     // maybe delete this ???
     private Citoyen citoyen;
 
-
     /**
-     *
      * @param citoyen
      */
     public CitoyenEditorModel(Citoyen citoyen) {
+
         super(citoyen);
         this.citoyen = citoyen;
         initComponents();
     }
 
+
+
     /**
      *
      */
     private void initComponents() {
+
         nom_fr = this.getComponentModel(Citoyen.PROPERTY_NOM_FR);
         prenom_fr = this.getComponentModel(Citoyen.PROPERTY_PRENOM_FR);
         nom_ar = this.getComponentModel(Citoyen.PROPERTY_NOM_AR);
@@ -70,13 +78,20 @@ public final class CitoyenEditorModel extends PresentationModel<Citoyen>{
 
         p_pere = this.getComponentModel(Citoyen.PROPERTY_P_PERE);
         np_mere = this.getComponentModel(Citoyen.PROPERTY_NP_MERE);
-        est_masculin = this.getComponentModel(Citoyen.PROPERTY_EST_MASCULIN);
         id_deces = this.getComponentModel(Citoyen.PROPERTY_ID_DECES);
         date_est_presume = this.getComponentModel(Citoyen.PROPERTY_DATE_EST_PRESUME);
+        est_masculin = this.getComponentModel(Citoyen.PROPERTY_EST_MASCULIN);
 
-        this.dateNaissVar = MyDate.create(citoyen.getDate_naiss());
-        PropertyConnector.connectAndUpdate(date_naiss,
-                this.dateNaissVar, "value");
+        // Radio Button for sex of citoyen masculin / feminin ?
+        /*
+        ComponentValueModel est_masculin
+                = this.getComponentModel(Citoyen.PROPERTY_EST_MASCULIN);
+        masculinAdapter = new RadioButtonAdapter(est_masculin, true);
+        femininAdapter = new RadioButtonAdapter(est_masculin, false);
+        //*/
+
+
+
 
 
     }
@@ -107,7 +122,7 @@ public final class CitoyenEditorModel extends PresentationModel<Citoyen>{
         //* good
         PropertyConnector.connectAndUpdate(beanPresentationModel.getModel("sitFam"),
                 this.citoyen, Citoyen.PROPERTY_SIT_FAMIL);
-        // TODO but button modifier citoyen causes problem ???
+        //  TODO but button modifier citoyen causes problem ???
 
         return new SelectionInList((ListModel) situations_fam, beanProperty);
     }
@@ -162,12 +177,6 @@ public final class CitoyenEditorModel extends PresentationModel<Citoyen>{
         return np_mere;
     }
 
-    public ComponentValueModel getEst_masculin() {
-
-        return est_masculin;
-    }
-
-
 
     public ComponentValueModel getId_deces() {
 
@@ -182,12 +191,22 @@ public final class CitoyenEditorModel extends PresentationModel<Citoyen>{
     public class SituationFam extends Model {
 
 
+        private String sitFam = "";
+        private String text = "";
+
+        public SituationFam(String sitFam, String text) {
+
+            this.sitFam = sitFam;
+            this.text = text;
+        }
+
         public String getSitFam() {
 
             return sitFam;
         }
 
         public void setSitFam(String sitFam) {
+
             String oldValue = this.sitFam;
             this.sitFam = sitFam;
             //if (oldValue != sitFam) {
@@ -202,6 +221,7 @@ public final class CitoyenEditorModel extends PresentationModel<Citoyen>{
         }
 
         public void setText(String text) {
+
             String oldValue = this.text;
             this.text = text;
             //if (oldValue != text) {
@@ -209,15 +229,6 @@ public final class CitoyenEditorModel extends PresentationModel<Citoyen>{
             //}
 
         }
-
-        private String sitFam = "";
-        private String text = "";
-
-        public SituationFam(String sitFam, String text) {
-            this.sitFam = sitFam;
-            this.text = text;
-        }
-
 
         public String toString() {
 

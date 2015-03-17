@@ -4,7 +4,6 @@ import com.jgoodies.binding.PresentationModel;
 import com.jgoodies.binding.adapter.BasicComponentFactory;
 import com.jgoodies.binding.adapter.Bindings;
 import com.jgoodies.binding.adapter.ComboBoxAdapter;
-import com.jgoodies.binding.beans.BeanAdapter;
 import com.jgoodies.binding.beans.Model;
 import com.jgoodies.binding.beans.PropertyAdapter;
 import com.jgoodies.binding.beans.PropertyConnector;
@@ -19,16 +18,13 @@ import com.sebaainf.fichfamil.presentation.CitoyenPresentation;
 import javax.swing.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by ${sebaainf.com} on 03/03/2015.
  */
 public class CitoyenManagerUI_Test {
 
-    private final JTextField nom_fr ;
+    private final JTextField nom_fr;
     private final JTextField prenom_fr;
     private final JTextField nom_ar;
     private final JTextField prenom_ar;
@@ -44,8 +40,7 @@ public class CitoyenManagerUI_Test {
     private final JCheckBox date_est_presume;
 
     private JPanel panel;
-    private JPanelLieu pan;
-
+    private IsmPanelLieuOriginal pan;
 
 
     public CitoyenManagerUI_Test(final CitoyenPresentation presenter) {
@@ -59,7 +54,7 @@ public class CitoyenManagerUI_Test {
         masculin = BasicComponentFactory.createRadioButton(presenter.getEst_masculin()
                 , true, "masculin");
         feminin = BasicComponentFactory.createRadioButton(presenter.getEst_masculin()
-                ,false,"feminin");
+                , false, "feminin");
 
 
         //************************************************
@@ -130,7 +125,7 @@ public class CitoyenManagerUI_Test {
         // TODO but button modifier citoyen causes problem ???
         //must delete this because it commit a bug in firing change events
         //PropertyConnector.connectAndUpdate(presenter.getSit_famil(),
-          //    beanPresentationModel.getBean(), "sitFam");
+        //    beanPresentationModel.getBean(), "sitFam");
         //*/
 
         // wire our new combobox up to that property adapter.
@@ -140,9 +135,8 @@ public class CitoyenManagerUI_Test {
         Bindings.bind(sit_famil, selectionInList);
 
 
-
         // testing
-        PropertyChangeListener propChangelistner =  new PropertyChangeListener() {
+        PropertyChangeListener propChangelistner = new PropertyChangeListener() {
             @Override
             public void propertyChange(PropertyChangeEvent evt) {
 
@@ -166,7 +160,7 @@ public class CitoyenManagerUI_Test {
             }
         });*/
 
-                //*/
+        //*/
        /*
         ComboBoxAdapter adapter = new ComboBoxAdapter((List) situations_fam,beanProperty);
         sit_famil = new JComboBox(adapter);
@@ -184,13 +178,12 @@ public class CitoyenManagerUI_Test {
         // Lieu de naissance
         ValueModel selectionHolderLieuNaiss = presenter.getCode_lieunaiss();
         ValueModel beanLieuNaiss = new ValueHolder();
-        pan = new JPanelLieu(new Integer((Integer) selectionHolderLieuNaiss.getValue()));
+        pan = new IsmPanelLieuOriginal(new Integer((Integer) selectionHolderLieuNaiss.getValue()));
         //BeanAdapter beanAdapter = new BeanAdapter(beanLieuNaiss);
 
         ComboBoxAdapter comboBoxAdapterCommune = new ComboBoxAdapter(pan.getComboBoxCommunes().getModel(), beanLieuNaiss);
         code_lieunaiss = new JComboBox();
         code_lieunaiss.setModel(comboBoxAdapterCommune);
-
 
 
         //************************************************
@@ -200,17 +193,16 @@ public class CitoyenManagerUI_Test {
 
         id_deces = BasicComponentFactory.createIntegerField(presenter.getId_deces(), 0);
         date_est_presume = BasicComponentFactory.createCheckBox(presenter.getDate_est_presume(), "date presumé");
-        
+
         buildPanel();
-        
+
     }
 
     private void buildPanel() {
 
         FormLayout layout = new FormLayout("right:pref, $lcgap, left:pref");
 
-        MyFormBuilder builder = new MyFormBuilder(layout);
-
+        IsmFormBuilder builder = new IsmFormBuilder(layout);
 
 
         builder.append("nom :", nom_fr);
@@ -233,11 +225,21 @@ public class CitoyenManagerUI_Test {
 
 
     public JPanel getPanel() {
+
         return panel;
     }
 
-    public class SituationFam extends Model{
+    public class SituationFam extends Model {
 
+
+        private String sitFam = "";
+        private String text = "";
+
+        public SituationFam(String sitFam, String text) {
+
+            this.sitFam = sitFam;
+            this.text = text;
+        }
 
         public String getSitFam() {
 
@@ -245,11 +247,12 @@ public class CitoyenManagerUI_Test {
         }
 
         public void setSitFam(String sitFam) {
+
             String oldValue = this.sitFam;
             this.sitFam = sitFam;
             //if (oldValue != sitFam) {
-                this.firePropertyChange("sitFam", oldValue, sitFam);
-                System.out.println("oldValue = " + oldValue + " new = " + sitFam);
+            this.firePropertyChange("sitFam", oldValue, sitFam);
+            System.out.println("oldValue = " + oldValue + " new = " + sitFam);
             //}
         }
 
@@ -259,22 +262,14 @@ public class CitoyenManagerUI_Test {
         }
 
         public void setText(String text) {
+
             String oldValue = this.text;
             this.text = text;
             //if (oldValue != text) {
-                this.firePropertyChange("text", oldValue, text);
+            this.firePropertyChange("text", oldValue, text);
             //}
 
         }
-
-        private String sitFam = "";
-        private String text = "";
-
-        public SituationFam(String sitFam, String text) {
-            this.sitFam = sitFam;
-            this.text = text;
-        }
-
 
         public String toString() {
 

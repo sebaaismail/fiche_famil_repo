@@ -91,7 +91,7 @@ public class FicheFamJFrame extends JFrame {
         JButton buttonEnfants = new JButton("Enfants");
         JButton buttonModifierMariage = new JButton("Modifier Mariage");
 
-        MyButtonStackBuilder builder = new MyButtonStackBuilder((JPanel) panel, screenSize);
+        IsmButtonStackBuilder builder = new IsmButtonStackBuilder((JPanel) panel, screenSize);
 
         builder.setBackground(MyApp.theme.buttonBarColor); //todo color
 
@@ -101,18 +101,21 @@ public class FicheFamJFrame extends JFrame {
         buttonApercu.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                 JOptionPane.showMessageDialog(null, "citoyen "+ ficheFam.getCitoyen().getNom_fr()
-                 + " " + ficheFam.getCitoyen().getPrenom_fr()+ " est comme situation familiale : " +
-                 ficheFam.getCitoyen().getSit_famil());
+
+                JOptionPane.showMessageDialog(null, "citoyen " + ficheFam.getCitoyen().getNom_fr()
+                        + " " + ficheFam.getCitoyen().getPrenom_fr() + " est comme situation familiale : " +
+                        ficheFam.getCitoyen().getSit_famil());
             }
         });
         buttonModifier.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 ficheFam.getCitoyen().setSit_famil("c");
                 JOptionPane.showMessageDialog(null, "citoyen : "
                         + ficheFam.getCitoyen().getNom_fr()
-                + " ne le : " + ficheFam.getCitoyen().getDate_naiss());
+                        + " ne le : " + ficheFam.getCitoyen().getDate_naiss()
+                    + "/r Code_lieunaiss : " + ficheFam.getCitoyen().getCode_lieunaiss());
             }
         });
 

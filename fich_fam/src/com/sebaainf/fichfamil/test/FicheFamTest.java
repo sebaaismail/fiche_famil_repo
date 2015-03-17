@@ -9,7 +9,6 @@ import com.sebaainf.fichfamil.persistance.MyDaosCitoyen;
 import org.junit.Test;
 
 import java.sql.Date;
-import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.TreeSet;
@@ -56,8 +55,8 @@ public class FicheFamTest {
         epoux.setSit_famil("m");
         epoux.setId_cit(111);
         epoux.setId_deces(0);
-        epoux.setCode_lieunaiss(3114);
-        epoux.setDate_est_presume(false);
+        epoux.setCode_lieunaiss(3107);
+        epoux.setDate_est_presume(true);
         epoux.setEst_masculin(true);
         epoux.setP_pere("حمراني عبد الكريم");
         epoux.setNp_mere("فاطمة بلهاشمي");
@@ -78,8 +77,6 @@ public class FicheFamTest {
         epouse2.setNom_ar("عدادي");
         epouse2.setNom_ar("فاطمة الزهراء");
         epouse2.setId_cit(113);
-
-
 
 
         FicheFam fiche = new FicheFam(null);
@@ -114,7 +111,7 @@ public class FicheFamTest {
         enf2.setPrenom_enf("منصور");
         enf3.setPrenom_enf("نور الهدى ليلى");
         enf1.setDate_naiss(date_naissENf1);
-        enf1.setDate_est_presume(true);
+        enf1.setDate_est_presume(false);
         enf2.setDate_naiss(date_naissENf2);
         enf3.setDate_naiss(date_naissENf3);
         enf3.setEst_masculin(false);
@@ -125,7 +122,9 @@ public class FicheFamTest {
         enf2.setLieu_naiss(3117);
         enf3.setLieu_naiss(119);
         TreeSet<Enfant> enfants = new TreeSet<Enfant>();
-        enfants.add(enf1);        enfants.add(enf2);        enfants.add(enf3);
+        enfants.add(enf1);
+        enfants.add(enf2);
+        enfants.add(enf3);
 
         families = new TreeSet<Mariage>();
         families.add(mar1);

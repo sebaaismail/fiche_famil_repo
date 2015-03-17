@@ -9,10 +9,21 @@ import java.util.Date;
 /**
  * Created by admin on 04/02/2015.
  */
-public class MyDateFormatter extends JFormattedTextField.AbstractFormatter {
+public class IsmDateFormatter extends JFormattedTextField.AbstractFormatter {
+    private String datePattern;
+    private SimpleDateFormat dateFormatter;
 
-    private String datePattern = "dd/MM/yyyy";
-    private SimpleDateFormat dateFormatter = new SimpleDateFormat(datePattern);
+    public IsmDateFormatter() {
+        this.datePattern = "dd/MM/yyyy";
+        dateFormatter = new SimpleDateFormat(datePattern);
+    }
+
+    public IsmDateFormatter(String datePattern) {
+        this.datePattern = datePattern;
+        dateFormatter = new SimpleDateFormat(datePattern);
+    }
+
+
 
 
     @Override

@@ -7,7 +7,6 @@ import com.sebaainf.fichfamil.persistance.MyDaosCitoyen;
 
 import java.sql.Date;
 import java.text.DateFormatSymbols;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 import java.util.TreeSet;
@@ -286,7 +285,6 @@ public class FicheFam {
         }
 
     }
-
 
 
 }

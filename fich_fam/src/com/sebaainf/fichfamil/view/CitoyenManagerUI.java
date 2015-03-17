@@ -21,7 +21,7 @@ import java.util.List;
  */
 public class CitoyenManagerUI {
 
-    private final JTextField nom_fr ;
+    private final JTextField nom_fr;
     private final JTextField prenom_fr;
     private final JTextField nom_ar;
     private final JTextField prenom_ar;
@@ -37,8 +37,7 @@ public class CitoyenManagerUI {
     private final JCheckBox date_est_presume;
 
     private JPanel panel;
-    private JPanelLieu pan;
-
+    private IsmPanelLieuOriginal pan;
 
 
     public CitoyenManagerUI(final CitoyenPresentation presenter) {
@@ -52,7 +51,7 @@ public class CitoyenManagerUI {
         masculin = BasicComponentFactory.createRadioButton(presenter.getEst_masculin()
                 , true, "masculin");
         feminin = BasicComponentFactory.createRadioButton(presenter.getEst_masculin()
-                ,false,"feminin");
+                , false, "feminin");
 
 
         //************************************************
@@ -117,7 +116,7 @@ public class CitoyenManagerUI {
 //        PropertyConnector.connect(beanPresentationModel.getBeanChannel().getValue(), "sitFam",
 //               presenter.citoyen, "sit_famil");
         // wire our new combobox up to that property adapter.
-        sit_famil = new JComboBox(new ComboBoxAdapter((List) situations_fam,beanProperty));
+        sit_famil = new JComboBox(new ComboBoxAdapter((List) situations_fam, beanProperty));
         //ValueModel selectionHolderSitFam = presenter.getSit_famil();
 
         //*ComboBoxAdapter comboBoxAdapter = new ComboBoxAdapter(selectionInList, selectionHolderSitFam);
@@ -127,13 +126,12 @@ public class CitoyenManagerUI {
         // Lieu de naissance
         ValueModel selectionHolderLieuNaiss = presenter.getCode_lieunaiss();
         ValueModel beanLieuNaiss = new ValueHolder();
-        pan = new JPanelLieu(new Integer((Integer) selectionHolderLieuNaiss.getValue()));
+        pan = new IsmPanelLieuOriginal(new Integer((Integer) selectionHolderLieuNaiss.getValue()));
         //BeanAdapter beanAdapter = new BeanAdapter(beanLieuNaiss);
 
         ComboBoxAdapter comboBoxAdapterCommune = new ComboBoxAdapter(pan.getComboBoxCommunes().getModel(), beanLieuNaiss);
         code_lieunaiss = new JComboBox();
         code_lieunaiss.setModel(comboBoxAdapterCommune);
-
 
 
         //************************************************
@@ -143,17 +141,16 @@ public class CitoyenManagerUI {
 
         id_deces = BasicComponentFactory.createIntegerField(presenter.getId_deces(), 0);
         date_est_presume = BasicComponentFactory.createCheckBox(presenter.getDate_est_presume(), "date presumé");
-        
+
         buildPanel();
-        
+
     }
 
     private void buildPanel() {
 
         FormLayout layout = new FormLayout("right:pref, $lcgap, left:pref");
 
-        MyFormBuilder builder = new MyFormBuilder(layout);
-
+        IsmFormBuilder builder = new IsmFormBuilder(layout);
 
 
         builder.append("nom :", nom_fr);
@@ -176,11 +173,21 @@ public class CitoyenManagerUI {
 
 
     public JPanel getPanel() {
+
         return panel;
     }
 
-    public class SituationFam extends Model{
+    public class SituationFam extends Model {
 
+
+        private String sitFam = "";
+        private String text = "";
+
+        public SituationFam(String sitFam, String text) {
+
+            this.sitFam = sitFam;
+            this.text = text;
+        }
 
         public String getSitFam() {
 
@@ -188,6 +195,7 @@ public class CitoyenManagerUI {
         }
 
         public void setSitFam(String sitFam) {
+
             String oldValue = sitFam;
             this.sitFam = sitFam;
             this.firePropertyChange("sitFam", oldValue, sitFam);
@@ -199,19 +207,11 @@ public class CitoyenManagerUI {
         }
 
         public void setText(String text) {
+
             String oldValue = sitFam;
             this.text = text;
             this.firePropertyChange("text", oldValue, sitFam);
         }
-
-        private String sitFam = "";
-        private String text = "";
-
-        public SituationFam(String sitFam, String text) {
-            this.sitFam = sitFam;
-            this.text = text;
-        }
-
 
         public String toString() {
 

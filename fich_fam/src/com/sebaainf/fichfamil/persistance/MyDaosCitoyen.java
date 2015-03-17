@@ -116,7 +116,7 @@ public class MyDaosCitoyen {
             if (isInDBCitoyen(cit)) {
                 System.out.println("ce citoyen existe deja !");//TODO
                 cit.setId_cit(-99); // todo fire message in UI
-                                    //TODO to tell that "cit is already in DB"
+                //TODO to tell that "cit is already in DB"
             } else {
 
                 daos.getObjectDao().insert(cit);

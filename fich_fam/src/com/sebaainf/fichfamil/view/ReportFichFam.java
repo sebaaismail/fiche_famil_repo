@@ -1,16 +1,16 @@
 package com.sebaainf.fichfamil.view;
 
-import com.sebaainf.fichfamil.common.Enfant;
 import com.sebaainf.fichfamil.common.FicheFam;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-import net.sf.jasperreports.engine.design.JRDesignVariable;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
-import java.lang.reflect.Array;
-import java.util.*;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Vector;
 
 /**
  * Created by admin on 07/02/2015.
@@ -52,9 +52,6 @@ public class ReportFichFam {
 
             jasperDesign1 = JRXmlLoader.load("reports/tryNestedReport1.jrxml");
             jasperDesign2 = JRXmlLoader.load("reports/tryNestedReport2.jrxml");
-
-
-
 
 
             jasperReport1 = JasperCompileManager.compileReport(jasperDesign1);

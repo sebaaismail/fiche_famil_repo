@@ -1,6 +1,5 @@
 package com.sebaainf.fichfamil.common;
 
-import com.jgoodies.binding.beans.Model;
 import com.jgoodies.common.bean.Bean;
 
 import java.util.TreeSet;

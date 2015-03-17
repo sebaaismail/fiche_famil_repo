@@ -1,16 +1,23 @@
 package com.sebaainf.fichfamil.view;
 
+import com.jgoodies.binding.PresentationModel;
 import com.jgoodies.binding.adapter.BasicComponentFactory;
+import com.jgoodies.binding.adapter.Bindings;
 import com.jgoodies.binding.adapter.ComboBoxAdapter;
 import com.jgoodies.binding.beans.BeanAdapter;
+import com.jgoodies.binding.beans.PropertyAdapter;
+import com.jgoodies.binding.beans.PropertyConnector;
 import com.jgoodies.binding.list.SelectionInList;
 import com.jgoodies.binding.value.ValueModel;
 import com.jgoodies.common.collect.ArrayListModel;
 import com.jgoodies.forms.builder.DefaultFormBuilder;
 import com.jgoodies.forms.layout.FormLayout;
+import com.sebaainf.fichfamil.citoyen.Citoyen;
 import com.sebaainf.fichfamil.common.Commune;
 import com.sebaainf.fichfamil.common.MyApp;
 import com.sebaainf.fichfamil.common.Wilaya;
+import com.sebaainf.fichfamil.presentation.CitoyenEditorModel;
+import com.sebaainf.fichfamil.presentation.CitoyenPresentation;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,7 +28,7 @@ import java.awt.event.ActionListener;
  * Created by admin on 06/02/2015.
  * JPanel encapsulate two JCombobox Wilaya and commune and the default commune
  */
-public class JPanelLieu extends JComponent {
+public class IsmPanelLieu extends JComponent {
 
     //for test TODO delete this in production
    /*
@@ -29,14 +36,13 @@ public class JPanelLieu extends JComponent {
     public JTextField ismTextField2;
     public JTextField labelCommune1;
   //*/
-    public JLabel labelCommune2;
 
     private JComboBox comboBoxWilayas;
     private JComboBox comboBoxCommunes;
     private ValueModel id_c_Model;
 
 
-    public JPanelLieu(int selectedCommune) {
+    public IsmPanelLieu(ValueModel id_c_Model, CitoyenEditorModel model) {
         // par defaut set MyApp.default_id_c in place of selectedCommune
 
         //this.default_id_c = default_id_c;
@@ -44,12 +50,18 @@ public class JPanelLieu extends JComponent {
         /**
          * preparing combobox Wilayas
          */
-        //java.util.List<String> list = MyFunctions.getListWilaya();
 
         ListModel wilayas = new ArrayListModel(Wilaya.getWilayas());
 
 
-        final int numW = selectedCommune/ 100;
+        final int numW;
+        if ((Integer) id_c_Model.getValue() < 101) {
+            // TODO test this case
+            numW = MyApp.default_id_c / 100;
+        } else {
+            numW = (Integer) (id_c_Model.getValue()) / 100;
+        }
+
         Wilaya defaultwilaya = null;
 
 //*
@@ -62,21 +74,12 @@ public class JPanelLieu extends JComponent {
         }
 //*/
 
-        SelectionInList selectionInList = new SelectionInList(wilayas);
-        BeanAdapter beanAdapter = new BeanAdapter(selectionInList);
+        SelectionInList selectionInListWil = new SelectionInList(wilayas);
+        BeanAdapter beanAdapter = new BeanAdapter(selectionInListWil);
 
         final ValueModel id_w_Model = beanAdapter.getValueModel("id_w");
-        ValueModel wil_fr_Model = beanAdapter.getValueModel("wil_fr");
 
-        /* todo
-        ismTextField = BasicComponentFactory.createTextField(wil_fr_Model);
-        ismTextField2 = BasicComponentFactory.createIntegerField(id_w_Model);
-
-        ismTextField.setPreferredSize(new Dimension(140, 20));
-        ismTextField2.setPreferredSize(new Dimension(140, 20));
-        //*/
-
-        ComboBoxAdapter comboBoxAdapter = new ComboBoxAdapter(selectionInList);
+        ComboBoxAdapter comboBoxAdapter = new ComboBoxAdapter(selectionInListWil);
 
 
         this.setComboBoxWilayas(new JComboBox(comboBoxAdapter));
@@ -86,42 +89,34 @@ public class JPanelLieu extends JComponent {
          * preparing Communes
          *
          */
-        ListModel communes = new ArrayListModel(Commune.getCollectionCommunes(numW));
-        Commune defaultCommune = null;
+        ArrayListModel<Commune> communes
+                = new ArrayListModel(Commune.getCollectionCommunes(numW));
+        Commune laCommune = null;
 
-        for (int i = 0; i < communes.getSize(); i++) {
-            if (((Commune) communes.getElementAt(i)).getId_c() == selectedCommune) {
-                defaultCommune = (Commune) communes.getElementAt(i);
+        for (Commune obj : communes) {
+            if (obj.getId_c() == (Integer)(id_c_Model.getValue())) {
+                laCommune = obj;
                 break;
             }
-            System.out.println(((Commune) communes.getElementAt(i)).getCom_fr());
         }
 
-        final SelectionInList selectionInList2 = new SelectionInList(communes);//TODO initialise communes
-        BeanAdapter beanAdapter2 = new BeanAdapter(selectionInList2);
+        final PresentationModel beanPresentationModel = new PresentationModel(laCommune);
 
-        setId_c_Model(beanAdapter2.getValueModel("id_c"));
-        ValueModel com_fr_Model = beanAdapter2.getValueModel("com_fr");
-
-        /* todo
-        labelCommune1 = BasicComponentFactory.createIntegerField(getId_c_Model());
-        labelCommune1.setPreferredSize(new Dimension(140, 20));
-        //*/
-
-        labelCommune2 = BasicComponentFactory.createLabel(com_fr_Model);
+        // create a property adapter for the presentation model 'bean' property.
+        final ValueModel beanProperty = new PropertyAdapter(beanPresentationModel, "bean");
+        final SelectionInList[] selectionInListCommune = {new SelectionInList((ListModel) communes, beanProperty)};
+        // TODO when set mairié after changing selected comboBox client dont update ???
+        //* good
+        PropertyConnector.connectAndUpdate
+                (beanPresentationModel.getModel(Commune.PROPERTY_ID_C),
+                model.getBean(), Citoyen.PROPERTY_CODE_LIEUNAISS);
 
 
-        labelCommune2.setPreferredSize(new Dimension(140, 20));
-
-        final ComboBoxAdapter comboBoxAdapter2 = new ComboBoxAdapter(selectionInList2);
-
-        this.setComboBoxCommunes(new JComboBox(comboBoxAdapter2));
-        this.getComboBoxCommunes().setSelectedItem(defaultCommune);
-
-//        communes = new ArrayListModel(Commune.getCollectionCommunes(1));
-
-
-        //*
+        // wire our new combobox up to that property adapter.
+        //sit_famil = new JComboBox(new ComboBoxAdapter((List) situations_fam,beanProperty));
+        //ComboBoxAdapter adapter = new ComboBoxAdapter(selectionInList);
+        comboBoxCommunes = new JComboBox();
+        Bindings.bind(comboBoxCommunes, selectionInListCommune[0]);
 
         comboBoxWilayas.addActionListener(new ActionListener() {
             @Override
@@ -133,14 +128,14 @@ public class JPanelLieu extends JComponent {
                 wil = (wil < 31) ? 1 : 31;
                 ListModel newListcommunes = new ArrayListModel(Commune.getCollectionCommunes(wil));
 
-                //ListModel newListcommunes = new ArrayListModel(Commune.getCollectionCommunes((Integer) id_w_Model.getValue()));
-
-                selectionInList2.setListModel(newListcommunes);
-                selectionInList2.setSelection(newListcommunes.getElementAt(0));
-
+                selectionInListCommune[0].release();
+                selectionInListCommune[0] = new SelectionInList(
+                        newListcommunes, beanProperty);
+                selectionInListCommune[0].setSelectionIndex(0);
+                Bindings.bind(comboBoxCommunes, selectionInListCommune[0]);
             }
         });
-        //*/
+
         FormLayout layout = new FormLayout("right:pref, $lcgap, max(50dlu;pref)");
         this.setLayout(layout);
         DefaultFormBuilder builder = new DefaultFormBuilder(layout);
@@ -151,8 +146,6 @@ public class JPanelLieu extends JComponent {
 
         //todo delete that line
         //builder.append(ismTextField, ismTextField2);
-
-        builder.append(labelCommune2, labelCommune2);
 
     }
 

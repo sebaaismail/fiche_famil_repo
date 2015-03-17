@@ -2,49 +2,43 @@ package com.sebaainf.fichfamil.view;
 
 import com.jgoodies.binding.adapter.BasicComponentFactory;
 import com.jgoodies.forms.builder.FormBuilder;
-import com.jgoodies.forms.builder.PanelBuilder;
-import com.jgoodies.forms.factories.ComponentFactory;
-import com.jgoodies.forms.factories.DefaultComponentFactory;
+import com.jgoodies.forms.debug.FormDebugPanel;
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
-import com.sebaainf.fichfamil.citoyen.Citoyen;
 import com.sebaainf.fichfamil.presentation.CitoyenEditorModel;
-import javafx.scene.layout.Pane;
-import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
-import org.jdatepicker.impl.UtilDateModel;
 
 import javax.swing.*;
-import javax.swing.plaf.PanelUI;
-import java.text.ParseException;
-import java.util.Calendar;
-import java.sql.Date;
 import java.util.EventObject;
-import java.util.GregorianCalendar;
-import java.util.Properties;
 
 /**
  * Created by ${sebaainf.com} on 14/03/2015.
+ * https://bitbucket.org/sebaa_ismail
+ * https://github.com/sebaaismail
  */
 public class CitoyenEditorView {
 
     private final CitoyenEditorModel model;
-    private JTextField nom_fr ;
+    private JTextField nom_fr;
     private JTextField prenom_fr;
     private JTextField nom_ar;
     private JTextField prenom_ar;
+
     private JDatePickerImpl date_naiss;
     private JComboBox code_lieunaiss;
     private JComboBox sit_famil;
-    private JRadioButton masculin;
-    private JRadioButton feminin;
+    private JRadioButton masculinChoice;
+    private JRadioButton femininChoice;
 
     private JTextField p_pere;
     private JTextField np_mere;
     private JTextField id_deces;
     private JCheckBox date_est_presume;
+    private IsmPanelLieu panel;
+
 
     CitoyenEditorView(CitoyenEditorModel model) {
+
         this.model = model;
         initComponents();
 
@@ -59,80 +53,83 @@ public class CitoyenEditorView {
         prenom_ar = BasicComponentFactory.createTextField(model.getPrenom_ar());
 
         //code_lieunaiss = BasicComponentFactory.createComboBox(model.getCode_lieunaiss());
-        sit_famil = BasicComponentFactory.createComboBox(model.getSelList_sit_famil());
+        sit_famil = IsmComponentFactory.createComboBox(model.getSelList_sit_famil());
 
-        masculin = BasicComponentFactory.createRadioButton(model.getEst_masculin()
-                , true, "masculin");
-        feminin = BasicComponentFactory.createRadioButton(model.getEst_masculin()
-                ,false,"feminin");
+        masculinChoice = IsmComponentFactory.createRadioButton(model.getEst_masculin()
+                , true, "ذكر");
+        femininChoice = IsmComponentFactory.createRadioButton(model.getEst_masculin()
+                , false, "أنثى");
+        masculinChoice.setHorizontalTextPosition(SwingConstants.LEFT);
+        femininChoice.setHorizontalTextPosition(SwingConstants.LEFT);
+
+        date_naiss = IsmComponentFactory.createDatePickerImpl(model, "yyyy/MM/dd");
+        date_est_presume = IsmComponentFactory.createCheckBox(model.getDate_est_presume(), "* مفترض");
+        p_pere = IsmComponentFactory.createTextField(model.getP_pere());
+        np_mere = IsmComponentFactory.createTextField(model.getNp_mere());
+
+        panel =
+                IsmComponentFactory.createPanelLieu(model.getCode_lieunaiss(), model);
+
+        // HorizontalAlignment of JTextField
         nom_ar.setHorizontalAlignment(JTextField.RIGHT);
         prenom_ar.setHorizontalAlignment(JTextField.RIGHT);
-        date_naiss = MyComonentFactory.createDatePickerImpl(model);
+        p_pere.setHorizontalAlignment(JTextField.RIGHT);
+        np_mere.setHorizontalAlignment(JTextField.RIGHT);
 
-
-        // preparing date_naiss --- > JDatePicker
-/*
-        final UtilDateModel dateModel = new UtilDateModel();
-        dateModel.setDate(2000, 01, 01);
-
-        JDatePanelImpl datePanel = new JDatePanelImpl(dateModel, new Properties());
-        //JDatePanelImpl datePanel = new JDatePanelImpl(adapter.getModel("date_mar"), new Properties());
-        //JDateComponentFactory fact = new JDateComponentFactory();
-
-        MyDateFormatter formatter = new MyDateFormatter();
-        date_naiss = new JDatePickerImpl(datePanel, formatter);
-        //datePicker = new JDatePickerImpl(datePanel, new MyDateFormatter());
-        date_naiss.setShowYearButtons(true);
-        date_naiss.setButtonFocusable(true);
-        date_naiss.setTextEditable(true);
-        date_naiss.getJFormattedTextField().setHorizontalAlignment(JTextField.RIGHT);
-
-        Date date = (Date) model.getDate_naiss().getValue();
-        Calendar calendar = new GregorianCalendar();
-        calendar.setTime(date);
-
-        date_naiss.getModel().setDate(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),
-                calendar.get(Calendar.DAY_OF_MONTH));
-        date_naiss.getJDateInstantPanel().getModel().setSelected(true);
-
-        try {
-            date_naiss.getJFormattedTextField().setText(formatter.valueToString(calendar));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        */
 
 
     }
 
 
-    private JComponent buildContent(){
+    private JComponent buildContent() {
 
+/*
         FormLayout layout = new FormLayout(
 
                 //      textField         label         textField           label     //
                 "  4dlu,pref:grow,4dlu,right:pref,3dlu ,pref:grow  ,4dlu ,right:pref"//, //columns
                 //      --------          ------        ---------           -------
         );
+*/
+
+        CellConstraints cc = new CellConstraints();
 
         return FormBuilder.create()
-                .columns("40dlu,150dlu,8dlu,right:pref,100dlu ,150dlu, 8dlu, right:pref, 40dlu")
+                .columns("40dlu,fill:default,8dlu,left:pref,100dlu ,150dlu, 8dlu, fill:default, 40dlu")
                 .rows("40dlu,p,6dlu,p,6dlu,p,6dlu,p,6dlu,p,6dlu,p,6dlu,p,6dlu,p")
-                .add("الإسم :")         .xy(8, 2)
-                .add(nom_ar)            .xy(6, 2)
-                .add(": Nom")           .xy(4, 2)
-                .add(nom_fr)            .xy(2, 2)
-                .add("اللقب :")         .xy(8, 4)
-                .add(prenom_ar)         .xy(6, 4)
-                .add(": Prenom")        .xy(4, 4)
-                .add(prenom_fr)         .xy(2, 4)
+                .columnGroups(new int[][]{{2, 6}, {4, 8}})
+                .rowGroups(new int[][]{{12, 14}})
+                .add("الإســم :").xy(8, 2)
+                .add(nom_ar).xy(6, 2)
+                .add(": Nom").xy(4, 2)
+                .add(nom_fr).xy(2, 2)
+                .add("اللقــب :").xy(8, 4)
+                .add(prenom_ar).xy(6, 4)
+                .add(": Prenom").xy(4, 4)
+                .add(prenom_fr).xy(2, 4)
                 .add("تاريخ الإزدياد :").xy(8, 6)
-                .add(date_naiss)        .xy(6, 6)
+                .add(date_naiss).xy(6, 6)
+                .add(date_est_presume).at(cc.xy(6, 8, CellConstraints.RIGHT,
+                        CellConstraints.CENTER))
+                .add("مكان الإزدياد :").xy(4, 6)
+                .add(panel.getComboBoxWilayas()).xy(2, 6)
+                .add(panel.getComboBoxCommunes()).xy(2, 8)
+                .add("إسم ولقب الأب :").xy(8, 10)
+                .add(p_pere).xy(6,10)
+                .add("إسم ولقب الأم :").xy(4, 10)
+                .add(np_mere).xy(2, 10)
+                .add("الجنس :").xy(4, 12)
+                .add(masculinChoice).at(cc.xy(2, 12, CellConstraints.RIGHT,
+                        CellConstraints.CENTER))
+                .add(femininChoice).at(cc.xy(2, 14, CellConstraints.RIGHT,
+                        CellConstraints.CENTER))
+
                 .build();
 
     }
 
     public JComponent showDialog(EventObject e) {
+
         return buildContent();
 
     }

@@ -6,8 +6,6 @@ package com.sebaainf.fichfamil.view;
 
 import com.jgoodies.binding.PresentationModel;
 import com.jgoodies.binding.adapter.BasicComponentFactory;
-import com.jgoodies.forms.builder.DefaultFormBuilder;
-import com.jgoodies.forms.builder.PanelBuilder;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 import com.jgoodies.validation.ValidationResult;
@@ -22,7 +20,6 @@ import com.sebaainf.fichfamil.test.FicheFamTest;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
-import sun.awt.ComponentFactory;
 
 import javax.swing.*;
 import java.awt.*;
@@ -45,7 +42,7 @@ public class SearchJFrame extends JFrame {
     private JComponent messageLabel = ValidationResultViewFactory.createReportList(validationResultModel);
 
     private JDatePickerImpl datePicker;
-    private JPanelLieu pan = new JPanelLieu(MyApp.default_id_c);
+    private IsmPanelLieuOriginal pan = new IsmPanelLieuOriginal(MyApp.default_id_c);
 
     public SearchJFrame() {
 
@@ -66,7 +63,7 @@ public class SearchJFrame extends JFrame {
         JComponent tabbedPanel = new JTabbedPane();
         FormLayout layoutPanel = new FormLayout("right:pref");
 
-        MyFormBuilder fb = new MyFormBuilder(layoutPanel);
+        IsmFormBuilder fb = new IsmFormBuilder(layoutPanel);
 
         fb.append(tabbedPanel);
 
@@ -86,7 +83,7 @@ public class SearchJFrame extends JFrame {
          */
         FormLayout layout = new FormLayout("right:pref, $lcgap, left:pref", "");
 
-        MyFormBuilder  builder = new MyFormBuilder(layout);
+        IsmFormBuilder builder = new IsmFormBuilder(layout);
 
         return builder.getPanel();
 
@@ -101,7 +98,7 @@ public class SearchJFrame extends JFrame {
 
         FormLayout layout = new FormLayout("right:pref, $lcgap, left:pref");
 
-        MyFormBuilder builder = new MyFormBuilder(layout);
+        IsmFormBuilder builder = new IsmFormBuilder(layout);
 
         final JTextField numActMarField = BasicComponentFactory.createIntegerField(adapter.getModel("numact_mar"), 0);
 
@@ -117,7 +114,7 @@ public class SearchJFrame extends JFrame {
         //JDatePanelImpl datePanel = new JDatePanelImpl(adapter.getModel("date_mar"), new Properties());
         //JDateComponentFactory fact = new JDateComponentFactory();
 
-        datePicker = new JDatePickerImpl(datePanel, new MyDateFormatter());
+        datePicker = new JDatePickerImpl(datePanel, new IsmDateFormatter());
         //datePicker = new JDatePickerImpl(datePanel, new MyDateFormatter());
         datePicker.setShowYearButtons(true);
         datePicker.setButtonFocusable(true);

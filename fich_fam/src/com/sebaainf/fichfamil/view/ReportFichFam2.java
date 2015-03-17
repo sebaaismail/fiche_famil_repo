@@ -58,7 +58,7 @@ public class ReportFichFam2 {
             JRDesignVariable prenomVar;
 
 
-            for(Enfant enfant : infos) {
+            for (Enfant enfant : infos) {
                 //todo
                 prenomVar = new JRDesignVariable();
 

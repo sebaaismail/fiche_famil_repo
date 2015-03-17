@@ -13,7 +13,7 @@ import static com.jgoodies.common.base.Preconditions.checkNotNull;
 /**
  * Created by ${sebaainf.com} on 24/02/2015.
  */
-public final class MyButtonStackBuilder extends AbstractButtonPanelBuilder {
+public final class IsmButtonStackBuilder extends AbstractButtonPanelBuilder {
 
     /**
      * Specifies the FormLayout's the single button stack column.
@@ -34,7 +34,7 @@ public final class MyButtonStackBuilder extends AbstractButtonPanelBuilder {
      * Constructs a ButtonStackBuilder  on a default JPanel
      * using a pre-configured FormLayout as layout manager.
      */
-    public MyButtonStackBuilder() {
+    public IsmButtonStackBuilder() {
 
         this(new JPanel(null));
     }
@@ -46,12 +46,12 @@ public final class MyButtonStackBuilder extends AbstractButtonPanelBuilder {
      *
      * @param panel the layout container
      */
-    public MyButtonStackBuilder(JPanel panel) {
+    public IsmButtonStackBuilder(JPanel panel) {
 
         super(new FormLayout(COL_SPECS, ROW_SPECS), panel);
     }
 
-    public MyButtonStackBuilder(JPanel panel, Dimension dimention) {
+    public IsmButtonStackBuilder(JPanel panel, Dimension dimention) {
 
         super(new FormLayout(COL_SPECS, ROW_SPECS), panel);
         screenSize = dimention;
@@ -64,9 +64,9 @@ public final class MyButtonStackBuilder extends AbstractButtonPanelBuilder {
      * @return the created builder
      * @since 1.8
      */
-    public static MyButtonStackBuilder create() {
+    public static IsmButtonStackBuilder create() {
 
-        return new MyButtonStackBuilder();
+        return new IsmButtonStackBuilder();
     }
 
 
@@ -84,7 +84,7 @@ public final class MyButtonStackBuilder extends AbstractButtonPanelBuilder {
      * @throws NullPointerException if {@code button} is {@code null}
      */
     @Override
-    public MyButtonStackBuilder addButton(JComponent button) {
+    public IsmButtonStackBuilder addButton(JComponent button) {
 
         checkNotNull(button, "The button must not be null.");
         getLayout().appendRow(FormSpecs.PREF_ROWSPEC);
@@ -107,7 +107,7 @@ public final class MyButtonStackBuilder extends AbstractButtonPanelBuilder {
 
 
     @Override
-    public MyButtonStackBuilder addButton(JComponent... buttons) {
+    public IsmButtonStackBuilder addButton(JComponent... buttons) {
 
         super.addButton(buttons);
         return this;
@@ -117,7 +117,7 @@ public final class MyButtonStackBuilder extends AbstractButtonPanelBuilder {
     // Convenience Methods ***************************************************
 
     @Override
-    public MyButtonStackBuilder addButton(Action... actions) {
+    public IsmButtonStackBuilder addButton(Action... actions) {
 
         super.addButton(actions);
         return this;
@@ -129,7 +129,7 @@ public final class MyButtonStackBuilder extends AbstractButtonPanelBuilder {
      *
      * @param component the component to add
      */
-    public MyButtonStackBuilder addFixed(JComponent component) {
+    public IsmButtonStackBuilder addFixed(JComponent component) {
 
         getLayout().appendRow(FormSpecs.PREF_ROWSPEC);
         add(component);
@@ -144,7 +144,7 @@ public final class MyButtonStackBuilder extends AbstractButtonPanelBuilder {
      * Adds a glue that will be given the extra space,
      * if this box is larger than its preferred size.
      */
-    public MyButtonStackBuilder addGlue() {
+    public IsmButtonStackBuilder addGlue() {
 
         appendGlueRow();
         nextRow();
@@ -153,7 +153,7 @@ public final class MyButtonStackBuilder extends AbstractButtonPanelBuilder {
 
 
     @Override
-    public MyButtonStackBuilder addRelatedGap() {
+    public IsmButtonStackBuilder addRelatedGap() {
 
         appendRelatedComponentsGapRow();
         nextRow();
@@ -162,7 +162,7 @@ public final class MyButtonStackBuilder extends AbstractButtonPanelBuilder {
 
 
     @Override
-    public MyButtonStackBuilder addUnrelatedGap() {
+    public IsmButtonStackBuilder addUnrelatedGap() {
 
         appendUnrelatedComponentsGapRow();
         nextRow();
@@ -175,7 +175,7 @@ public final class MyButtonStackBuilder extends AbstractButtonPanelBuilder {
      *
      * @param size a constant that describes the gap
      */
-    public MyButtonStackBuilder addStrut(ConstantSize size) {
+    public IsmButtonStackBuilder addStrut(ConstantSize size) {
 
         getLayout().appendRow(new RowSpec(RowSpec.TOP,
                 size,
@@ -188,7 +188,7 @@ public final class MyButtonStackBuilder extends AbstractButtonPanelBuilder {
     // Configuration **********************************************************
 
     @Override
-    public MyButtonStackBuilder background(Color background) {
+    public IsmButtonStackBuilder background(Color background) {
 
         super.background(background);
         return this;
@@ -196,7 +196,7 @@ public final class MyButtonStackBuilder extends AbstractButtonPanelBuilder {
 
 
     @Override
-    public MyButtonStackBuilder border(Border border) {
+    public IsmButtonStackBuilder border(Border border) {
 
         super.border(border);
         return this;
@@ -204,7 +204,7 @@ public final class MyButtonStackBuilder extends AbstractButtonPanelBuilder {
 
 
     @Override
-    public MyButtonStackBuilder opaque(boolean b) {
+    public IsmButtonStackBuilder opaque(boolean b) {
 
         super.opaque(b);
         return this;

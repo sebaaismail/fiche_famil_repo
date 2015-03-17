@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 /**
  * Created by ${sebaainf.com} on 24/02/2015.
  */
-public class MyFormBuilder extends I15dPanelBuilder {
+public class IsmFormBuilder extends I15dPanelBuilder {
 
     Font font = MyApp.theme.font;
 
@@ -71,7 +71,7 @@ public class MyFormBuilder extends I15dPanelBuilder {
      * @param layout the {@code FormLayout} to be used
      * @throws NullPointerException if {@code layout} is {@code null}
      */
-    public MyFormBuilder(FormLayout layout) {
+    public IsmFormBuilder(FormLayout layout) {
 
         this(layout, new JPanel(null));
     }
@@ -85,7 +85,7 @@ public class MyFormBuilder extends I15dPanelBuilder {
      * @param container the layout container
      * @throws NullPointerException if {@code layout} or {@code container} is {@code null}
      */
-    public MyFormBuilder(FormLayout layout, JPanel container) {
+    public IsmFormBuilder(FormLayout layout, JPanel container) {
 
         this(layout, (StringResourceAccessor) null, container);
     }
@@ -100,7 +100,7 @@ public class MyFormBuilder extends I15dPanelBuilder {
      *               strings
      * @throws NullPointerException if {@code layout} is {@code null}
      */
-    public MyFormBuilder(FormLayout layout, ResourceBundle bundle) {
+    public IsmFormBuilder(FormLayout layout, ResourceBundle bundle) {
 
         super(layout, bundle);
     }
@@ -116,7 +116,7 @@ public class MyFormBuilder extends I15dPanelBuilder {
      *                  strings
      * @throws NullPointerException if {@code layout} or {@code container} is {@code null}
      */
-    public MyFormBuilder(FormLayout layout, ResourceBundle bundle, JPanel container) {
+    public IsmFormBuilder(FormLayout layout, ResourceBundle bundle, JPanel container) {
 
         super(layout, bundle, container);
     }
@@ -130,7 +130,7 @@ public class MyFormBuilder extends I15dPanelBuilder {
      * @param localizer used to lookup i15d strings
      * @throws NullPointerException if {@code layout} is {@code null}
      */
-    public MyFormBuilder(FormLayout layout, StringResourceAccessor localizer) {
+    public IsmFormBuilder(FormLayout layout, StringResourceAccessor localizer) {
 
         super(layout, localizer);
     }
@@ -145,7 +145,7 @@ public class MyFormBuilder extends I15dPanelBuilder {
      * @param localizer used to lookup i15d strings
      * @throws NullPointerException if {@code layout} or {@code container} is {@code null}
      */
-    public MyFormBuilder(FormLayout layout, StringResourceAccessor localizer, JPanel container) {
+    public IsmFormBuilder(FormLayout layout, StringResourceAccessor localizer, JPanel container) {
 
         super(layout, localizer, container);
     }
@@ -154,7 +154,7 @@ public class MyFormBuilder extends I15dPanelBuilder {
     // Frequently Used Panel Properties ***************************************
 
     @Override
-    public MyFormBuilder background(Color background) {
+    public IsmFormBuilder background(Color background) {
 
         super.background(background);
         return this;
@@ -162,7 +162,7 @@ public class MyFormBuilder extends I15dPanelBuilder {
 
 
     @Override
-    public MyFormBuilder border(Border border) {
+    public IsmFormBuilder border(Border border) {
 
         super.border(border);
         return this;
@@ -170,7 +170,7 @@ public class MyFormBuilder extends I15dPanelBuilder {
 
 
     @Override
-    public MyFormBuilder border(String emptyBorderSpec) {
+    public IsmFormBuilder border(String emptyBorderSpec) {
 
         super.border(emptyBorderSpec);
         return this;
@@ -178,7 +178,7 @@ public class MyFormBuilder extends I15dPanelBuilder {
 
 
     @Override
-    public MyFormBuilder opaque(boolean b) {
+    public IsmFormBuilder opaque(boolean b) {
 
         super.opaque(b);
         return this;
@@ -193,7 +193,7 @@ public class MyFormBuilder extends I15dPanelBuilder {
      *
      * @param defaultRowSpec the RowSpec to be used for component rows
      */
-    public MyFormBuilder defaultRowSpec(RowSpec defaultRowSpec) {
+    public IsmFormBuilder defaultRowSpec(RowSpec defaultRowSpec) {
 
         this.defaultRowSpec = defaultRowSpec;
         return this;
@@ -213,7 +213,7 @@ public class MyFormBuilder extends I15dPanelBuilder {
      * @param lineGapSize the {@code ConstantSize} that describes
      *                    the size of the gaps between component lines
      */
-    public MyFormBuilder lineGapSize(ConstantSize lineGapSize) {
+    public IsmFormBuilder lineGapSize(ConstantSize lineGapSize) {
 
         RowSpec rowSpec = RowSpec.createGap(lineGapSize);
         this.lineGapSpec = rowSpec;
@@ -234,7 +234,7 @@ public class MyFormBuilder extends I15dPanelBuilder {
      * @param paragraphGapSize the {@code ConstantSize} that describes
      *                         the size of the gaps between paragraphs
      */
-    public MyFormBuilder paragraphGapSize(ConstantSize paragraphGapSize) {
+    public IsmFormBuilder paragraphGapSize(ConstantSize paragraphGapSize) {
 
         RowSpec rowSpec = RowSpec.createGap(paragraphGapSize);
         this.paragraphGapSpec = rowSpec;
@@ -247,7 +247,7 @@ public class MyFormBuilder extends I15dPanelBuilder {
      *
      * @param columnOffset the new offset of the leading column
      */
-    public MyFormBuilder leadingColumnOffset(int columnOffset) {
+    public IsmFormBuilder leadingColumnOffset(int columnOffset) {
 
         this.leadingColumnOffset = columnOffset;
         return this;
@@ -259,7 +259,7 @@ public class MyFormBuilder extends I15dPanelBuilder {
      *
      * @param enabled indicates grouping enabled, false disabled
      */
-    public MyFormBuilder rowGroupingEnabled(boolean enabled) {
+    public IsmFormBuilder rowGroupingEnabled(boolean enabled) {
 
         rowGroupingEnabled = enabled;
         return this;
@@ -431,7 +431,7 @@ public class MyFormBuilder extends I15dPanelBuilder {
     public void append(Component component) {
 
         if (component.getClass() == JTabbedPane.class) {
-            component.setFont(font.deriveFont(Font.ITALIC, font.getSize()+1f));
+            component.setFont(font.deriveFont(Font.ITALIC, font.getSize() + 1f));
         }
         append(component, 1);
     }
@@ -517,7 +517,7 @@ public class MyFormBuilder extends I15dPanelBuilder {
     public JLabel append(String textWithMnemonic, Component component) {
 
         if (component.getClass() == JButton.class) {
-            component.setFont(font.deriveFont(font.getSize()+1f));
+            component.setFont(font.deriveFont(font.getSize() + 1f));
         } else {
             component.setFont(font);
         }
