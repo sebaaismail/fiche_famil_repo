@@ -2,13 +2,14 @@ package com.sebaainf.fichfamil.view;
 
 import com.jgoodies.binding.adapter.BasicComponentFactory;
 import com.jgoodies.forms.builder.FormBuilder;
-import com.jgoodies.forms.debug.FormDebugPanel;
 import com.jgoodies.forms.layout.CellConstraints;
-import com.jgoodies.forms.layout.FormLayout;
+import com.sebaainf.fichfamil.common.MyCommonUtils;
 import com.sebaainf.fichfamil.presentation.CitoyenEditorModel;
 import org.jdatepicker.impl.JDatePickerImpl;
 
 import javax.swing.*;
+import java.awt.*;
+import java.util.ArrayList;
 import java.util.EventObject;
 
 /**
@@ -32,7 +33,7 @@ public class CitoyenEditorView {
 
     private JTextField p_pere;
     private JTextField np_mere;
-    private JTextField id_deces;
+    private JCheckBox id_deces;
     private JCheckBox date_est_presume;
     private IsmPanelLieu panel;
 
@@ -63,7 +64,20 @@ public class CitoyenEditorView {
         femininChoice.setHorizontalTextPosition(SwingConstants.LEFT);
 
         date_naiss = IsmComponentFactory.createDatePickerImpl(model, "yyyy/MM/dd");
-        date_est_presume = IsmComponentFactory.createCheckBox(model.getDate_est_presume(), "* مفترض");
+        date_est_presume = IsmComponentFactory.createCheckBox(
+                model.getDate_est_presume(), "* مفترض");
+
+        // we use createBooleanNegator to return the inverse of Boolean
+        //id_deces = IsmComponentFactory.createCheckBox(model.getId_deces(), "* على قيد الحياة");
+
+        id_deces = new JCheckBox("* على قيد الحياة");
+        if ((Integer)(model.getId_deces().getValue()) > 0) {
+            id_deces.setSelected(true);
+        } else {
+            id_deces.setSelected(false);
+        }
+        //id_deces.addActionListener(ActionDeces);
+
         p_pere = IsmComponentFactory.createTextField(model.getP_pere());
         np_mere = IsmComponentFactory.createTextField(model.getNp_mere());
 
@@ -78,10 +92,14 @@ public class CitoyenEditorView {
 
 
 
+
     }
 
 
     private JComponent buildContent() {
+
+        MyCommonUtils.setListComponentsEnabled(getListComponents(),false);
+
 
 /*
         FormLayout layout = new FormLayout(
@@ -123,8 +141,10 @@ public class CitoyenEditorView {
                         CellConstraints.CENTER))
                 .add(femininChoice).at(cc.xy(2, 14, CellConstraints.RIGHT,
                         CellConstraints.CENTER))
+                .add(id_deces).xy(6, 12)
 
                 .build();
+
 
     }
 
@@ -133,5 +153,28 @@ public class CitoyenEditorView {
         return buildContent();
 
     }
+
+    public ArrayList<JComponent> getListComponents() {
+
+        ArrayList<JComponent> list = new ArrayList<JComponent>();
+        list.add(nom_ar);
+        list.add(prenom_ar);
+        list.add(nom_fr);
+        list.add(prenom_fr);
+        list.add(date_naiss);
+        list.add(date_est_presume);
+        list.add(panel.getComboBoxCommunes());
+        list.add(panel.getComboBoxWilayas());
+        list.add(p_pere);
+        list.add(np_mere);
+        list.add(masculinChoice);
+        list.add(femininChoice);
+        list.add(id_deces);
+
+        return list;
+
+    }
+
+
 
 }

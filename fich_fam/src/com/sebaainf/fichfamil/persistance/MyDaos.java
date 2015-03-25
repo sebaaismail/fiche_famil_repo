@@ -5,7 +5,7 @@ import com.jenkov.db.itf.IDaos;
 import com.jenkov.db.itf.PersistenceException;
 import com.jenkov.db.jdbc.SimpleDataSource;
 import com.sebaainf.fichfamil.citoyen.Citoyen;
-import com.sebaainf.fichfamil.common.Commune;
+import com.sebaainf.fichfamil.common.ListCommunes;
 import com.sebaainf.fichfamil.common.Enfant;
 import com.sebaainf.fichfamil.common.Mariage;
 
@@ -131,17 +131,17 @@ public class MyDaos {
      * @return communes
      * @ should return collection of communes for id_w
      */
-    public static TreeSet<Commune> getCollectionCommunes(int id_wil) {
+    public static TreeSet<ListCommunes> getCollectionCommunes(int id_wil) {
 
-        List<Commune> listCommunes;
-        TreeSet<Commune> communes = null;
+        List<ListCommunes> listCommunes;
+        TreeSet<ListCommunes> communes = null;
 
         try {
             String sql = "select * from commune where ROUND(id_c/100)=?";
             IDaos daos = MyDaos.persistenceManager.createDaos();
-            listCommunes = daos.getObjectDao().readList(Commune.class, sql, id_wil);
+            listCommunes = daos.getObjectDao().readList(ListCommunes.class, sql, id_wil);
 
-            communes = new TreeSet<Commune>(listCommunes);
+            communes = new TreeSet<ListCommunes>(listCommunes);
 
         } catch (PersistenceException e) {
             e.printStackTrace();

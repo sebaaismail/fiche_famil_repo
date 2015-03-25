@@ -1,31 +1,35 @@
 package com.sebaainf.fichfamil.common;
 
 import com.jgoodies.common.bean.Bean;
-import com.sebaainf.fichfamil.persistance.MyDaos;
-
-import java.util.TreeSet;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
- * Created by admin on 06/02/2015.
+ * Created by ${sebaainf.com} on 24/03/2015.
+ * https://bitbucket.org/sebaa_ismail
+ * https://github.com/sebaaismail
  */
+
+@XStreamAlias("Commune") // maps Commune element in XML to this class
 public class Commune extends Bean implements Comparable<Commune> {
 
-    private int id_c;
+    private int code_wilaya;
+    private int code_commune;
     private String com_fr;
     private String com_ar;
-    public static final String PROPERTY_ID_C = "id_c";
+    private Boolean selection_daira;
+
+    public static final String PROPERTY_CODE_WILAYA = "code_wilaya";
+    public static final String PROPERTY_CODE_COMMUNE = "code_commune";
     public static final String PROPERTY_COM_FR = "com_fr";
     public static final String PROPERTY_COM_AR = "com_ar";
+    public static final String PROPERTY_SELECTION_DAIRA = "selection_daira";
 
-    public static TreeSet<Commune> getCollectionCommunes(int id_wil) {
 
-        return MyDaos.getCollectionCommunes(id_wil);
-    }
 
     @Override
     public int compareTo(Commune commune) {
 
-        return new Integer(this.getId_c()).compareTo(new Integer(commune.getId_c()));
+        return new Integer(this.getCode_commune()).compareTo(new Integer(commune.getCode_commune()));
     }
 
     public String toString() {
@@ -33,19 +37,29 @@ public class Commune extends Bean implements Comparable<Commune> {
         return this.getCom_fr().toUpperCase();
     }
 
-    public int getId_c() {
+    public int getCode_commune() {
 
-        return id_c;
+        return code_commune;
     }
 
-    public void setId_c(int id_c) {
+    public void setCode_commune(int code_commune) {
 
-        this.id_c = id_c;
+        this.code_commune = code_commune;
     }
 
     public String getCom_fr() {
 
         return com_fr;
+    }
+
+    public int getCode_wilaya() {
+
+        return code_wilaya;
+    }
+
+    public void setCode_wilaya(int code_wilaya) {
+
+        this.code_wilaya = code_wilaya;
     }
 
     public void setCom_fr(String com_fr) {
@@ -62,4 +76,17 @@ public class Commune extends Bean implements Comparable<Commune> {
 
         this.com_ar = com_ar;
     }
+
+    public Boolean getSelection_daira() {
+
+        return selection_daira;
+    }
+
+    public void setSelection_daira(Boolean selection_daira) {
+
+        this.selection_daira = selection_daira;
+    }
+
+
+
 }

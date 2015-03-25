@@ -1,16 +1,20 @@
 package com.sebaainf.fichfamil.test;
 
 import com.sebaainf.fichfamil.citoyen.Citoyen;
+import com.sebaainf.fichfamil.common.Deces;
 import com.sebaainf.fichfamil.persistance.MyDaosCitoyen;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Collection;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.hasItemInArray;
+import static org.hamcrest.Matchers.not;
 
 /**
  * Created by admin on 25/01/2015.
@@ -139,7 +143,7 @@ public class MyDaosCitoyenTest {
 
     public void deleteCitoyen_shouldDeleteCitoyenCit() throws Exception {
 
-        Citoyen cit1 = MyDaosCitoyen.getCitoyen(60);
+        Citoyen cit1 = MyDaosCitoyen.getCitoyen(59);
         Citoyen citSaver = cit1;
         boolean flag = MyDaosCitoyen.deleteCitoyen(cit1);
         MyDaosCitoyen.insertCitoyen(citSaver);
@@ -158,6 +162,77 @@ public class MyDaosCitoyenTest {
     public void deleteCitoyen_shouldDeleteCitoyenCitById_cit() throws Exception {
 
         //TODO auto-generated
-        Assert.fail("Not yet implemented");
+        Boolean flag = MyDaosCitoyen.deleteCitoyen(61);
+        assertThat(flag, equalTo(true));
+    }
+    /**
+     * @verifies verifies if cit existe in the data base
+     * @see MyDaosCitoyen#isInDBCitoyen(com.sebaainf.fichfamil.citoyen.Citoyen)
+     */
+    @Test
+    public void isInDBCitoyen_shouldVerifiesIfCitExisteInTheDataBase() throws Exception {
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        Date date = new Date(sdf.parse("20/08/1985").getTime());
+
+        Citoyen moi = new Citoyen();
+        moi.setNom_fr("sebaa");
+        moi.setPrenom_fr("ismail");
+        moi.setDate_naiss(date);
+        moi.setCode_lieunaiss(31014);
+
+        Citoyen her = new Citoyen();
+        her.setNum_actnaiss(58);
+        her.setAnnee_actnaiss(1988);
+        her.setCode_lieunaiss(16002);
+
+        Citoyen him = new Citoyen();
+        him.setNum_actnaiss(14);
+        him.setAnnee_actnaiss(2000);
+        him.setCode_lieunaiss(16001);
+
+        Citoyen fake = new Citoyen();
+
+        assertThat(MyDaosCitoyen.isInDBCitoyen(moi), equalTo(true));
+        assertThat(MyDaosCitoyen.isInDBCitoyen(her), equalTo(true));
+        assertThat(MyDaosCitoyen.isInDBCitoyen(him), equalTo(false));
+        assertThat(MyDaosCitoyen.isInDBCitoyen(fake), equalTo(false));
+    }
+
+    /**
+     * @verifies return new Deces object
+     * @see MyDaosCitoyen#setDecesInfo(int, java.sql.Date, String)
+     */
+    @Test
+    public void setDecesInfo_shouldReturnNewDecesObject() throws Exception {
+
+        //TODO auto-generated
+        Deces dec = MyDaosCitoyen.setDecesInfo(0, new Date(
+                        Calendar.getInstance().getTime().getTime()),
+                "hassi mamech");
+        assertThat(dec.getLieu_dec(), equalTo("hassi mamech"));
+        assertThat(dec.getId_dec(), equalTo(25));
+    }
+
+    /**
+     * @verifies set deces infos and return dec record
+     * @see Citoyen#setDecesInfos(com.sebaainf.fichfamil.common.Deces, java.lang.Boolean)
+     */
+    @Test
+    public void setDecesInfos_shouldSetDecesInfosAndReturnDecRecord() throws Exception {
+
+        //TODO auto-generated
+        Citoyen cit = MyDaosCitoyen.getCitoyen(13);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        Date dateDeces = new Date(sdf.parse("13/01/2014").getTime());
+
+        //* (1)
+        cit.setDecesInfos(new Deces(dateDeces, "Mosta"), true);
+        assertThat(cit.getId_deces(), not(0));
+        //*/
+        /* (2)
+        cit.setDecesInfos(null, false);
+        assertThat(cit.getId_deces(), equalTo(0));
+        //*/
     }
 }

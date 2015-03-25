@@ -3,8 +3,10 @@ package com.sebaainf.fichfamil.view;
 import com.jgoodies.forms.layout.FormLayout;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.ArrayList;
 
 /**
  * Created by ${sebaainf.com} on 28/02/2015.
@@ -32,6 +34,7 @@ public class CitoyenViewImpl implements CitoyenView {
     private JOptionPane decesOption;
 
     private JPanel panel;
+
 
 
     public CitoyenViewImpl() {

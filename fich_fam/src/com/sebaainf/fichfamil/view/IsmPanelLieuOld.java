@@ -9,6 +9,8 @@ import com.jgoodies.common.collect.ArrayListModel;
 import com.jgoodies.forms.builder.DefaultFormBuilder;
 import com.jgoodies.forms.layout.FormLayout;
 import com.sebaainf.fichfamil.common.Commune;
+import com.sebaainf.fichfamil.common.ListCommunes;
+import com.sebaainf.fichfamil.common.MyApp;
 import com.sebaainf.fichfamil.common.Wilaya;
 
 import javax.swing.*;
@@ -20,22 +22,16 @@ import java.awt.event.ActionListener;
  * Created by admin on 06/02/2015.
  * JPanel encapsulate two JCombobox Wilaya and commune and the default commune
  */
-public class IsmPanelLieuOriginal extends JComponent {
+public class IsmPanelLieuOld extends JComponent {
 
-    //for test TODO delete this in production
-   /*
-    public JTextField ismTextField;
-    public JTextField ismTextField2;
-    public JTextField labelCommune1;
-  //*/
     public JLabel labelCommune2;
 
     private JComboBox comboBoxWilayas;
     private JComboBox comboBoxCommunes;
-    private ValueModel id_c_Model;
+    private ValueModel code_com_model;
 
 
-    public IsmPanelLieuOriginal(int selectedCommune) {
+    public IsmPanelLieuOld(int selectedCommune) {
         // par defaut set MyApp.default_id_c in place of selectedCommune
 
         //this.default_id_c = default_id_c;
@@ -53,7 +49,7 @@ public class IsmPanelLieuOriginal extends JComponent {
 
 //*
         for (int i = 0; i < wilayas.getSize(); i++) {
-            if (((Wilaya) wilayas.getElementAt(i)).getId_w() == numW) {
+            if (((Wilaya) wilayas.getElementAt(i)).getCode_wilaya() == numW) {
                 defaultwilaya = (Wilaya) wilayas.getElementAt(i);
                 break;
             }
@@ -61,63 +57,49 @@ public class IsmPanelLieuOriginal extends JComponent {
         }
 //*/
 
-        SelectionInList selectionInList = new SelectionInList(wilayas);
-        BeanAdapter beanAdapter = new BeanAdapter(selectionInList);
+        SelectionInList selectionInListWil = new SelectionInList(wilayas);
+        BeanAdapter beanAdapterWil = new BeanAdapter(selectionInListWil);
 
-        final ValueModel id_w_Model = beanAdapter.getValueModel("id_w");
-        ValueModel wil_fr_Model = beanAdapter.getValueModel("wil_fr");
+        final ValueModel code_w_Model
+                = beanAdapterWil.getValueModel(Wilaya.PROPERTY_CODE_WILAYA);
 
-        /* todo
-        ismTextField = BasicComponentFactory.createTextField(wil_fr_Model);
-        ismTextField2 = BasicComponentFactory.createIntegerField(id_w_Model);
-
-        ismTextField.setPreferredSize(new Dimension(140, 20));
-        ismTextField2.setPreferredSize(new Dimension(140, 20));
-        //*/
-
-        ComboBoxAdapter comboBoxAdapter = new ComboBoxAdapter(selectionInList);
+        ComboBoxAdapter comboBoxAdapterWil = new ComboBoxAdapter(selectionInListWil);
 
 
-        this.setComboBoxWilayas(new JComboBox(comboBoxAdapter));
+        this.setComboBoxWilayas(new JComboBox(comboBoxAdapterWil));
         this.getComboBoxWilayas().setSelectedItem(defaultwilaya);
 
         /**
          * preparing Communes
          *
          */
-        ListModel communes = new ArrayListModel(Commune.getCollectionCommunes(numW));
+        ListModel communes = new ArrayListModel(ListCommunes.getCollectionCommunes(numW));
         Commune defaultCommune = null;
 
         for (int i = 0; i < communes.getSize(); i++) {
-            if (((Commune) communes.getElementAt(i)).getId_c() == selectedCommune) {
+            if (((Commune) communes.getElementAt(i)).getCode_commune() == selectedCommune) {
                 defaultCommune = (Commune) communes.getElementAt(i);
                 break;
             }
             System.out.println(((Commune) communes.getElementAt(i)).getCom_fr());
         }
 
-        final SelectionInList selectionInList2 = new SelectionInList(communes);//TODO initialise communes
-        BeanAdapter beanAdapter2 = new BeanAdapter(selectionInList2);
+        final SelectionInList selectionInListCom = new SelectionInList(communes);//TODO initialise communes
+        BeanAdapter beanAdapterCom = new BeanAdapter(selectionInListCom);
 
-        setId_c_Model(beanAdapter2.getValueModel("id_c"));
-        ValueModel com_fr_Model = beanAdapter2.getValueModel("com_fr");
-
-        /* todo
-        labelCommune1 = BasicComponentFactory.createIntegerField(getId_c_Model());
-        labelCommune1.setPreferredSize(new Dimension(140, 20));
-        //*/
+        setCode_com_model(beanAdapterCom.getValueModel(Commune.PROPERTY_CODE_COMMUNE));
+        ValueModel com_fr_Model
+                = beanAdapterCom.getValueModel(Commune.PROPERTY_COM_FR);
 
         labelCommune2 = BasicComponentFactory.createLabel(com_fr_Model);
 
 
         labelCommune2.setPreferredSize(new Dimension(140, 20));
 
-        final ComboBoxAdapter comboBoxAdapter2 = new ComboBoxAdapter(selectionInList2);
+        final ComboBoxAdapter comboBoxAdapterCom = new ComboBoxAdapter(selectionInListCom);
 
-        this.setComboBoxCommunes(new JComboBox(comboBoxAdapter2));
+        this.setComboBoxCommunes(new JComboBox(comboBoxAdapterCom));
         this.getComboBoxCommunes().setSelectedItem(defaultCommune);
-
-//        communes = new ArrayListModel(Commune.getCollectionCommunes(1));
 
 
         //*
@@ -128,28 +110,26 @@ public class IsmPanelLieuOriginal extends JComponent {
                 //TODO need optimisation of memory garbage and performance,
                 // TODO shoul variable static ?? intelij performance view
                 //TODO delete this after inserting all communes in data base
-                int wil = (Integer) id_w_Model.getValue();
-                wil = (wil < 31) ? 1 : 31;
-                ListModel newListcommunes = new ArrayListModel(Commune.getCollectionCommunes(wil));
+                int wil = (Integer) code_w_Model.getValue();
+                ListModel newCommune = new ArrayListModel(ListCommunes.getCollectionCommunes(wil));
 
-                //ListModel newListcommunes = new ArrayListModel(Commune.getCollectionCommunes((Integer) id_w_Model.getValue()));
-
-                selectionInList2.setListModel(newListcommunes);
-                selectionInList2.setSelection(newListcommunes.getElementAt(0));
+                //ListModel newCommune = new ArrayListModel(Commune.getCollectionCommunes((Integer) id_w_Model.getValue()));
+                selectionInListCom.setListModel(newCommune);
+                selectionInListCom.setSelection(newCommune.getElementAt(0));
 
             }
         });
         //*/
-        FormLayout layout = new FormLayout("right:pref, $lcgap, max(50dlu;pref)");
+
+
+
+        FormLayout layout = new FormLayout("right:pref, $lcgap, right:pref");
         this.setLayout(layout);
         DefaultFormBuilder builder = new DefaultFormBuilder(layout);
 
         builder.appendSeparator("Lieu : ");
         builder.append("Wilaya : ", this.getComboBoxWilayas());
         builder.append("Commune : ", this.getComboBoxCommunes());
-
-        //todo delete that line
-        //builder.append(ismTextField, ismTextField2);
 
         builder.append(labelCommune2, labelCommune2);
 
@@ -176,13 +156,13 @@ public class IsmPanelLieuOriginal extends JComponent {
         this.comboBoxCommunes = comboBoxCommunes;
     }
 
-    public ValueModel getId_c_Model() {
+    public ValueModel getCode_com_model() {
 
-        return id_c_Model;
+        return code_com_model;
     }
 
-    public void setId_c_Model(ValueModel id_c_Model) {
+    public void setCode_com_model(ValueModel code_com_model) {
 
-        this.id_c_Model = id_c_Model;
+        this.code_com_model = code_com_model;
     }
 }

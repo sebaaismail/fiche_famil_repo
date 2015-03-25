@@ -3,6 +3,7 @@ package com.sebaainf.fichfamil.persistance;
 import com.jenkov.db.itf.IDaos;
 import com.jenkov.db.itf.PersistenceException;
 import com.sebaainf.fichfamil.citoyen.Citoyen;
+import com.sebaainf.fichfamil.common.Deces;
 
 import java.util.Calendar;
 import java.util.Collection;
@@ -69,6 +70,44 @@ public class MyDaosCitoyen {
         }
     }
 
+
+    /**
+     *
+     * @param dateDeces
+     * @param lieuDeces
+     * @return
+     * @should return new Deces object
+     */
+    public static Deces setDecesInfo(int id, java.sql.Date dateDeces, String lieuDeces) {
+
+        //TODO
+        Deces dec = new Deces(id, dateDeces, lieuDeces);
+        //dec.setId_dec(0);
+        //long idDec = 0;
+
+        try {
+            IDaos daos = MyDaos.persistenceManager.createDaos();
+
+            if (id <= 0){
+                // insert new record
+                daos.getObjectDao().insert(dec);
+                // select last inserted record in deces table with max id
+                long idDec = daos.getJdbcDao().readLong("select MAX(id_dec) from deces;");
+                dec.setId_dec((int) idDec);
+                System.out.println("record inserted in Deces Table !");
+            } else {
+                // update record
+                daos.getObjectDao().update(dec);
+                System.out.println("record updated in Deces Table !");
+            }
+
+        } catch (PersistenceException e) {
+            dec = null;
+            e.printStackTrace();
+        }
+        return dec;
+
+    }
     /**
      * @param nom_fr
      * @param prenom_fr
@@ -257,6 +296,29 @@ public class MyDaosCitoyen {
     }
 
     /**
+     * @param id_dec
+     * @return
+     * @throws com.jenkov.db.itf.PersistenceException
+     * @should return Deces with id_dec
+     */
+    public static Deces getDecesInfos(int id_dec) throws PersistenceException {
+
+        Deces dec = null;
+
+
+        try {
+
+            String sql = "select * from deces where id_dec=?";
+            IDaos daos = MyDaos.persistenceManager.createDaos();
+            dec = daos.getObjectDao().read(Deces.class, sql, id_dec);
+        } catch (PersistenceException e) {
+            e.printStackTrace();
+        } finally {
+            return dec;
+        }
+    }
+
+    /**
      * method to test connection with irreport
      *
      * @return
@@ -287,6 +349,38 @@ public class MyDaosCitoyen {
         } finally {
             return citoyens;
         }
+    }
+
+    /**
+     * method to delete Deces infos dec
+     *
+     * @param id_dec
+     * @return
+     * @should delete Deces infos de by id_dec
+     */
+    public static boolean deleteDecesInfos(int id_dec) {
+
+        boolean flag = false;
+        try {
+            Deces dec = getDecesInfos(id_dec);
+            if (dec != null) {
+
+                IDaos daos = MyDaos.persistenceManager.createDaos();
+                daos.getObjectDao().delete(dec);
+                flag = true;
+                System.out.println("deces deleted");
+            } else {
+                //todo not tested method
+                System.out.println("deces infos not found in data base !!");
+
+            }
+        } catch (PersistenceException e) {
+            e.printStackTrace();
+        } finally {
+            System.out.println("flag :" + flag);
+            return flag;
+        }
+
     }
 
 }

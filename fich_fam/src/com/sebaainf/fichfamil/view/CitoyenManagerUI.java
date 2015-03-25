@@ -37,7 +37,7 @@ public class CitoyenManagerUI {
     private final JCheckBox date_est_presume;
 
     private JPanel panel;
-    private IsmPanelLieuOriginal pan;
+    private IsmPanelLieuOld pan;
 
 
     public CitoyenManagerUI(final CitoyenPresentation presenter) {
@@ -126,7 +126,7 @@ public class CitoyenManagerUI {
         // Lieu de naissance
         ValueModel selectionHolderLieuNaiss = presenter.getCode_lieunaiss();
         ValueModel beanLieuNaiss = new ValueHolder();
-        pan = new IsmPanelLieuOriginal(new Integer((Integer) selectionHolderLieuNaiss.getValue()));
+        pan = new IsmPanelLieuOld(new Integer((Integer) selectionHolderLieuNaiss.getValue()));
         //BeanAdapter beanAdapter = new BeanAdapter(beanLieuNaiss);
 
         ComboBoxAdapter comboBoxAdapterCommune = new ComboBoxAdapter(pan.getComboBoxCommunes().getModel(), beanLieuNaiss);

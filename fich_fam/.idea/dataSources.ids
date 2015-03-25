@@ -38,7 +38,8 @@
     <table name="deces" schema="" catalog="dbfichefamil" type="TABLE">
       <column name="id_dec" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="date_dec" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
-      <column name="lieu_dec" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="lieu_dec" sqlType="VARCHAR" precision="250" scale="0" nullable="true" jdbcType="12"/>
+      <column name="obs" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id_dec"/>
     </table>
     <table name="enfant" schema="" catalog="dbfichefamil" type="TABLE">

@@ -34,12 +34,13 @@ public final class CitoyenEditorModel extends PresentationModel<IPerson> {
     private ComponentValueModel p_pere;
     private ComponentValueModel np_mere;
 
-    //private RadioButtonAdapter masculinAdapter;
-
-    //private RadioButtonAdapter femininAdapter;
-
     private ComponentValueModel id_deces;
     private ComponentValueModel date_est_presume;
+
+    //private RadioButtonAdapter masculinAdapter;
+    //private RadioButtonAdapter femininAdapter;
+
+
 
     public ComponentValueModel getEst_masculin() {
 

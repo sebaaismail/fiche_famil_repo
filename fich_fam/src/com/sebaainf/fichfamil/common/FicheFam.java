@@ -19,8 +19,7 @@ public class FicheFam {
     private String marge1 = "غير متوفي";
     private String marge2 = "غير متوفي";
     private SimpleDateFormat simpleDateFormat;
-    //private String textDateNaiss;
-    //private String textDateMar;
+
     private Citoyen citoyen;
     private Mariage selectedFamily;
     //this parameters need fonctions to get formated arabic string

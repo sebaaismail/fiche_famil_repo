@@ -5,7 +5,6 @@ import com.jgoodies.binding.adapter.BasicComponentFactory;
 import com.jgoodies.binding.value.ComponentValueModel;
 import com.sebaainf.fichfamil.citoyen.IPerson;
 import com.sebaainf.fichfamil.presentation.CitoyenEditorModel;
-import com.sebaainf.fichfamil.presentation.CitoyenPresentation;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
@@ -97,7 +96,8 @@ public class IsmComponentFactory extends BasicComponentFactory {
                                                CitoyenEditorModel model) {
 
 
-        return new IsmPanelLieu(code_lieunaiss, model);
+       return new IsmPanelLieu(code_lieunaiss, model);
+
     }
 
 }

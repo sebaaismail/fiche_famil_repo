@@ -1,13 +1,24 @@
 package com.sebaainf.fichfamil.citoyen;
 
+import com.jenkov.db.itf.PersistenceException;
+import com.jenkov.db.itf.mapping.AClassMapping;
 import com.jenkov.db.itf.mapping.AGetterMapping;
 import com.jgoodies.common.bean.Bean;
+import com.sebaainf.fichfamil.common.Deces;
+import com.sebaainf.fichfamil.persistance.MyDaos;
+import com.sebaainf.fichfamil.persistance.MyDaosCitoyen;
 
 import java.sql.Date;
 
 /**
  * Created by admin on 10/01/2015.
+ * for butterfly mapping
+ * 1- we have foolow the naming conditions of class and properties
+ * just match the table and their colimn in data base
+ * 2- we have initialise all properties in class with defaults values
+ * 3- put GETTer anotations just before their getter methods
  */
+
 public class Citoyen extends Bean implements IPerson {
 
 
@@ -268,6 +279,51 @@ public class Citoyen extends Bean implements IPerson {
         if (oldSit_famil != newSit_famil) {
             firePropertyChange(Citoyen.PROPERTY_SIT_FAMIL, oldSit_famil, newSit_famil);
         }
+    }
+
+    /**
+     *
+     * @param dec
+     * @return
+     * @should set deces infos and return dec record
+     */
+    public void setDecesInfos(Deces dec, Boolean isDied) {
+
+        if (!isDied) {
+            // delete deces record by idDeces and set idDec to "0"
+            //Citoyen est en vie
+            //TODO
+            Boolean flag = MyDaosCitoyen.deleteDecesInfos(this.id_deces);
+            if (flag) {
+                this.setId_deces(0);
+                MyDaosCitoyen.updateCitoyen(this);
+            }
+
+
+        } else {
+            // Citoyen est mort
+            dec.setId_dec(this.id_deces);
+            dec = MyDaosCitoyen.setDecesInfo(dec.getId_dec(), dec.getDate_dec(),
+            dec.getLieu_dec());
+            this.setId_deces(dec.getId_dec());
+            MyDaosCitoyen.updateCitoyen(this);
+        }
+
+    }
+
+    public Deces getDecesInfos() {
+
+        Deces dec = null;
+        if (this.id_deces > 0) {
+            try {
+                dec = MyDaosCitoyen.getDecesInfos(this.id_deces);
+            } catch (PersistenceException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return dec;
+
     }
 
 }

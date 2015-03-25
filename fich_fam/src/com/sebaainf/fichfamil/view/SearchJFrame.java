@@ -42,7 +42,7 @@ public class SearchJFrame extends JFrame {
     private JComponent messageLabel = ValidationResultViewFactory.createReportList(validationResultModel);
 
     private JDatePickerImpl datePicker;
-    private IsmPanelLieuOriginal pan = new IsmPanelLieuOriginal(MyApp.default_id_c);
+    private IsmPanelLieuOld pan = new IsmPanelLieuOld(MyApp.default_id_c);
 
     public SearchJFrame() {
 
@@ -115,7 +115,6 @@ public class SearchJFrame extends JFrame {
         //JDateComponentFactory fact = new JDateComponentFactory();
 
         datePicker = new JDatePickerImpl(datePanel, new IsmDateFormatter());
-        //datePicker = new JDatePickerImpl(datePanel, new MyDateFormatter());
         datePicker.setShowYearButtons(true);
         datePicker.setButtonFocusable(true);
         datePicker.setTextEditable(true);
@@ -165,19 +164,22 @@ public class SearchJFrame extends JFrame {
         builder.appendRow(RowSpec.decode("top:31dlu")); // Assumes line is 14, gap is 3
         builder.nextLine(2);
 
-        int bestWidth = pan.getComboBoxWilayas().getPreferredSize().width;
-        int bestHeight = numActMarField.getPreferredSize().height;
-
-        if (bestHeight < pan.getComboBoxCommunes().getPreferredSize().height) {
-            bestHeight = pan.getComboBoxCommunes().getPreferredSize().height;
-        }
+        int bestWidth = pan.getComboBoxCommunes().getPreferredSize().width*13/10;
+        int bestHeight = pan.getComboBoxCommunes().getPreferredSize().height;
 
 
         //********** setting the width size
         pan.getComboBoxCommunes().setPreferredSize(new Dimension(bestWidth, bestHeight));
         pan.getComboBoxWilayas().setPreferredSize(new Dimension(bestWidth, bestHeight));
 
+        if (bestHeight < pan.getComboBoxCommunes().getPreferredSize().height) {
+            bestHeight = pan.getComboBoxCommunes().getPreferredSize().height;
+        }
+
+
         numActMarField.setPreferredSize(new Dimension(bestWidth, bestHeight));
+        datePicker.getJFormattedTextField().setPreferredSize(new Dimension(bestWidth, bestHeight));
+
         //datePicker.getJFormattedTextField().setPreferredSize(new Dimension(bestWidth, bestHeight));
         //datePicker.getJDateInstantPanel().ge
 
@@ -236,7 +238,7 @@ public class SearchJFrame extends JFrame {
             java.util.Date selectedDate = (java.util.Date) datePicker.getModel().getValue();
 
             Date dateMar = new Date(selectedDate.getTime());
-            int lieu = (Integer) pan.getId_c_Model().getValue();
+            int lieu = (Integer) pan.getCode_com_model().getValue();
 
             //preModel.getBean().setDate_mar(dateMar);
             //preModel.getBean().setLieu_mar(lieu);

@@ -14,6 +14,7 @@ import com.jgoodies.forms.builder.DefaultFormBuilder;
 import com.jgoodies.forms.layout.FormLayout;
 import com.sebaainf.fichfamil.citoyen.Citoyen;
 import com.sebaainf.fichfamil.common.Commune;
+import com.sebaainf.fichfamil.common.ListCommunes;
 import com.sebaainf.fichfamil.common.MyApp;
 import com.sebaainf.fichfamil.common.Wilaya;
 import com.sebaainf.fichfamil.presentation.CitoyenEditorModel;
@@ -66,7 +67,7 @@ public class IsmPanelLieu extends JComponent {
 
 //*
         for (int i = 0; i < wilayas.getSize(); i++) {
-            if (((Wilaya) wilayas.getElementAt(i)).getId_w() == numW) {
+            if (((Wilaya) wilayas.getElementAt(i)).getCode_wilaya() == numW) {
                 defaultwilaya = (Wilaya) wilayas.getElementAt(i);
                 break;
             }
@@ -77,12 +78,13 @@ public class IsmPanelLieu extends JComponent {
         SelectionInList selectionInListWil = new SelectionInList(wilayas);
         BeanAdapter beanAdapter = new BeanAdapter(selectionInListWil);
 
-        final ValueModel id_w_Model = beanAdapter.getValueModel("id_w");
+        final ValueModel id_w_Model
+                = beanAdapter.getValueModel(Wilaya.PROPERTY_CODE_WILAYA);
 
-        ComboBoxAdapter comboBoxAdapter = new ComboBoxAdapter(selectionInListWil);
+        ComboBoxAdapter comboBoxAdapterWil = new ComboBoxAdapter(selectionInListWil);
 
 
-        this.setComboBoxWilayas(new JComboBox(comboBoxAdapter));
+        this.setComboBoxWilayas(new JComboBox(comboBoxAdapterWil));
         this.getComboBoxWilayas().setSelectedItem(defaultwilaya);
 
         /**
@@ -90,17 +92,18 @@ public class IsmPanelLieu extends JComponent {
          *
          */
         ArrayListModel<Commune> communes
-                = new ArrayListModel(Commune.getCollectionCommunes(numW));
+                = new ArrayListModel(ListCommunes.getCollectionCommunes(numW));
         Commune laCommune = null;
 
         for (Commune obj : communes) {
-            if (obj.getId_c() == (Integer)(id_c_Model.getValue())) {
+            if (obj.getCode_commune() == (Integer)(id_c_Model.getValue())) {
                 laCommune = obj;
                 break;
             }
         }
 
-        final PresentationModel beanPresentationModel = new PresentationModel(laCommune);
+        final PresentationModel beanPresentationModel
+                = new PresentationModel(laCommune);
 
         // create a property adapter for the presentation model 'bean' property.
         final ValueModel beanProperty = new PropertyAdapter(beanPresentationModel, "bean");
@@ -108,7 +111,7 @@ public class IsmPanelLieu extends JComponent {
         // TODO when set mairié after changing selected comboBox client dont update ???
         //* good
         PropertyConnector.connectAndUpdate
-                (beanPresentationModel.getModel(Commune.PROPERTY_ID_C),
+                (beanPresentationModel.getModel(Commune.PROPERTY_CODE_COMMUNE),
                 model.getBean(), Citoyen.PROPERTY_CODE_LIEUNAISS);
 
 
@@ -122,11 +125,10 @@ public class IsmPanelLieu extends JComponent {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //TODO need optimisation of memory garbage and performance,
-                // TODO shoul variable static ?? intelij performance view
-                //TODO delete this after inserting all communes in data base
+                // TODO should variable static ?? intelij performance view
                 int wil = (Integer) id_w_Model.getValue();
-                wil = (wil < 31) ? 1 : 31;
-                ListModel newListcommunes = new ArrayListModel(Commune.getCollectionCommunes(wil));
+                ListModel newListcommunes
+                        = new ArrayListModel(ListCommunes.getCollectionCommunes(wil));
 
                 selectionInListCommune[0].release();
                 selectionInListCommune[0] = new SelectionInList(
@@ -143,9 +145,6 @@ public class IsmPanelLieu extends JComponent {
         builder.appendSeparator("Lieu : ");
         builder.append("Wilaya : ", this.getComboBoxWilayas());
         builder.append("Commune : ", this.getComboBoxCommunes());
-
-        //todo delete that line
-        //builder.append(ismTextField, ismTextField2);
 
     }
 

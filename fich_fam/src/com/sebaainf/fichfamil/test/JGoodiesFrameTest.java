@@ -7,9 +7,8 @@ package com.sebaainf.fichfamil.test;
 import com.jgoodies.forms.builder.DefaultFormBuilder;
 import com.jgoodies.forms.layout.FormLayout;
 import com.sebaainf.fichfamil.common.MyApp;
-import com.sebaainf.fichfamil.view.IsmPanelLieu;
+import com.sebaainf.fichfamil.view.IsmPanelLieuOld;
 import com.sebaainf.fichfamil.view.IsmDateFormatter;
-import com.sebaainf.fichfamil.view.IsmPanelLieuOriginal;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
@@ -71,7 +70,7 @@ public class JGoodiesFrameTest extends JFrame {
         //FormLayout layout = new FormLayout("right:pref, $lcgap, left:max(pref;80dlu)");
         //CellConstraints cc = new CellConstraints();
 
-        IsmPanelLieuOriginal pan = new IsmPanelLieuOriginal(MyApp.default_id_c);
+        IsmPanelLieuOld pan = new IsmPanelLieuOld(MyApp.default_id_c);
 
         DefaultFormBuilder builder = new DefaultFormBuilder(layout);
 
@@ -116,7 +115,7 @@ public class JGoodiesFrameTest extends JFrame {
 
 
         for(int i=0; i< wilayas.getSize();i++) {
-            if (((Wilaya)wilayas.getElementAt(i)).getId_w() == numW) {
+            if (((Wilaya)wilayas.getElementAt(i)).getCode_wilaya() == numW) {
                 defaultwilaya = (Wilaya)wilayas.getElementAt(i);
                 break;
 

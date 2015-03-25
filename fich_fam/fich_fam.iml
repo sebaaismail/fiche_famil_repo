@@ -65,5 +65,6 @@
     </orderEntry>
     <orderEntry type="library" exported="" name="jgoodies-validation-2.5.1" level="project" />
     <orderEntry type="library" name="jgoodies-forms-1.9.0" level="project" />
+    <orderEntry type="library" name="xstream" level="project" />
   </component>
 </module>
