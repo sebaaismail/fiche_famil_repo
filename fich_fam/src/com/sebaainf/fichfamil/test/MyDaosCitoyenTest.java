@@ -3,7 +3,6 @@ package com.sebaainf.fichfamil.test;
 import com.sebaainf.fichfamil.citoyen.Citoyen;
 import com.sebaainf.fichfamil.common.Deces;
 import com.sebaainf.fichfamil.persistance.MyDaosCitoyen;
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.sql.Date;

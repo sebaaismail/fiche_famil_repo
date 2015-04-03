@@ -3,6 +3,8 @@ package com.sebaainf.fichfamil.common;
 import org.jdatepicker.impl.JDatePickerImpl;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 /**
@@ -33,5 +35,13 @@ public class MyCommonUtils {
         }
 
     }
+
+    public ActionListener actionDeces = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+
+        }
+    };
 }
 

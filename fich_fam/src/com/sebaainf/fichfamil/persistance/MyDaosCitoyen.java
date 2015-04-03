@@ -362,11 +362,10 @@ public class MyDaosCitoyen {
 
         boolean flag = false;
         try {
-            Deces dec = getDecesInfos(id_dec);
-            if (dec != null) {
+            if (getDecesInfos(id_dec) != null) {
 
                 IDaos daos = MyDaos.persistenceManager.createDaos();
-                daos.getObjectDao().delete(dec);
+                daos.getObjectDao().delete(Deces.class, id_dec);
                 flag = true;
                 System.out.println("deces deleted");
             } else {

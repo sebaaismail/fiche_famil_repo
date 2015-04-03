@@ -11,4 +11,5 @@ public interface IPerson {
 
     public void setDate_naiss(Date newDate_naiss);
 
+
 }

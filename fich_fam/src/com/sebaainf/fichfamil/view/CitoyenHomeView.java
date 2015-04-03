@@ -5,51 +5,40 @@ import com.jgoodies.forms.builder.FormBuilder;
 import com.jgoodies.forms.layout.CellConstraints;
 import com.sebaainf.fichfamil.common.MyCommonUtils;
 import com.sebaainf.fichfamil.presentation.CitoyenEditorModel;
+import com.sebaainf.fichfamil.presentation.CitoyenHomeModel;
 import org.jdatepicker.impl.JDatePickerImpl;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.util.ArrayList;
 import java.util.EventObject;
 
 /**
- * Created by ${sebaainf.com} on 14/03/2015.
+ * Created by ${sebaainf.com} on 30/03/2015.
  * https://bitbucket.org/sebaa_ismail
  * https://github.com/sebaaismail
  */
-public class CitoyenEditorView {
+public class CitoyenHomeView {
 
+    // TODO
     private final CitoyenEditorModel model;
-    private JTextField nom_fr;
-    private JTextField prenom_fr;
-    private JTextField nom_ar;
-    private JTextField prenom_ar;
+    private JLabel nom_fr;
+    private JLabel prenom_fr;
+    private JLabel nom_ar;
+    private JLabel prenom_ar;
 
     private JDatePickerImpl date_naiss;
-    private JComboBox code_lieunaiss;
-    private JComboBox sit_famil;
-    private JRadioButton masculinChoice;
-    private JRadioButton femininChoice;
+    private JLabel code_lieunaiss;
+    private JLabel sit_famil;
+    private JLabel masculinChoice;
 
-    private JTextField p_pere;
-    private JTextField np_mere;
-    private JCheckBox id_deces;
+    private JLabel p_pere;
+    private JLabel np_mere;
+    private JLabel id_deces;
     private JCheckBox date_est_presume;
     private IsmPanelLieu panel;
 
-    private JDatePickerImpl date_deces;
-    private JTextField lieu_deces;
 
-
-    private JButton okButton;
-    private JButton annulerButton;
-
-
-    CitoyenEditorView(CitoyenEditorModel model) {
+    CitoyenHomeView(CitoyenEditorModel model) {
 
         this.model = model;
         initComponents();
@@ -59,20 +48,19 @@ public class CitoyenEditorView {
     private void initComponents() {
 
 
-        nom_fr = BasicComponentFactory.createTextField(model.getNom_fr());
-        prenom_fr = BasicComponentFactory.createTextField(model.getPrenom_fr());
-        nom_ar = BasicComponentFactory.createTextField(model.getNom_ar());
-        prenom_ar = BasicComponentFactory.createTextField(model.getPrenom_ar());
+        nom_fr = BasicComponentFactory.createLabel(model.getNom_fr());
+        prenom_fr = BasicComponentFactory.createLabel(model.getPrenom_fr());
+        nom_ar = BasicComponentFactory.createLabel(model.getNom_ar());
+        prenom_ar = BasicComponentFactory.createLabel(model.getPrenom_ar());
 
         //code_lieunaiss = BasicComponentFactory.createComboBox(model.getCode_lieunaiss());
-        sit_famil = IsmComponentFactory.createComboBox(model.getSelList_sit_famil());
+        sit_famil = IsmComponentFactory.createLabel(model.getSit_famil());
 
-        masculinChoice = IsmComponentFactory.createRadioButton(model.getEst_masculin()
-                , true, "ذكر");
-        femininChoice = IsmComponentFactory.createRadioButton(model.getEst_masculin()
-                , false, "أنثى");
-        masculinChoice.setHorizontalTextPosition(SwingConstants.LEFT);
-        femininChoice.setHorizontalTextPosition(SwingConstants.LEFT);
+        //TODO masculinChoice = IsmComponentFactory.createLabel(model.getEst_masculin()
+          //      , true, "ذكر");
+
+//        masculinChoice.setHorizontalTextPosition(SwingConstants.LEFT);
+
 
         date_naiss = IsmComponentFactory.createDatePickerImpl(model, "yyyy/MM/dd");
         date_est_presume = IsmComponentFactory.createCheckBox(
@@ -80,38 +68,17 @@ public class CitoyenEditorView {
 
         // we use createBooleanNegator to return the inverse of Boolean
         //id_deces = IsmComponentFactory.createCheckBox(model.getId_deces(), "* على قيد الحياة");
-
-        //*
+/*         TODO
         id_deces = new JCheckBox("* على قيد الحياة");
         if ((Integer)(model.getId_deces().getValue()) > 0) {
-            id_deces.setSelected(false);
-        } else {
             id_deces.setSelected(true);
-        }
-        //*/
+        } else {
+            id_deces.setSelected(false);
+        }*/
+        //id_deces.addActionListener(ActionDeces);
 
-
-        id_deces.addItemListener(new ItemListener() {
-            @Override
-            public void itemStateChanged(ItemEvent e) {
-                if (e.getStateChange() == ItemEvent.SELECTED) {
-                    lieu_deces.setEnabled(true);
-                    date_deces.setTextEditable(true);
-                    // set the button disabled
-                    date_deces.getComponent(1).setEnabled(true);
-
-                } else if (e.getStateChange() == ItemEvent.DESELECTED) {
-                    lieu_deces.setEnabled(false);
-                    date_deces.setTextEditable(false);
-                    date_deces.getJFormattedTextField().setText("");
-                    // set the button disabled
-                    date_deces.getComponent(1).setEnabled(false);
-                }
-            }
-        });
-
-        p_pere = IsmComponentFactory.createTextField(model.getP_pere());
-        np_mere = IsmComponentFactory.createTextField(model.getNp_mere());
+        p_pere = IsmComponentFactory.createLabel(model.getP_pere());
+        np_mere = IsmComponentFactory.createLabel(model.getNp_mere());
 
         panel =
                 IsmComponentFactory.createPanelLieu(model.getCode_lieunaiss(), model);
@@ -122,12 +89,6 @@ public class CitoyenEditorView {
         p_pere.setHorizontalAlignment(JTextField.RIGHT);
         np_mere.setHorizontalAlignment(JTextField.RIGHT);
 
-        // TODO
-        date_deces = IsmComponentFactory.createDatePickerDecesImpl();
-        lieu_deces = new JTextField(20);
-
-        okButton = new JButton("Ok");
-        annulerButton = new JButton("Annuler");
 
 
 
@@ -136,7 +97,7 @@ public class CitoyenEditorView {
 
     private JComponent buildContent() {
 
-        MyCommonUtils.setListComponentsEnabled(getListComponents(),true);
+        //MyCommonUtils.setListComponentsEnabled(getListComponents(), false);
 
 
 /*
@@ -177,16 +138,8 @@ public class CitoyenEditorView {
                 .add("الجنس :").xy(4, 12)
                 .add(masculinChoice).at(cc.xy(2, 12, CellConstraints.RIGHT,
                         CellConstraints.CENTER))
-                .add(femininChoice).at(cc.xy(2, 14, CellConstraints.RIGHT,
-                        CellConstraints.CENTER))
+
                 .add(id_deces).xy(6, 12)
-                .add("تاريخ الوفاة :").xy(8, 16)
-                .add(date_deces).xy(6, 16)
-                .add("مكان الوفاة :").xy(4, 16)
-                .add(lieu_deces).xy(2, 16)
-
-
-                // TODO buttons ok annuler ?
 
                 .build();
 
@@ -213,10 +166,10 @@ public class CitoyenEditorView {
         list.add(p_pere);
         list.add(np_mere);
         list.add(masculinChoice);
-        list.add(femininChoice);
         list.add(id_deces);
 
         return list;
 
     }
+
 }

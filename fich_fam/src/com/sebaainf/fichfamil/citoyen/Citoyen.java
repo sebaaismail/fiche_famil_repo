@@ -1,11 +1,9 @@
 package com.sebaainf.fichfamil.citoyen;
 
 import com.jenkov.db.itf.PersistenceException;
-import com.jenkov.db.itf.mapping.AClassMapping;
 import com.jenkov.db.itf.mapping.AGetterMapping;
 import com.jgoodies.common.bean.Bean;
 import com.sebaainf.fichfamil.common.Deces;
-import com.sebaainf.fichfamil.persistance.MyDaos;
 import com.sebaainf.fichfamil.persistance.MyDaosCitoyen;
 
 import java.sql.Date;
@@ -290,7 +288,7 @@ public class Citoyen extends Bean implements IPerson {
     public void setDecesInfos(Deces dec, Boolean isDied) {
 
         if (!isDied) {
-            // delete deces record by idDeces and set idDec to "0"
+            // delete id_deces record by idDeces and set idDec to "0"
             //Citoyen est en vie
             //TODO
             Boolean flag = MyDaosCitoyen.deleteDecesInfos(this.id_deces);

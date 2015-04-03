@@ -28,13 +28,6 @@
       <exported-key name="mariage_ibfk_2" table="mariage" schema="" catalog="dbfichefamil" columns="id_epouse"/>
       <index name="unique_index" unique="true" columns="num_actnaiss,annee_actnaiss,code_lieunaiss"/>
     </table>
-    <table name="commune" schema="" catalog="dbfichefamil" type="TABLE">
-      <column name="id_c" sqlType="SMALLINT UNSIGNED" precision="5" scale="0" nullable="false" jdbcType="5"/>
-      <column name="com_fr" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
-      <column name="com_ar" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="id_c"/>
-      <index name="id_c" unique="true" columns="id_c"/>
-    </table>
     <table name="deces" schema="" catalog="dbfichefamil" type="TABLE">
       <column name="id_dec" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="date_dec" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
@@ -73,13 +66,6 @@
       <foreign-key name="mariage_ibfk_2" columns="id_epouse" ref-table="citoyen" ref-schema="" ref-catalog="dbfichefamil" ref-columns="id_cit" update-rule="3" delete-rule="0" deferrability="2"/>
       <exported-key name="enfant_ibfk_1" table="enfant" schema="" catalog="dbfichefamil" columns="id_mar"/>
       <index name="unique_index" unique="true" columns="numact_mar,date_mar,lieu_mar"/>
-    </table>
-    <table name="wilaya" schema="" catalog="dbfichefamil" type="TABLE">
-      <column name="id_w" sqlType="TINYINT UNSIGNED" precision="3" scale="0" nullable="false" jdbcType="-6"/>
-      <column name="wil_fr" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
-      <column name="wil_ar" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="id_w"/>
-      <index name="id_w" unique="true" columns="id_w"/>
     </table>
   </data-source>
 </component>

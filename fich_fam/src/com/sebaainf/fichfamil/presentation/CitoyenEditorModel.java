@@ -8,6 +8,7 @@ import com.jgoodies.binding.beans.PropertyAdapter;
 import com.jgoodies.binding.beans.PropertyConnector;
 import com.jgoodies.binding.list.SelectionInList;
 import com.jgoodies.binding.value.ComponentValueModel;
+import com.jgoodies.binding.value.ValueHolder;
 import com.jgoodies.binding.value.ValueModel;
 import com.jgoodies.common.collect.ArrayListModel;
 import com.sebaainf.fichfamil.citoyen.Citoyen;
@@ -36,6 +37,20 @@ public final class CitoyenEditorModel extends PresentationModel<IPerson> {
 
     private ComponentValueModel id_deces;
     private ComponentValueModel date_est_presume;
+
+    public ValueHolder getEnableLieuDeces() {
+
+        //  TODO page 317 java live
+
+        return enableLieuDeces;
+    }
+
+    public void setEnableLieuDeces(ValueHolder enableLieuDeces) {
+
+        this.enableLieuDeces = enableLieuDeces;
+    }
+
+    private ValueHolder enableLieuDeces;
 
     //private RadioButtonAdapter masculinAdapter;
     //private RadioButtonAdapter femininAdapter;
@@ -82,6 +97,9 @@ public final class CitoyenEditorModel extends PresentationModel<IPerson> {
         id_deces = this.getComponentModel(Citoyen.PROPERTY_ID_DECES);
         date_est_presume = this.getComponentModel(Citoyen.PROPERTY_DATE_EST_PRESUME);
         est_masculin = this.getComponentModel(Citoyen.PROPERTY_EST_MASCULIN);
+
+        enableLieuDeces = new ValueHolder((new Integer(
+                (this.id_deces.getValue().toString()) )> 0));
 
         // Radio Button for sex of citoyen masculin / feminin ?
         /*

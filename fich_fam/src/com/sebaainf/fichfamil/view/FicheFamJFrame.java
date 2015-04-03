@@ -15,14 +15,17 @@ import java.util.EventObject;
 /**
  * Created by ${sebaainf.com} on 23/02/2015.
  */
-public class FicheFamJFrame extends JFrame {
+public final class FicheFamJFrame extends JFrame {
 
     private static Dimension screenSize;
     private final FicheFam ficheFam;
 
 
+
+
     public FicheFamJFrame(FicheFam ficheFam) {
         // TODO
+
         this.ficheFam = ficheFam;
         this.setTitle("Fiche Familiale");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -45,7 +48,7 @@ public class FicheFamJFrame extends JFrame {
         JComponent panel = new JPanel(layout);
 
         panel.add(buildButtonBarPanel(), BorderLayout.WEST);
-        panel.add(buildEpouxInfoPanel(), BorderLayout.CENTER);
+        panel.add(buildEpouxInfoPanel() , BorderLayout.CENTER);
         panel.add(buildEpouxDecesInfoPanel(), BorderLayout.EAST);
         panel.add(buildMariageInfoPanel(), BorderLayout.SOUTH);
 
@@ -66,6 +69,9 @@ public class FicheFamJFrame extends JFrame {
 
     private JComponent buildEpouxInfoPanel() {
 
+        // TODO implement and return CitoyenHomeView
+
+
         //todo Testing JComboBox binding
         //ficheFam.getCitoyen().setSit_famil("d");
         CitoyenPresentation presenter = new CitoyenPresentation(ficheFam.getCitoyen());
@@ -74,9 +80,10 @@ public class FicheFamJFrame extends JFrame {
 
         //return app.getPanel();
         CitoyenEditorModel model = new CitoyenEditorModel(ficheFam.getCitoyen());
-        CitoyenEditorView view = new CitoyenEditorView(model);
+        //CitoyenEditorView view = new CitoyenEditorView(model);
+        CitoyenHomeView view = new CitoyenHomeView(model);
 
-        return view.showDialog(new EventObject(""));
+        return view.showDialog(null);
     }
 
     private JComponent buildButtonBarPanel() {
@@ -111,12 +118,32 @@ public class FicheFamJFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                ficheFam.getCitoyen().setSit_famil("c");
-                JOptionPane.showMessageDialog(null, "citoyen : "
-                        + ficheFam.getCitoyen().getNom_fr()
-                        + " ne le : " + ficheFam.getCitoyen().getDate_naiss()
-                    + "/r Code_lieunaiss : " + ficheFam.getCitoyen().getCode_lieunaiss());
-            }
+                // TODO modify and return CitoyenEditorView
+
+                //todo Testing JComboBox binding
+                //ficheFam.getCitoyen().setSit_famil("d");
+                CitoyenPresentation presenter = new CitoyenPresentation(ficheFam.getCitoyen());
+                // TODO set CitoyenManagerUI in place CitoyenManagerUI_Test
+                //CitoyenManagerUI_Test app = new CitoyenManagerUI_Test(presenter);
+
+                //return app.getPanel();
+                CitoyenEditorModel model = new CitoyenEditorModel(ficheFam.getCitoyen());
+                //CitoyenEditorView view = new CitoyenEditorView(model);
+                CitoyenEditorView view = new CitoyenEditorView(model);
+
+                JFrame editCitPanel = new JFrame();
+                editCitPanel.add(view.showDialog(null));
+                editCitPanel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                editCitPanel.setTitle("Modifier Citoyen");
+
+                editCitPanel.pack();
+                editCitPanel.setSize(new Dimension(8 * (int) screenSize.getWidth() / 10, 9 * (int) screenSize.getHeight() / 10));
+
+                editCitPanel.setLocationRelativeTo(null);
+                editCitPanel.setVisible(true);
+
+
+                  }
         });
 
         builder.addGlue();

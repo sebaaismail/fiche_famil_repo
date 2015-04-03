@@ -36,7 +36,7 @@ public class IsmComponentFactory extends BasicComponentFactory {
      */
     public static JDatePickerImpl createDatePickerImpl(final PresentationModel model){
 
-
+        // with default datePattern "dd/MM/yyyy"
 
         final UtilDateModel dateModel = new UtilDateModel();
         dateModel.setDate(2000, 01, 01);
@@ -76,14 +76,63 @@ public class IsmComponentFactory extends BasicComponentFactory {
 
                 JOptionPane.showMessageDialog(null, evt.getPropertyName() + " --> : "
                         + evt.getNewValue());
-                ((IPerson) model.getBean()).setDate_naiss(new Date(((java.util.Date) datePicker.getModel().getValue()).getTime()));
+                ((IPerson) model.getBean()).
+                        setDate_naiss(new Date(((java.util.Date)
+                                datePicker.getModel().getValue()).getTime()));
             }
         });
 
         return datePicker;
     }
 
-    // with datePattern "yyyy/mm/dd" for arabic alignement for exple
+    public static JDatePickerImpl createDatePickerDecesImpl(){
+
+        // with default datePattern "dd/MM/yyyy"
+
+        final UtilDateModel dateModel = new UtilDateModel();
+        dateModel.setDate(2000, 01, 01);
+
+        JDatePanelImpl datePanel = new JDatePanelImpl(dateModel, new Properties());
+
+
+
+        final JDatePickerImpl datePicker = new JDatePickerImpl(datePanel, formatter);
+
+        datePicker.setShowYearButtons(true);
+        datePicker.setButtonFocusable(true);
+        datePicker.setTextEditable(true);
+        datePicker.getJFormattedTextField().setHorizontalAlignment(JTextField.RIGHT);
+
+        //initialize datePicker
+
+        //Date date = ((IPerson) model.getBean()).getDate_naiss();
+        Calendar calendar = new GregorianCalendar();
+        //calendar.setTime(date);
+
+        datePicker.getModel().setDate(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH));
+        datePicker.getJDateInstantPanel().getModel().setSelected(true);
+
+        try {
+            datePicker.getJFormattedTextField().setText(formatter.valueToString(calendar));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        //Bindings.bind(datePicker.getJFormattedTextField(), valueModel);
+
+        datePicker.getModel().addPropertyChangeListener(new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+
+                //((IPerson) model.getBean()).setDate_naiss(new Date(((java.util.Date) datePicker.getModel().getValue()).getTime()));
+            }
+        });
+
+        return datePicker;
+    }
+
+    // with datePattern "yyyy/MM/dd" for arabic alignement for exple
     public static JDatePickerImpl createDatePickerImpl(final PresentationModel model,
                                                        String datePattern) {
 
