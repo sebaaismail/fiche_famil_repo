@@ -251,8 +251,9 @@ public class SearchJFrame extends JFrame {
             validationResultModel.setResult(result);
             if (!result.hasErrors()) {
 
-                //FicheFam ficheFam = new FicheFam(adapter.getBean().getNumact_mar(), dateMar, lieu);
-                FicheFam ficheFam = FicheFamTest.getTestingFiche();
+                // TODO test
+                FicheFam ficheFam = new FicheFam(adapter.getBean().getNumact_mar(), dateMar, lieu);
+                //FicheFam ficheFam = FicheFamTest.getTestingFiche();
                 if (ficheFam.getSelectedFamily() != null) {
 
                     JFrame ficheFrame = new FicheFamJFrame(ficheFam);

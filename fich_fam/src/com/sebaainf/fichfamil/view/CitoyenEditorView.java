@@ -1,6 +1,7 @@
 package com.sebaainf.fichfamil.view;
 
 import com.jgoodies.binding.adapter.BasicComponentFactory;
+import com.jgoodies.binding.value.ValueHolder;
 import com.jgoodies.forms.builder.FormBuilder;
 import com.jgoodies.forms.layout.CellConstraints;
 import com.sebaainf.fichfamil.common.MyCommonUtils;
@@ -43,9 +44,11 @@ public class CitoyenEditorView {
 
     private JDatePickerImpl date_deces;
     private JTextField lieu_deces;
+    private JLabel labelDateDeces;
+    private JLabel labelLieuDeces;
 
 
-    private JButton okButton;
+    private JButton validerButton;
     private JButton annulerButton;
 
 
@@ -82,33 +85,8 @@ public class CitoyenEditorView {
         //id_deces = IsmComponentFactory.createCheckBox(model.getId_deces(), "* على قيد الحياة");
 
         //*
-        id_deces = new JCheckBox("* على قيد الحياة");
-        if ((Integer)(model.getId_deces().getValue()) > 0) {
-            id_deces.setSelected(false);
-        } else {
-            id_deces.setSelected(true);
-        }
+
         //*/
-
-
-        id_deces.addItemListener(new ItemListener() {
-            @Override
-            public void itemStateChanged(ItemEvent e) {
-                if (e.getStateChange() == ItemEvent.SELECTED) {
-                    lieu_deces.setEnabled(true);
-                    date_deces.setTextEditable(true);
-                    // set the button disabled
-                    date_deces.getComponent(1).setEnabled(true);
-
-                } else if (e.getStateChange() == ItemEvent.DESELECTED) {
-                    lieu_deces.setEnabled(false);
-                    date_deces.setTextEditable(false);
-                    date_deces.getJFormattedTextField().setText("");
-                    // set the button disabled
-                    date_deces.getComponent(1).setEnabled(false);
-                }
-            }
-        });
 
         p_pere = IsmComponentFactory.createTextField(model.getP_pere());
         np_mere = IsmComponentFactory.createTextField(model.getNp_mere());
@@ -122,11 +100,45 @@ public class CitoyenEditorView {
         p_pere.setHorizontalAlignment(JTextField.RIGHT);
         np_mere.setHorizontalAlignment(JTextField.RIGHT);
 
-        // TODO
+        // code for configure infos deces components behavior
+
+        labelDateDeces = IsmComponentFactory.createLabel(new ValueHolder());
+        labelDateDeces.setText("تاريخ الوفاة :");
+
+        labelLieuDeces = IsmComponentFactory.createLabel(new ValueHolder());
+        labelLieuDeces.setText("مكان الوفاة :");
+
+
         date_deces = IsmComponentFactory.createDatePickerDecesImpl();
         lieu_deces = new JTextField(20);
 
-        okButton = new JButton("Ok");
+
+        id_deces = new JCheckBox("* على قيد الحياة");
+
+        id_deces.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.DESELECTED) {
+
+                    decesInfosEnable(true);
+
+                } else if (e.getStateChange() == ItemEvent.SELECTED) {
+
+                    decesInfosEnable(false);
+
+                }
+            }
+        });
+
+        if ((Integer)(model.getId_deces().getValue()) > 0) {
+            id_deces.setSelected(false);
+            decesInfosEnable(true);
+        } else {
+            id_deces.setSelected(true);
+            decesInfosEnable(false);
+        }
+
+        validerButton = new JButton("Valider");
         annulerButton = new JButton("Annuler");
 
 
@@ -150,9 +162,12 @@ public class CitoyenEditorView {
 
         CellConstraints cc = new CellConstraints();
 
-        return FormBuilder.create()
-                .columns("40dlu,fill:default,8dlu,left:pref,100dlu ,150dlu, 8dlu, fill:default, 40dlu")
-                .rows("40dlu,p,6dlu,p,6dlu,p,6dlu,p,6dlu,p,6dlu,p,6dlu,p,6dlu,p")
+        //JComponent form =
+
+        return                FormBuilder.create()
+                .columns("40dlu,fill:default,8dlu,left:pref,100dlu " +
+                        ",150dlu, 8dlu, fill:default, 40dlu")
+                .rows("40dlu,p,6dlu,p,6dlu,p,6dlu,p,6dlu,p,6dlu,p,6dlu,p,6dlu,p,60dlu,default")
                 .columnGroups(new int[][]{{2, 6}, {4, 8}})
                 .rowGroups(new int[][]{{12, 14}})
                 .add("الإســم :").xy(8, 2)
@@ -171,7 +186,7 @@ public class CitoyenEditorView {
                 .add(panel.getComboBoxWilayas()).xy(2, 6)
                 .add(panel.getComboBoxCommunes()).xy(2, 8)
                 .add("إسم ولقب الأب :").xy(8, 10)
-                .add(p_pere).xy(6,10)
+                .add(p_pere).xy(6, 10)
                 .add("إسم ولقب الأم :").xy(4, 10)
                 .add(np_mere).xy(2, 10)
                 .add("الجنس :").xy(4, 12)
@@ -180,15 +195,20 @@ public class CitoyenEditorView {
                 .add(femininChoice).at(cc.xy(2, 14, CellConstraints.RIGHT,
                         CellConstraints.CENTER))
                 .add(id_deces).xy(6, 12)
-                .add("تاريخ الوفاة :").xy(8, 16)
+                .add(labelDateDeces).xy(8, 16)
                 .add(date_deces).xy(6, 16)
-                .add("مكان الوفاة :").xy(4, 16)
+                .add(labelLieuDeces).xy(4, 16)
                 .add(lieu_deces).xy(2, 16)
+                .addBar(validerButton, annulerButton).xy(6, 18)
+                //.add(validerButton).xywh(4, 18,2,1)
+                //.add(annulerButton).xy(6, 18)
 
 
                 // TODO buttons ok annuler ?
 
                 .build();
+
+
 
 
     }
@@ -217,6 +237,29 @@ public class CitoyenEditorView {
         list.add(id_deces);
 
         return list;
+
+    }
+
+    /**
+     * method to set infos deces enable / desable
+     * @param flag
+     */
+    protected void decesInfosEnable(boolean flag) {
+
+        lieu_deces.setVisible(flag);
+        date_deces.setVisible(flag);
+        labelDateDeces.setVisible(flag);
+        labelLieuDeces.setVisible(flag);
+        date_deces.setVisible(flag);
+
+        /*
+        if (!flag) {
+            date_deces.getJFormattedTextField().setText("");
+
+        }
+        //set the button of jDatePicker enable/disabled
+        date_deces.getComponent(1).setEnabled(flag);
+        //*/
 
     }
 }
