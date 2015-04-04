@@ -3,16 +3,19 @@ package com.sebaainf.fichfamil.presentation;
 import com.jgoodies.binding.PresentationModel;
 import com.jgoodies.binding.adapter.RadioButtonAdapter;
 import com.jgoodies.binding.adapter.ToggleButtonAdapter;
+import com.jgoodies.binding.beans.BeanAdapter;
 import com.jgoodies.binding.beans.Model;
 import com.jgoodies.binding.beans.PropertyAdapter;
 import com.jgoodies.binding.beans.PropertyConnector;
 import com.jgoodies.binding.list.SelectionInList;
+import com.jgoodies.binding.value.AbstractWrappedValueModel;
 import com.jgoodies.binding.value.ComponentValueModel;
 import com.jgoodies.binding.value.ValueHolder;
 import com.jgoodies.binding.value.ValueModel;
 import com.jgoodies.common.collect.ArrayListModel;
 import com.sebaainf.fichfamil.citoyen.Citoyen;
 import com.sebaainf.fichfamil.citoyen.IPerson;
+import com.sebaainf.fichfamil.common.Deces;
 import com.sebaainf.fichfamil.common.MyDate;
 
 import javax.swing.*;
@@ -36,6 +39,9 @@ public final class CitoyenEditorModel extends PresentationModel<IPerson> {
     private ComponentValueModel np_mere;
 
     private ComponentValueModel id_deces;
+    private ValueModel deces;
+
+
     private ComponentValueModel date_est_presume;
 
     public ValueHolder getEnableLieuDeces() {
@@ -95,6 +101,7 @@ public final class CitoyenEditorModel extends PresentationModel<IPerson> {
         p_pere = this.getComponentModel(Citoyen.PROPERTY_P_PERE);
         np_mere = this.getComponentModel(Citoyen.PROPERTY_NP_MERE);
         id_deces = this.getComponentModel(Citoyen.PROPERTY_ID_DECES);
+        deces = this.getComponentModel(Citoyen.PROPERTY_DECES);
         date_est_presume = this.getComponentModel(Citoyen.PROPERTY_DATE_EST_PRESUME);
         est_masculin = this.getComponentModel(Citoyen.PROPERTY_EST_MASCULIN);
 
@@ -206,6 +213,19 @@ public final class CitoyenEditorModel extends PresentationModel<IPerson> {
 
         return date_est_presume;
     }
+
+    public ValueModel getDeces() {
+
+        return deces;
+    }
+    public void setDeces(ComponentValueModel deces) {
+
+        this.deces = deces;
+    }
+
+
+    //**********************************************************************
+    // INNER Class
 
     public class SituationFam extends Model {
 

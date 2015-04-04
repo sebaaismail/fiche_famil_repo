@@ -217,21 +217,21 @@ public class MyDaosCitoyenTest {
      * @verifies set deces infos and return dec record
      * @see Citoyen#setDecesInfos(com.sebaainf.fichfamil.common.Deces, java.lang.Boolean)
      */
-    @Test
-    public void setDecesInfos_shouldSetDecesInfosAndReturnDecRecord() throws Exception {
+    //@Test
+   /* public void setDecesInfos_shouldSetDecesInfosAndReturnDecRecord() throws Exception {
 
         //TODO auto-generated
         Citoyen cit = MyDaosCitoyen.getCitoyen(13);
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         Date dateDeces = new Date(sdf.parse("13/01/2014").getTime());
 
-        //* (1)
+        *//* (1)
         cit.setDecesInfos(new Deces(dateDeces, "Mosta"), true);
         assertThat(cit.getId_deces(), not(0));
-        //*/
-        /* (2)
+        /*//*//*
+        *//* (2)
         cit.setDecesInfos(null, false);
         assertThat(cit.getId_deces(), equalTo(0));
-        //*/
-    }
+        /*//*//*
+    }*/
 }

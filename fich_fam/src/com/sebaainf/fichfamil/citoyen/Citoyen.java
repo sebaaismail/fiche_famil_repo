@@ -4,7 +4,7 @@ import com.jenkov.db.itf.PersistenceException;
 import com.jenkov.db.itf.mapping.AGetterMapping;
 import com.jgoodies.common.bean.Bean;
 import com.sebaainf.fichfamil.common.Deces;
-import com.sebaainf.fichfamil.persistance.MyDaosCitoyen;
+//import com.sebaainf.fichfamil.persistance.MyDaosCitoyen;
 
 import java.sql.Date;
 
@@ -34,6 +34,7 @@ public class Citoyen extends Bean implements IPerson {
     public static final String PROPERTY_NP_MERE = "np_mere";
     public static final String PROPERTY_EST_MASCULIN = "est_masculin";
     public static final String PROPERTY_ID_DECES = "id_deces";
+    public static final String PROPERTY_DECES = "deces";
     public static final String PROPERTY_DATE_EST_PRESUME = "date_est_presume";
     private String sit_famil = "c";
     private int id_cit;
@@ -49,7 +50,10 @@ public class Citoyen extends Bean implements IPerson {
     private String np_mere = "";
     private Boolean est_masculin = true;
     private int id_deces;
+    private Deces deces;
+
     private Boolean date_est_presume = false;
+
 
     @AGetterMapping(databaseGenerated = true)
 
@@ -278,6 +282,21 @@ public class Citoyen extends Bean implements IPerson {
             firePropertyChange(Citoyen.PROPERTY_SIT_FAMIL, oldSit_famil, newSit_famil);
         }
     }
+    @Override
+    public Deces getDeces() {
+
+        return deces;
+    }
+
+    @Override
+    public void setDeces(Deces new_deces) {
+
+        Deces old_deces = this.deces;
+        this.deces = new_deces;
+        if (old_deces != new_deces) {
+            firePropertyChange(Citoyen.PROPERTY_DECES, old_deces, new_deces);
+        }
+    }
 
     /**
      *
@@ -285,7 +304,7 @@ public class Citoyen extends Bean implements IPerson {
      * @return
      * @should set deces infos and return dec record
      */
-    public void setDecesInfos(Deces dec, Boolean isDied) {
+/*    public void setDecesInfos(Deces dec, Boolean isDied) {
 
         if (!isDied) {
             // delete id_deces record by idDeces and set idDec to "0"
@@ -322,6 +341,6 @@ public class Citoyen extends Bean implements IPerson {
 
         return dec;
 
-    }
+    }*/
 
 }

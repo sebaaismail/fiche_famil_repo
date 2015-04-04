@@ -40,6 +40,7 @@ public class MyDaosCitoyen {
                     + annee_naiss + " and code_lieunaiss=" + lieu_naiss;
             IDaos daos = MyDaos.persistenceManager.createDaos();
             citoyen = daos.getObjectDao().read(Citoyen.class, sql);
+            decObjectSetting(citoyen);
         } catch (PersistenceException e) {
             e.printStackTrace();
         } finally {
@@ -63,11 +64,31 @@ public class MyDaosCitoyen {
             String sql = "select * from citoyen where id_cit=?";
             IDaos daos = MyDaos.persistenceManager.createDaos();
             citoyen = daos.getObjectDao().read(Citoyen.class, sql, id_cit);
+            decObjectSetting(citoyen);
         } catch (PersistenceException e) {
             e.printStackTrace();
         } finally {
             return citoyen;
         }
+    }
+
+    private static void decObjectSetting(Citoyen citoyen) {
+
+        Deces dec = null;
+        int id_dec = citoyen.getId_deces();
+
+        if (id_dec > 0) {
+            //prepare dec object that is not null and pull it to citoyen
+            try {
+                String sql = "select * from deces where id_dec=?";
+                IDaos daos = MyDaos.persistenceManager.createDaos();
+                dec = daos.getObjectDao().read(Deces.class, sql, id_dec);
+            } catch (PersistenceException e) {
+                e.printStackTrace();
+            }
+
+        }
+        citoyen.setDeces(dec);
     }
 
 
@@ -124,6 +145,7 @@ public class MyDaosCitoyen {
                     "' and prenom_fr='" + prenom_fr + "' and code_lieunaiss=" + lieunaiss;
             IDaos daos = MyDaos.persistenceManager.createDaos();
             citoyen = daos.getObjectDao().read(Citoyen.class, sql);
+            decObjectSetting(citoyen);
         } catch (PersistenceException e) {
             e.printStackTrace();
         } finally {
@@ -301,7 +323,7 @@ public class MyDaosCitoyen {
      * @throws com.jenkov.db.itf.PersistenceException
      * @should return Deces with id_dec
      */
-    public static Deces getDecesInfos(int id_dec) throws PersistenceException {
+/*    public static Deces getDecesInfos(int id_dec) throws PersistenceException {
 
         Deces dec = null;
 
@@ -316,7 +338,7 @@ public class MyDaosCitoyen {
         } finally {
             return dec;
         }
-    }
+    }*/
 
     /**
      * method to test connection with irreport
@@ -358,7 +380,7 @@ public class MyDaosCitoyen {
      * @return
      * @should delete Deces infos de by id_dec
      */
-    public static boolean deleteDecesInfos(int id_dec) {
+/*    public static boolean deleteDecesInfos(int id_dec) {
 
         boolean flag = false;
         try {
@@ -380,6 +402,6 @@ public class MyDaosCitoyen {
             return flag;
         }
 
-    }
+    }*/
 
 }

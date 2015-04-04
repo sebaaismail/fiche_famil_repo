@@ -1,5 +1,7 @@
 package com.sebaainf.fichfamil.citoyen;
 
+import com.sebaainf.fichfamil.common.Deces;
+
 import java.sql.Date;
 
 /**
@@ -7,9 +9,12 @@ import java.sql.Date;
  */
 public interface IPerson {
 
-    public Date getDate_naiss();
+    Date getDate_naiss();
 
-    public void setDate_naiss(Date newDate_naiss);
+    void setDate_naiss(Date newDate_naiss);
 
 
+    public Deces getDeces();
+
+    public void setDeces(Deces deces);
 }

@@ -1,9 +1,11 @@
 package com.sebaainf.fichfamil.view;
 
 import com.jgoodies.binding.adapter.BasicComponentFactory;
+import com.jgoodies.binding.beans.BeanAdapter;
 import com.jgoodies.binding.value.ValueHolder;
 import com.jgoodies.forms.builder.FormBuilder;
 import com.jgoodies.forms.layout.CellConstraints;
+import com.sebaainf.fichfamil.common.Deces;
 import com.sebaainf.fichfamil.common.MyCommonUtils;
 import com.sebaainf.fichfamil.presentation.CitoyenEditorModel;
 import org.jdatepicker.impl.JDatePickerImpl;
@@ -109,8 +111,11 @@ public class CitoyenEditorView {
         labelLieuDeces.setText("مكان الوفاة :");
 
 
-        date_deces = IsmComponentFactory.createDatePickerDecesImpl();
+        date_deces = IsmComponentFactory.createDatePickerDecesImpl(model, "yyyy/MM/dd");;
+        BeanAdapter<Deces> adapter = new BeanAdapter<Deces>(model.getDeces());
+        //lieu_deces = IsmComponentFactory.createTextField(model.getDeces());
         lieu_deces = new JTextField(20);
+        // TODO model.getDeces beanChannel look documention
 
 
         id_deces = new JCheckBox("* على قيد الحياة");
@@ -130,6 +135,10 @@ public class CitoyenEditorView {
             }
         });
 
+        boolean flag = ((Integer)(model.getId_deces().getValue()) > 0);
+        id_deces.setSelected(!flag);
+        decesInfosEnable(flag);
+        /*
         if ((Integer)(model.getId_deces().getValue()) > 0) {
             id_deces.setSelected(false);
             decesInfosEnable(true);
@@ -137,11 +146,10 @@ public class CitoyenEditorView {
             id_deces.setSelected(true);
             decesInfosEnable(false);
         }
+        //*/
 
         validerButton = new JButton("Valider");
         annulerButton = new JButton("Annuler");
-
-
 
     }
 

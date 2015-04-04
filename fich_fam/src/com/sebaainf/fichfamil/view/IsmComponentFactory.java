@@ -4,6 +4,7 @@ import com.jgoodies.binding.PresentationModel;
 import com.jgoodies.binding.adapter.BasicComponentFactory;
 import com.jgoodies.binding.value.ComponentValueModel;
 import com.sebaainf.fichfamil.citoyen.IPerson;
+import com.sebaainf.fichfamil.common.Deces;
 import com.sebaainf.fichfamil.presentation.CitoyenEditorModel;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
@@ -68,8 +69,6 @@ public class IsmComponentFactory extends BasicComponentFactory {
             e.printStackTrace();
         }
 
-        //Bindings.bind(datePicker.getJFormattedTextField(), valueModel);
-
         datePicker.getModel().addPropertyChangeListener(new PropertyChangeListener() {
             @Override
             public void propertyChange(PropertyChangeEvent evt) {
@@ -85,7 +84,7 @@ public class IsmComponentFactory extends BasicComponentFactory {
         return datePicker;
     }
 
-    public static JDatePickerImpl createDatePickerDecesImpl(){
+    public static JDatePickerImpl createDatePickerDecesImpl(final PresentationModel model){
 
         // with default datePattern "dd/MM/yyyy"
 
@@ -103,29 +102,34 @@ public class IsmComponentFactory extends BasicComponentFactory {
         datePicker.setTextEditable(true);
         datePicker.getJFormattedTextField().setHorizontalAlignment(JTextField.RIGHT);
 
+        Deces dec = ((IPerson) model.getBean()).getDeces();
+
         //initialize datePicker
 
-        //Date date = ((IPerson) model.getBean()).getDate_naiss();
-        Calendar calendar = new GregorianCalendar();
-        //calendar.setTime(date);
+        if(dec != null) {
 
-        datePicker.getModel().setDate(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),
-                calendar.get(Calendar.DAY_OF_MONTH));
-        datePicker.getJDateInstantPanel().getModel().setSelected(true);
+            Date date = dec.getDate_dec();
+            Calendar calendar = new GregorianCalendar();
+            calendar.setTime(date);
 
-        try {
-            datePicker.getJFormattedTextField().setText(formatter.valueToString(calendar));
-        } catch (ParseException e) {
-            e.printStackTrace();
+            datePicker.getModel().setDate(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),
+                    calendar.get(Calendar.DAY_OF_MONTH));
+            datePicker.getJDateInstantPanel().getModel().setSelected(true);
+
+            try {
+                datePicker.getJFormattedTextField().setText(formatter.valueToString(calendar));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
         }
 
-        //Bindings.bind(datePicker.getJFormattedTextField(), valueModel);
+
 
         datePicker.getModel().addPropertyChangeListener(new PropertyChangeListener() {
             @Override
             public void propertyChange(PropertyChangeEvent evt) {
 
-                //((IPerson) model.getBean()).setDate_naiss(new Date(((java.util.Date) datePicker.getModel().getValue()).getTime()));
+                ((IPerson) model.getBean()).getDeces().setDate_dec(new Date(((java.util.Date) datePicker.getModel().getValue()).getTime()));
             }
         });
 
@@ -139,6 +143,13 @@ public class IsmComponentFactory extends BasicComponentFactory {
         IsmComponentFactory.formatter = new IsmDateFormatter(datePattern);
         return IsmComponentFactory.createDatePickerImpl(model);
 
+    }
+
+    public static JDatePickerImpl createDatePickerDecesImpl(final PresentationModel model,
+                                                            String datePattern) {
+
+        IsmComponentFactory.formatter = new IsmDateFormatter(datePattern);
+        return IsmComponentFactory.createDatePickerDecesImpl(model);
     }
 
     public static IsmPanelLieu createPanelLieu(ComponentValueModel code_lieunaiss,
