@@ -126,7 +126,7 @@ public class SearchJFrame extends JFrame {
         //datePicker = BasicComponentFactory.createDateField(new JDatePickerImpl(datePanel, new DateLabelFormatter()));
 
 
-        JButton buttonChercher = new JButton(new ValidationAction());
+        JButton buttonChercher = new JButton(new MariageValidationAction());
 
 
         final JComboBox myCommunesComboBox = pan.getComboBoxCommunes();
@@ -149,11 +149,6 @@ public class SearchJFrame extends JFrame {
 
         builder.append("Wilaya : ", pan.getComboBoxWilayas());
         builder.append("Commune : ", myCommunesComboBox);
-        /* todo delete this
-        builder.append(pan.ismTextField, buttonChercher);
-        builder.append(pan.ismTextField2);
-        builder.append(pan.labelCommune1, pan.labelCommune2);
-        //*/
 
         builder.append("", buttonChercher);
         builder.appendRow(RowSpec.decode("fill:31dlu")); // Assumes line is 14, gap is 3
@@ -216,9 +211,9 @@ public class SearchJFrame extends JFrame {
     }
 
 
-    private class ValidationAction extends AbstractAction {
+    private class MariageValidationAction extends AbstractAction {
 
-        public ValidationAction() {
+        public MariageValidationAction() {
 
             super("Chercher");
         }

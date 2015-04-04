@@ -21,6 +21,13 @@ public class Mariage extends Bean implements Comparable<Mariage> {
     private int id_epouse;
     private int id_epoux;
 
+    public static final String PROPERTY_ID_MAR = "id_mar";
+    public static final String PROPERTY_NUMACT_MAR = "numact_mar";
+    public static final String PROPERTY_DATE_MAR = "date_mar";
+    public static final String PROPERTY_LIEU_MAR = "lieu_mar";
+    public static final String PROPERTY_ID_EPOUSE = "id_epouse";
+    public static final String PROPERTY_ID_EPOUX = "id_epoux";
+
     public int getId_epoux() {
 
         return id_epoux;

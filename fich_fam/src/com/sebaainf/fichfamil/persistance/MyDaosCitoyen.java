@@ -99,17 +99,19 @@ public class MyDaosCitoyen {
      * @return
      * @should return new Deces object
      */
-    public static Deces setDecesInfo(int id, java.sql.Date dateDeces, String lieuDeces) {
+    public static Deces updateDecesInfo(Deces oldDeces, java.sql.Date dateDeces, String lieuDeces) {
 
-        //TODO
-        Deces dec = new Deces(id, dateDeces, lieuDeces);
+        //TODO  1/ when we want delete dec record
+        // TODO 2/ when we want to add new dec record
+        Deces dec;
         //dec.setId_dec(0);
         //long idDec = 0;
 
         try {
             IDaos daos = MyDaos.persistenceManager.createDaos();
 
-            if (id <= 0){
+            if (oldDeces == null){
+                dec = new Deces(0, dateDeces, lieuDeces);
                 // insert new record
                 daos.getObjectDao().insert(dec);
                 // select last inserted record in deces table with max id
@@ -117,6 +119,7 @@ public class MyDaosCitoyen {
                 dec.setId_dec((int) idDec);
                 System.out.println("record inserted in Deces Table !");
             } else {
+                dec = new Deces(oldDeces.getId_dec(), dateDeces, lieuDeces);
                 // update record
                 daos.getObjectDao().update(dec);
                 System.out.println("record updated in Deces Table !");
@@ -247,6 +250,8 @@ public class MyDaosCitoyen {
 
             IDaos daos = MyDaos.persistenceManager.createDaos();
             daos.getObjectDao().update(cit);
+            updateDecesInfo(cit.getDeces(), cit.getDeces().getDate_dec(),
+                    cit.getDeces().getLieu_dec());
 
         } catch (PersistenceException e) {
             e.printStackTrace();

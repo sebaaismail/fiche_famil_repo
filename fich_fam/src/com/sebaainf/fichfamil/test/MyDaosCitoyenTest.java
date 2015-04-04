@@ -200,13 +200,13 @@ public class MyDaosCitoyenTest {
 
     /**
      * @verifies return new Deces object
-     * @see MyDaosCitoyen#setDecesInfo(int, java.sql.Date, String)
+     * @see MyDaosCitoyen#updateDecesInfo(com.sebaainf.fichfamil.common.Deces, java.sql.Date, String)
      */
     @Test
     public void setDecesInfo_shouldReturnNewDecesObject() throws Exception {
 
         //TODO auto-generated
-        Deces dec = MyDaosCitoyen.setDecesInfo(0, new Date(
+        Deces dec = MyDaosCitoyen.updateDecesInfo(null, new Date(
                         Calendar.getInstance().getTime().getTime()),
                 "hassi mamech");
         assertThat(dec.getLieu_dec(), equalTo("hassi mamech"));

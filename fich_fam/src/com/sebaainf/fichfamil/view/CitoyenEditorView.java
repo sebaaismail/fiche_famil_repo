@@ -5,9 +5,16 @@ import com.jgoodies.binding.beans.BeanAdapter;
 import com.jgoodies.binding.value.ValueHolder;
 import com.jgoodies.forms.builder.FormBuilder;
 import com.jgoodies.forms.layout.CellConstraints;
+import com.jgoodies.validation.ValidationResult;
+import com.jgoodies.validation.ValidationResultModel;
+import com.jgoodies.validation.util.DefaultValidationResultModel;
+import com.jgoodies.validation.view.ValidationResultViewFactory;
+import com.sebaainf.fichfamil.citoyen.Citoyen;
 import com.sebaainf.fichfamil.common.Deces;
 import com.sebaainf.fichfamil.common.MyCommonUtils;
+import com.sebaainf.fichfamil.persistance.MyDaosCitoyen;
 import com.sebaainf.fichfamil.presentation.CitoyenEditorModel;
+import com.sebaainf.fichfamil.presentation.CitoyenValidator;
 import org.jdatepicker.impl.JDatePickerImpl;
 
 import javax.swing.*;
@@ -25,6 +32,9 @@ import java.util.EventObject;
  * https://github.com/sebaaismail
  */
 public class CitoyenEditorView {
+
+    private ValidationResultModel validationResultModel = new DefaultValidationResultModel();
+    private JComponent messageLabel = ValidationResultViewFactory.createReportList(validationResultModel);
 
     private final CitoyenEditorModel model;
     private JTextField nom_fr;
@@ -112,11 +122,11 @@ public class CitoyenEditorView {
 
 
         date_deces = IsmComponentFactory.createDatePickerDecesImpl(model, "yyyy/MM/dd");;
-        BeanAdapter<Deces> adapter = new BeanAdapter<Deces>(model.getDeces());
-        //lieu_deces = IsmComponentFactory.createTextField(model.getDeces());
-        lieu_deces = new JTextField(20);
-        // TODO model.getDeces beanChannel look documention
 
+        //BeanChannel
+        BeanAdapter<Deces> adapter = new BeanAdapter<Deces>(model.getDeces());
+        lieu_deces = IsmComponentFactory.createTextField(
+                adapter.getValueModel(Deces.PROPERTY_LIEU_DEC));
 
         id_deces = new JCheckBox("* على قيد الحياة");
 
@@ -148,8 +158,15 @@ public class CitoyenEditorView {
         }
         //*/
 
-        validerButton = new JButton("Valider");
+        validerButton = new JButton(new CitoyenValidationAction());
         annulerButton = new JButton("Annuler");
+/*        messageLabel.getComponent(1)
+        .setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);*/
+        // TODO later alignement
+        ((JScrollBar)messageLabel.getComponent(1)).setAlignmentY(JScrollBar.RIGHT_ALIGNMENT);
+
+
+
 
     }
 
@@ -175,14 +192,15 @@ public class CitoyenEditorView {
         return                FormBuilder.create()
                 .columns("40dlu,fill:default,8dlu,left:pref,100dlu " +
                         ",150dlu, 8dlu, fill:default, 40dlu")
-                .rows("40dlu,p,6dlu,p,6dlu,p,6dlu,p,6dlu,p,6dlu,p,6dlu,p,6dlu,p,60dlu,default")
+                .rows("40dlu,p,6dlu,p,6dlu,p,6dlu,p,6dlu,p,6dlu," +
+                        "p,6dlu,p,6dlu,p,40dlu,p,40dlu,p")
                 .columnGroups(new int[][]{{2, 6}, {4, 8}})
                 .rowGroups(new int[][]{{12, 14}})
-                .add("الإســم :").xy(8, 2)
+                .add("اللقــب :").xy(8, 2)
                 .add(nom_ar).xy(6, 2)
                 .add(": Nom").xy(4, 2)
                 .add(nom_fr).xy(2, 2)
-                .add("اللقــب :").xy(8, 4)
+                .add("الإســم :").xy(8, 4)
                 .add(prenom_ar).xy(6, 4)
                 .add(": Prenom").xy(4, 4)
                 .add(prenom_fr).xy(2, 4)
@@ -207,6 +225,7 @@ public class CitoyenEditorView {
                 .add(date_deces).xy(6, 16)
                 .add(labelLieuDeces).xy(4, 16)
                 .add(lieu_deces).xy(2, 16)
+                .add(messageLabel).xy(4, 20)
                 .addBar(validerButton, annulerButton).xy(6, 18)
                 //.add(validerButton).xywh(4, 18,2,1)
                 //.add(annulerButton).xy(6, 18)
@@ -260,14 +279,38 @@ public class CitoyenEditorView {
         labelLieuDeces.setVisible(flag);
         date_deces.setVisible(flag);
 
-        /*
-        if (!flag) {
-            date_deces.getJFormattedTextField().setText("");
+
+    }
+
+    private class CitoyenValidationAction extends AbstractAction {
+
+
+        CitoyenValidationAction() {
+
+            super("Valider");
 
         }
-        //set the button of jDatePicker enable/disabled
-        date_deces.getComponent(1).setEnabled(flag);
-        //*/
+        /**
+         * Invoked when an action occurs.
+         *
+         * @param e
+         */
 
+
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            validationResultModel.setResult(ValidationResult.EMPTY);
+            CitoyenValidator validator = new CitoyenValidator(model);
+            ValidationResult result = validator.validate((Citoyen) model.getBean());
+            validationResultModel.setResult(result);
+
+            if(!result.hasErrors()) {
+                //mettre a jour data base citoyen infos
+                MyDaosCitoyen.updateCitoyen((Citoyen) model.getBean());
+                //((Citoyen) model.getBean()).setDeces(model.getBean().getDeces());
+            }
+
+        }
     }
 }

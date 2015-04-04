@@ -4,6 +4,8 @@ import com.jenkov.db.itf.PersistenceException;
 import com.jenkov.db.itf.mapping.AGetterMapping;
 import com.jgoodies.common.bean.Bean;
 import com.sebaainf.fichfamil.common.Deces;
+import com.sebaainf.fichfamil.persistance.MyDaos;
+import com.sebaainf.fichfamil.persistance.MyDaosCitoyen;
 //import com.sebaainf.fichfamil.persistance.MyDaosCitoyen;
 
 import java.sql.Date;
@@ -296,6 +298,12 @@ public class Citoyen extends Bean implements IPerson {
         if (old_deces != new_deces) {
             firePropertyChange(Citoyen.PROPERTY_DECES, old_deces, new_deces);
         }
+/*        if (old_deces != new_deces) {
+            firePropertyChange(Citoyen.PROPERTY_DECES, old_deces, new_deces);
+            if(old_deces == null) {
+                MyDaosCitoyen.setDecesInfo()
+            }
+        }*/
     }
 
     /**
