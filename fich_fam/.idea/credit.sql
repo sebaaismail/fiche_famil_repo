@@ -4,3 +4,4 @@
 1,5 mil hnini + 3000 ali harachi + 500 aek apc
 5650 e+ 5000e + 8000 e ha
 	= 18500 e cmpte ha = my 150 e + 18500 e sidhmd
+17/04/2015	mm 2 mil

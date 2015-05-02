@@ -3,19 +3,16 @@ package com.sebaainf.fichfamil.presentation;
 import com.jgoodies.binding.PresentationModel;
 import com.jgoodies.binding.adapter.RadioButtonAdapter;
 import com.jgoodies.binding.adapter.ToggleButtonAdapter;
-import com.jgoodies.binding.beans.BeanAdapter;
 import com.jgoodies.binding.beans.Model;
 import com.jgoodies.binding.beans.PropertyAdapter;
 import com.jgoodies.binding.beans.PropertyConnector;
 import com.jgoodies.binding.list.SelectionInList;
-import com.jgoodies.binding.value.AbstractWrappedValueModel;
 import com.jgoodies.binding.value.ComponentValueModel;
 import com.jgoodies.binding.value.ValueHolder;
 import com.jgoodies.binding.value.ValueModel;
 import com.jgoodies.common.collect.ArrayListModel;
 import com.sebaainf.fichfamil.citoyen.Citoyen;
 import com.sebaainf.fichfamil.citoyen.IPerson;
-import com.sebaainf.fichfamil.common.Deces;
 import com.sebaainf.fichfamil.common.MyDate;
 
 import javax.swing.*;
@@ -39,9 +36,15 @@ public final class CitoyenEditorModel extends PresentationModel<IPerson> {
     private ComponentValueModel np_mere;
 
     private ComponentValueModel id_deces;
-    private ValueModel deces;
 
 
+
+    public void setDeces(ComponentValueModel deces) {
+
+        this.deces = deces;
+    }
+
+    private ComponentValueModel deces;
     private ComponentValueModel date_est_presume;
 
     public ValueHolder getEnableLieuDeces() {
@@ -214,13 +217,9 @@ public final class CitoyenEditorModel extends PresentationModel<IPerson> {
         return date_est_presume;
     }
 
-    public ValueModel getDeces() {
+    public ComponentValueModel getDeces() {
 
         return deces;
-    }
-    public void setDeces(ComponentValueModel deces) {
-
-        this.deces = deces;
     }
 
 

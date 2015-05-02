@@ -13,8 +13,8 @@ import java.sql.Date;
 /**
  * Created by admin on 10/01/2015.
  * for butterfly mapping
- * 1- we have foolow the naming conditions of class and properties
- * just match the table and their colimn in data base
+ * 1- we have follow the naming conditions of class and properties
+ * just match the table and their columns in data base
  * 2- we have initialise all properties in class with defaults values
  * 3- put GETTer anotations just before their getter methods
  */

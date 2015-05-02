@@ -50,10 +50,9 @@ public class CitoyenEditorView {
 
     private JTextField p_pere;
     private JTextField np_mere;
-    private JCheckBox id_deces;
     private JCheckBox date_est_presume;
     private IsmPanelLieu panel;
-
+    private JCheckBox id_deces;
     private JDatePickerImpl date_deces;
     private JTextField lieu_deces;
     private JLabel labelDateDeces;

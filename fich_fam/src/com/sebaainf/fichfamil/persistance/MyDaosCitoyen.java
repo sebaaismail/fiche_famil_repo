@@ -101,8 +101,7 @@ public class MyDaosCitoyen {
      */
     public static Deces updateDecesInfo(Deces oldDeces, java.sql.Date dateDeces, String lieuDeces) {
 
-        //TODO  1/ when we want delete dec record
-        // TODO 2/ when we want to add new dec record
+        //TODO
         Deces dec;
         //dec.setId_dec(0);
         //long idDec = 0;
