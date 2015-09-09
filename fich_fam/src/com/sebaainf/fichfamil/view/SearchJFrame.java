@@ -255,6 +255,8 @@ public class SearchJFrame extends JFrame {
                     ficheFrame.setVisible(true);
 
 
+
+
                     // todo this line is good when reporting
                     //ReportFichFam.report(ficheFam);
                 } else {
