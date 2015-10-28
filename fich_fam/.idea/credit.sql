@@ -1,3 +1,9 @@
+6000 eur sid	28/10/2015
+31000 + 6000 = 37000 eur total ha
+
+
+archive
+----------------------------
  4 ml houaria + 1 mil ha
 + 3000 brhim bssri + 1 mil zwich nor 
 + 2000 aek f pub + 2 mil hwri wilaya + 2000 bssiri smail +
