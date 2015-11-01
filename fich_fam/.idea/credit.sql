@@ -1,6 +1,8 @@
 6000 eur sid	28/10/2015
 31000 + 6000 = 37000 eur total ha
 
+sid yssal ha -- 2000 e
+
 
 archive
 ----------------------------
