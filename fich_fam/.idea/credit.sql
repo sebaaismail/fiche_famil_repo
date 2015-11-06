@@ -1,11 +1,10 @@
 6000 eur sid	28/10/2015
-31000 + 6000 = 37000 eur total ha
-
-sid yssal ha -- 2000 e
-
+31000 + 6000 +2000 ha direct = 37000 + 2000ha =direct eur total = 39000 eur ha
+my HDD --> 1 mln 	02/11/2015
 
 archive
 ----------------------------
+my HDD --> 140 e + 1,5 mln 	26/10/2015
  4 ml houaria + 1 mil ha
 + 3000 brhim bssri + 1 mil zwich nor 
 + 2000 aek f pub + 2 mil hwri wilaya + 2000 bssiri smail +
@@ -15,7 +14,7 @@ archive
 	c bn mes 250 eur chez moi
 17/04/2015	mm 2 mil
 
-28/06/2015     2000 euro de sidahmed à houaria
+28/06/2015     2000 euro de sidahmed ï¿½ houaria
 
 08/07/2015	2 miln ndfa brwiss (total 4,5 mlin) ??
  
@@ -23,4 +22,3 @@ archive
 ../09/2015	1 mln + 100 eur rachem 	
 
 -------------------
-my HDD --> 140 e + 1,5 mln 	26/10/2015
