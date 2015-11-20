@@ -4,6 +4,8 @@ ouvrt cpt bnq
 6000 = mn cpt
 31000 + 2000 = cpt ha 
 	- - - - - - -> Total dbt sid = 39000 e
+my HDD --> 5000 da 	18/11/2015
+--------------------------
 
 my HDD --> 1 mln 	02/11/2015
 
