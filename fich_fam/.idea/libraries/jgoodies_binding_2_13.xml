@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="jgoodies-binding-2.13">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../../modules/Jgoodies/jgoodies-binding-2.13.0" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="file://$PROJECT_DIR$/../../../modules/Jgoodies/jgoodies-binding-2.13.0/docs/api" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../../../modules/Jgoodies/jgoodies-binding-2.13.0" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/../../../modules/Jgoodies/jgoodies-binding-2.13.0" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../../modules/Jgoodies/jgoodies-binding-2.13.0" recursive="false" type="SOURCES" />
+  </library>
+</component>

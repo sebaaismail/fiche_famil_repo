@@ -50,11 +50,11 @@ public class Citoyen extends Bean implements IPerson {
     private Date date_naiss;
     private String p_pere = "";
     private String np_mere = "";
-    private Boolean est_masculin = true;
+    private boolean est_masculin = true;
     private int id_deces;
     private Deces deces;
 
-    private Boolean date_est_presume = false;
+    private boolean date_est_presume = false;
 
 
     @AGetterMapping(databaseGenerated = true)
@@ -128,7 +128,7 @@ public class Citoyen extends Bean implements IPerson {
 
         String oldNom_fr = this.nom_fr;
         this.nom_fr = newNom_fr;
-        if (oldNom_fr != newNom_fr) {
+        if (!oldNom_fr.equals(newNom_fr)) {
             firePropertyChange(Citoyen.PROPERTY_NOM_FR, oldNom_fr, newNom_fr);
         }
 
@@ -143,7 +143,7 @@ public class Citoyen extends Bean implements IPerson {
 
         String oldPrenom_fr = this.prenom_fr;
         this.prenom_fr = newPrenom_fr;
-        if (oldPrenom_fr != newPrenom_fr) {
+        if (!oldPrenom_fr.equals(newPrenom_fr)) {
             firePropertyChange(Citoyen.PROPERTY_PRENOM_FR, oldPrenom_fr, newPrenom_fr);
         }
 
@@ -227,14 +227,14 @@ public class Citoyen extends Bean implements IPerson {
 
     }
 
-    public Boolean getEst_masculin() {
+    public boolean getEst_masculin() {
 
         return est_masculin;
     }
 
-    public void setEst_masculin(Boolean newEst_masculin) {
+    public void setEst_masculin(boolean newEst_masculin) {
 
-        Boolean oldEst_masculin = this.est_masculin;
+        boolean oldEst_masculin = this.est_masculin;
         this.est_masculin = newEst_masculin;
         if (oldEst_masculin != newEst_masculin) {
             firePropertyChange(Citoyen.PROPERTY_EST_MASCULIN, oldEst_masculin, newEst_masculin);
@@ -257,14 +257,14 @@ public class Citoyen extends Bean implements IPerson {
 
     }
 
-    public Boolean getDate_est_presume() {
+    public boolean getDate_est_presume() {
 
         return date_est_presume;
     }
 
-    public void setDate_est_presume(Boolean newDate_est_presume) {
+    public void setDate_est_presume(boolean newDate_est_presume) {
 
-        Boolean oldDate_est_presume = this.date_est_presume;
+        boolean oldDate_est_presume = this.date_est_presume;
         this.date_est_presume = newDate_est_presume;
         if (oldDate_est_presume != newDate_est_presume) {
             firePropertyChange(Citoyen.PROPERTY_DATE_EST_PRESUME, oldDate_est_presume, newDate_est_presume);
@@ -306,49 +306,5 @@ public class Citoyen extends Bean implements IPerson {
         }*/
     }
 
-    /**
-     *
-     * @param dec
-     * @return
-     * @should set deces infos and return dec record
-     */
-/*    public void setDecesInfos(Deces dec, Boolean isDied) {
-
-        if (!isDied) {
-            // delete id_deces record by idDeces and set idDec to "0"
-            //Citoyen est en vie
-            //TODO
-            Boolean flag = MyDaosCitoyen.deleteDecesInfos(this.id_deces);
-            if (flag) {
-                this.setId_deces(0);
-                MyDaosCitoyen.updateCitoyen(this);
-            }
-
-
-        } else {
-            // Citoyen est mort
-            dec.setId_dec(this.id_deces);
-            dec = MyDaosCitoyen.setDecesInfo(dec.getId_dec(), dec.getDate_dec(),
-            dec.getLieu_dec());
-            this.setId_deces(dec.getId_dec());
-            MyDaosCitoyen.updateCitoyen(this);
-        }
-
-    }
-
-    public Deces getDecesInfos() {
-
-        Deces dec = null;
-        if (this.id_deces > 0) {
-            try {
-                dec = MyDaosCitoyen.getDecesInfos(this.id_deces);
-            } catch (PersistenceException e) {
-                e.printStackTrace();
-            }
-        }
-
-        return dec;
-
-    }*/
 
 }

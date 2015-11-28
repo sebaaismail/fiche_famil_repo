@@ -2,6 +2,7 @@ package com.sebaainf.fichfamil.common;
 
 import com.jgoodies.binding.PresentationModel;
 import com.jgoodies.binding.value.AbstractValueModel;
+import com.jgoodies.binding.value.ValueHolder;
 import com.jgoodies.common.bean.Bean;
 import com.jgoodies.validation.ValidationResult;
 import com.jgoodies.validation.Validator;
@@ -28,12 +29,18 @@ public abstract class IsmValidator implements Validator<Object> {
         String blankErrorMessage = " قم بملاء خانة";
         boolean flag = false;
         AbstractValueModel value = this.preModel.getModel(propertyName);
-        if(value.getValue().getClass().getSimpleName().equals("String")) {
-            if (value.getValue().equals("")) flag = true;
+        if (value == null) value = new ValueHolder();
 
-        } else if(value.intValue() == 0) {
-            flag = true;
+        Object val = value.getValue();
+        if (val != null) {
+            if(val.getClass().getSimpleName().equals("String")) {
+                if (value.getValue().equals("")) flag = true;
+
+            } else if(value.intValue() == 0) {
+                flag = true;
+            }
         }
+
 
         if (flag){
             validationResult.addError(blankErrorMessage + " " + propertyText);

@@ -26,6 +26,7 @@ public class MariageValidator extends IsmValidator implements Validator<Object> 
         //String lieu_mar = this.preModel.getModel("lieu_mar").getValue().toString();
 
         addBlankError(Mariage.PROPERTY_NUMACT_MAR, "N Act mariage");
+        addBlankError(Mariage.PROPERTY_DATE_MAR, "date mariage");
         /*if (this.preModel.getModel(Mariage.PROPERTY_NUMACT_MAR).intValue() == 0) {
             validationResult.addError("Veuillez Entrer le numero d'act de mariage SVP!");
         }*/

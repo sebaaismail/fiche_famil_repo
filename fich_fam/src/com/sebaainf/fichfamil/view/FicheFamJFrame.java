@@ -122,7 +122,7 @@ public final class FicheFamJFrame extends JFrame {
 
                 //todo Testing JComboBox binding
                 //ficheFam.getCitoyen().setSit_famil("d");
-                CitoyenPresentation presenter = new CitoyenPresentation(ficheFam.getCitoyen());
+                //CitoyenPresentation presenter = new CitoyenPresentation(ficheFam.getCitoyen());
                 // TODO set CitoyenManagerUI in place CitoyenManagerUI_Test
                 //CitoyenManagerUI_Test app = new CitoyenManagerUI_Test(presenter);
 

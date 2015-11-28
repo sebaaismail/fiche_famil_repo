@@ -12,10 +12,10 @@ public class Enfant implements Comparable<Enfant> {
     private String prenom_enf;
     private Date date_naiss;
     private int lieu_naiss;
-    private Boolean est_masculin = true;
+    private boolean est_masculin = true;
     private String sex = "ذ";
     private int id_deces;
-    private Boolean date_est_presume = false;
+    private boolean date_est_presume = false;
 
     public String getSex() {
 
@@ -77,12 +77,12 @@ public class Enfant implements Comparable<Enfant> {
         this.lieu_naiss = lieu_naiss;
     }
 
-    public Boolean getEst_masculin() {
+    public boolean getEst_masculin() {
 
         return est_masculin;
     }
 
-    public void setEst_masculin(Boolean est_masculin) {
+    public void setEst_masculin(boolean est_masculin) {
 
         this.est_masculin = est_masculin;
     }
@@ -97,12 +97,12 @@ public class Enfant implements Comparable<Enfant> {
         this.id_deces = id_deces;
     }
 
-    public Boolean getDate_est_presume() {
+    public boolean getDate_est_presume() {
 
         return date_est_presume;
     }
 
-    public void setDate_est_presume(Boolean date_est_presume) {
+    public void setDate_est_presume(boolean date_est_presume) {
 
         this.date_est_presume = date_est_presume;
     }

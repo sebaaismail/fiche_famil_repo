@@ -232,7 +232,11 @@ public class SearchJFrame extends JFrame {
 
             java.util.Date selectedDate = (java.util.Date) datePicker.getModel().getValue();
 
-            Date dateMar = new Date(selectedDate.getTime());
+            Date dateMar = null;
+            if (selectedDate!= null) {
+                dateMar = new Date(selectedDate.getTime());
+            }
+
             int lieu = (Integer) pan.getCode_com_model().getValue();
 
             //preModel.getBean().setDate_mar(dateMar);
