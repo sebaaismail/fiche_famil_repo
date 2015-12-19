@@ -1,4 +1,25 @@
-﻿my HDD --> 45000,00 da + 140 e 28/11/2015
+﻿--------------------------
+19/12/2015 : blkhr madoné 4000e
+
+10000= mn cpt + 7000 chezmoi
+31000 + 2000 = cpt ha 
+	- - - - - - -> Total dbt sid = 50000 e
+--------------------------
+29/11/2015 : verser 4000e mn cpte
+
+10000= mn cpt + 3000 chezmoi
+31000 + 2000 = cpt ha 
+	- - - - - - -> Total dbt sid = 46000 e
+--------------------------
+29/11/2015 : blkhr madoné 7000e
+
+6000 = mn cpt + 7000 chezmoi
+31000 + 2000 = cpt ha 
+	- - - - - - -> Total dbt sid = 46000 e
+
+
+-------------------------
+my HDD --> 45000,00 da + 140 e 28/11/2015
 08/07/2015	
 ndfa brwiss ma doné 2 miln --> (reste 3,5 mlin)
 15/11/2015 :
