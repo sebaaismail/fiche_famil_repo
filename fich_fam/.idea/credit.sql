@@ -1,4 +1,28 @@
-﻿--------------------------
+﻿01/03/2017 :  versmnt 2950e
+
+16950 = mn cpt
+33050 = cpt ha 
+	- - - - - - -> Total dbt sid = 50000 e
+ndfa brwiss --> (reste 3,5 mlin)
+1 mln + 150 eur rachem 	
+	1 mil zwich nor 
+2 mil hwri wilaya en 2013???
+-----------------------------------------------
+07/07/2016 : 
+- moins 10000 da en hdd
+ my HDD --> 35000,00 da + 140 e 
+...
+14000= mn cpt 
+31000 + 2000 + (3000 je la donner a ha avnt prtir)= cpt ha --> 36000 
+	- - - - - - -> Total dbt sid = 50000 e
+
+--------------------------
+30/12/2015 : versmnt 4000e
+
+14000= mn cpt + 3000 chezmoi
+31000 + 2000 = cpt ha 
+	- - - - - - -> Total dbt sid = 50000 e
+--------------------------
 19/12/2015 : blkhr madoné 4000e
 
 10000= mn cpt + 7000 chezmoi
