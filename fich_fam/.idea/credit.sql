@@ -1,4 +1,25 @@
-﻿09/03/2017 : nvte: hdd+ndf brws
+﻿29/03/2017 : nvte: ndf brws
+
+16950 = mn cpt
+33050 = cpt ha 
+	- - - - - - -> Total dbt sid = 50000 e
+my HDD --> 25000,00 da + 140 e
+ndfa brwiss ma doné 1,5mln--> (reste 5000 da)
+1 mln + 150 eur rachem 	
+	1 mil zwich nor 
+-----------------------------------------------------------
+20/03/2017 : nvte: ndf brws
+
+16950 = mn cpt
+33050 = cpt ha 
+	- - - - - - -> Total dbt sid = 50000 e
+my HDD --> 25000,00 da + 140 e
+ndfa brwiss ma doné 5000 da--> (reste 2 mlin)
+1 mln + 150 eur rachem 	
+	1 mil zwich nor 
+2 mil hwri wilaya en 2013???
+-----------------------------------------------
+09/03/2017 : nvte: hdd+ndf brws
 
 16950 = mn cpt
 33050 = cpt ha 
