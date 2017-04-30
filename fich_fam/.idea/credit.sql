@@ -1,10 +1,9 @@
-﻿13/04/2017 : nvte: ndf brws c bn a remboursser son credit
+﻿28/04/2017 : hdd
 
 16950 = mn cpt
 33050 = cpt ha 
 	- - - - - - -> Total dbt sid = 50000 e
-my HDD --> 25000,00 da + 140 e
-ndfa brwiss ma doné 5000 da --> (reste rien)
+my HDD --> 6 mln + 100 e
 1 mln + 150 eur rachem 	
 	1 mil zwich nor 
 -----------------------------------------------------------
