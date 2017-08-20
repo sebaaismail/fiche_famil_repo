@@ -1,4 +1,13 @@
-﻿en 20/08/2017 
+﻿en 20/08/2017 (2)
+ha madone 8500 e chez moi
+19950 = mn cpt
+34050 = cpt ha ??
+	- - - - - - -> Total dbt sid = 54000 e ??
+my HDD --> 3.2 mln + 4000e +3500
+1 mln + 150 eur rachem 	
+	1 mil zwich nor 
+-----------------------------------------------------------
+en 20/08/2017 
 versmnt 3000 e
 19950 = mn cpt
 34050 = cpt ha 
