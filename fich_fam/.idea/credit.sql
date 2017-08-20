@@ -1,4 +1,33 @@
-﻿28/04/2017 : hdd
+﻿en 20/08/2017 
+versmnt 3000 e
+19950 = mn cpt
+34050 = cpt ha 
+	- - - - - - -> Total dbt sid = 54000 e
+my HDD --> 6 mln + 200 e
+1 mln + 150 eur rachem 	
+	1 mil zwich nor 
+-----------------------------------------------------------
+en 18/07/2017 
+sidhmed envoye 1000 eur
+chez moi
+16950 = mn cpt
+34050 = cpt ha 
+	- - - - - - -> Total dbt sid = 54000 e
+my HDD --> 6 mln + 100 e
+1 mln + 150 eur rachem 	
+	1 mil zwich nor 
+-----------------------------------------------------------
+en 05/2017 
+sidhmed menvoye 3000 eur
+chez moi
+16950 = mn cpt
+33050 = cpt ha 
+	- - - - - - -> Total dbt sid = 53000 e
+my HDD --> 6 mln + 100 e
+1 mln + 150 eur rachem 	
+	1 mil zwich nor 
+-----------------------------------------------------------
+28/04/2017 : hdd
 
 16950 = mn cpt
 33050 = cpt ha 
