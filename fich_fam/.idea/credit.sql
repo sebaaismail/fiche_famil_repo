@@ -1,9 +1,18 @@
-﻿en 20/08/2017 (2)
+﻿en 22/08/2017 
+vrsmnt 4500 e
+24450 = mn cpt
+34050 = cpt ha ??
+	- - - - - - -> Total dbt sid = 54000 e ??
+my HDD --> 3.2 mln + 4000e
+1 mln + 150 eur rachem 	
+	1 mil zwich nor 
+-----------------------------------------------------------
+en 20/08/2017 (2)
 ha madone 8500 e chez moi
 19950 = mn cpt
 34050 = cpt ha ??
 	- - - - - - -> Total dbt sid = 54000 e ??
-my HDD --> 3.2 mln + 4000e +3500
+my HDD --> 3.2 mln + 4000e +4500
 1 mln + 150 eur rachem 	
 	1 mil zwich nor 
 -----------------------------------------------------------
