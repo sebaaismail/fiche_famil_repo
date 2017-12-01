@@ -1,4 +1,15 @@
-﻿en 22/08/2017 
+﻿en 01/12/2017 
+rvsion
+24450 = mn cpt
+34050 = cpt ha ??
+	- - - - - - -> Total dbt sid = 72000 e ??
+	à verifier cmbien chez ha
+	+150e apart de mimi chez moi
+my HDD --> 3.2 mln + 4000e
+1 mln + 150 eur rachem 	
+	1 mil zwich nor 
+-----------------------------------------------------------
+en 22/08/2017 
 vrsmnt 4500 e
 24450 = mn cpt
 34050 = cpt ha ??
